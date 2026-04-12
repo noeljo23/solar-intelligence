@@ -1,0 +1,447 @@
+{
+  "name": "Mexico",
+  "iso_code": "MX",
+  "currency": "MXN",
+  "exchange_rate_to_usd": 17.2,
+  "regulator": "CRE (Comisión Reguladora de Energía)",
+  "grid_operator": "CENACE (Centro Nacional de Control de Energía)",
+  "last_updated": "2026-04-11",
+  "coverage_summary": {
+    "states_in_dataset": 7,
+    "states_total": 32,
+    "dimensions_covered": 6,
+    "coverage_note": "Priority markets for distributed solar: states with highest GHI + fastest-growing DG segment. Remaining 25 states are planned for next collection cycle."
+  },
+  "data_audit": {
+    "collected": [
+      "CRE resolutions on net metering contracts (CIL/CIM, DG <500kW)",
+      "CENACE grid interconnection procedures and queue indicators",
+      "Industrial and residential retail tariffs (CFE Acuerdo tarifario)",
+      "IRENA Mexico country profile — capacity additions and LCOE",
+      "State-level renewable permitting data where publicly disclosed",
+      "SEMARNAT environmental impact assessment process summary"
+    ],
+    "gaps": [
+      "Real-time CENACE grid congestion maps — not publicly accessible per locality",
+      "CFE internal interconnection queue timestamps — limited disclosure",
+      "Per-state CEL trading prices — market price data behind paywall (OPIS, BNEF)",
+      "Indigenous consultation outcomes at project level — records fragmented across SEMARNAT + state agencies",
+      "Recent 2025-2026 Sheinbaum administration implementation details still emerging"
+    ],
+    "impact": [
+      "CAPEX estimates have ±15% uncertainty without project-level disclosure of EPC contracts",
+      "Grid interconnection forecasts based on published averages; worst-case months may be longer",
+      "CEL revenue upside for solar projects cannot be precisely quantified without market price data",
+      "Community-risk scoring for some states limited to documented, not latent, opposition"
+    ]
+  },
+  "national_documents": [
+    {
+      "id": "MX_NAT_COST_001",
+      "dimension": "cost_economics",
+      "scope": "national",
+      "content": "Mexico's long-term electricity auctions (2016–2017) cleared solar PPAs at prices between USD 20.57/MWh and USD 35/MWh, among the lowest auction-cleared solar prices in the world at the time. No new long-term auctions were held 2019–2024 under the prior administration; the Sheinbaum administration (since October 2024) has signaled renewed procurement.",
+      "sources": [
+        {"organization": "IRENA", "document": "Renewable Power Generation Costs in 2023", "url": "https://www.irena.org/publications/2024/Sep/Renewable-Power-Generation-Costs-in-2023", "accessed": "2026-04-10"},
+        {"organization": "CENACE", "document": "Resultados Subastas de Largo Plazo", "url": "https://www.cenace.gob.mx/Paginas/SIM/Subastas.aspx", "accessed": "2026-04-10"}
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {"auction_price_usd_mwh_min": 20.57, "auction_price_usd_mwh_max": 35.0}
+    },
+    {
+      "id": "MX_NAT_GRID_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "CENACE operates Mexico's National Interconnected System. For utility-scale projects, interconnection studies (Estudio de Impacto al Sistema) historically took 9–18 months from application to approval. Distributed generation contracts (DG <500 kW) under CIL/CIM are simpler but still require utility (CFE) sign-off per locality.",
+      "sources": [
+        {"organization": "CENACE", "document": "Manual de Interconexión de Centrales Eléctricas", "url": "https://www.cenace.gob.mx/Paginas/SIM/Interconexion.aspx", "accessed": "2026-04-10"},
+        {"organization": "CRE", "document": "Resolución RES/142/2017 Contratos de Interconexión", "url": "https://www.cre.gob.mx/Normativa.html", "accessed": "2026-04-10"}
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {"interconnection_study_months_min": 9, "interconnection_study_months_max": 18}
+    },
+    {
+      "id": "MX_NAT_SUBS_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Mexico has net metering (medición neta) for Distributed Generation systems up to 500 kW under CRE Resolución RES/142/2017. There is no federal residential solar subsidy program comparable to India's PM Surya Ghar. Accelerated depreciation for renewables (Article 34 LISR) allows 100% deduction in year 1, a significant corporate incentive.",
+      "sources": [
+        {"organization": "CRE", "document": "Resolución RES/142/2017", "url": "https://www.cre.gob.mx/Normativa.html", "accessed": "2026-04-10"},
+        {"organization": "Diario Oficial de la Federación", "document": "Ley del Impuesto sobre la Renta — Art. 34", "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lisr.htm", "accessed": "2026-04-10"}
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {"net_metering_cap_kw": 500, "accelerated_depreciation_pct": 100}
+    },
+    {
+      "id": "MX_NAT_UTIL_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Mexico's Clean Energy Certificates (CELs) create a tradable obligation: qualifying consumers (and CFE Basic Supply) must demonstrate a growing share of electricity consumption is sourced from clean energy. The obligation was 5% in 2018 and has risen each year. CELs are directly analogous to RECs/I-RECs in other markets and represent a core PowerTrust-relevant revenue stream.",
+      "sources": [
+        {"organization": "SENER", "document": "Lineamientos para Certificados de Energías Limpias (CELs)", "url": "https://www.gob.mx/sener/acciones-y-programas/certificados-de-energias-limpias", "accessed": "2026-04-10"},
+        {"organization": "CRE", "document": "Resoluciones de CELs", "url": "https://www.cre.gob.mx/Certificados-Energias-Limpias.html", "accessed": "2026-04-10"}
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {"cel_obligation_2018_pct": 5.0, "cel_unit": "1 MWh clean generation"}
+    },
+    {
+      "id": "MX_NAT_PUBLIC_001",
+      "dimension": "public_comment",
+      "scope": "national",
+      "content": "Solar and wind projects above certain thresholds trigger an Environmental Impact Statement (MIA) review by SEMARNAT, with a public consultation phase. Projects affecting indigenous communities additionally require free, prior and informed consultation per ILO Convention 169, ratified by Mexico. In Oaxaca and parts of Yucatán, solar and wind projects have faced sustained community opposition and legal challenges tied to consultation disputes.",
+      "sources": [
+        {"organization": "SEMARNAT", "document": "Procedimiento de Evaluación del Impacto Ambiental", "url": "https://www.gob.mx/semarnat/acciones-y-programas/evaluacion-del-impacto-ambiental", "accessed": "2026-04-10"},
+        {"organization": "ILO", "document": "Convention 169 — Indigenous and Tribal Peoples", "url": "https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:::NO:12100:P12100_ILO_CODE:C169", "accessed": "2026-04-10"}
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {}
+    },
+    {
+      "id": "MX_NAT_UNKNOWN_001",
+      "dimension": "unknown_unknowns",
+      "scope": "national",
+      "content": "Mexico-specific risks for distributed solar developers: (1) CFE bankability — CFE is both the off-taker for basic supply and a dominant state utility with a history of disputes with private generators; (2) policy volatility between administrations (2018–2024 administration restricted private renewables); (3) peso volatility affects imported-equipment CAPEX; (4) security concerns in some northern states due to cartel activity impacting site selection and logistics.",
+      "sources": [
+        {"organization": "IEA", "document": "Mexico 2024 Energy Policy Review", "url": "https://www.iea.org/reports/mexico-2024", "accessed": "2026-04-10"},
+        {"organization": "US State Department", "document": "Mexico Travel Advisory — state-level", "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/mexico-travel-advisory.html", "accessed": "2026-04-10"}
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-10",
+      "data_points": {}
+    }
+  ],
+  "states": [
+    {
+      "name": "Sonora",
+      "iso_code": "MX-SON",
+      "metrics": {
+        "capex_utility_usd_per_kw": 820,
+        "capex_rooftop_usd_per_kw": 1250,
+        "om_usd_per_kw_year": 11,
+        "lcoe_usd_per_mwh": 28,
+        "retail_tariff_usd_per_kwh": 0.09,
+        "interconnection_months_avg": 14,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 6.3,
+        "capacity_factor_pct": 28,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 35,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 450
+      },
+      "documents": [
+        {
+          "id": "MX_SON_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Sonora",
+          "content": "Sonora is home to the Puerto Peñasco Solar Plant (targeting ~1 GW, developed by CFE), one of the largest solar installations in Latin America. The state's high irradiance (6.0–6.5 kWh/m²/day GHI) and flat desert terrain deliver among the lowest solar LCOE in Mexico. Utility-scale CAPEX benchmarks around USD 800–900/kW.",
+          "sources": [
+            {"organization": "CFE", "document": "Planta Fotovoltaica Puerto Peñasco — Comunicado", "url": "https://www.cfe.mx/finanzas/reportes-financieros/Reportes%20Anuales%20Documentos/Reporte%20Anual%202023.pdf", "accessed": "2026-04-10"},
+            {"organization": "NREL", "document": "Mexico Solar Resource Atlas", "url": "https://www.nrel.gov/gis/solar-resource-maps.html", "accessed": "2026-04-10"}
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {"ghi_kwh_m2_day": 6.3, "capex_utility_usd_per_kw": 820}
+        },
+        {
+          "id": "MX_SON_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Sonora",
+          "content": "Sonora sits in CENACE's Noroeste control region. Grid congestion has been reported around the Hermosillo–Guaymas corridor due to concentrated renewable capacity additions. Interconnection studies for new distributed/mid-scale projects have averaged 12–16 months in recent filings.",
+          "sources": [
+            {"organization": "CENACE", "document": "Informe Anual Control Operativo — Noroeste", "url": "https://www.cenace.gob.mx/Paginas/SIM/InformesAnuales.aspx", "accessed": "2026-04-10"}
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {"interconnection_months_avg": 14}
+        },
+        {
+          "id": "MX_SON_UNKNOWN_001",
+          "dimension": "unknown_unknowns",
+          "scope": "Sonora",
+          "content": "Sonora-specific constraints: (1) water scarcity affects panel cleaning logistics in desert areas; (2) proximity to US border creates both opportunity (cross-border PPAs via interconnection) and security complexity; (3) indigenous lands (Yaqui, Seri) require consultation for large sites.",
+          "sources": [
+            {"organization": "CONAGUA", "document": "Atlas del Agua en México 2023", "url": "https://www.gob.mx/conagua/documentos/atlas-del-agua-en-mexico-2023", "accessed": "2026-04-10"}
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {}
+        }
+      ]
+    },
+    {
+      "name": "Chihuahua",
+      "iso_code": "MX-CHH",
+      "metrics": {
+        "capex_utility_usd_per_kw": 850,
+        "capex_rooftop_usd_per_kw": 1300,
+        "om_usd_per_kw_year": 11,
+        "lcoe_usd_per_mwh": 30,
+        "retail_tariff_usd_per_kwh": 0.10,
+        "interconnection_months_avg": 15,
+        "grid_congestion": "high",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 6.0,
+        "capacity_factor_pct": 27,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 35,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 380
+      },
+      "documents": [
+        {
+          "id": "MX_CHH_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Chihuahua",
+          "content": "Chihuahua hosts several utility-scale solar projects from the 2016–2017 long-term auction rounds, including Villanueva (754 MW) which was among the largest solar farms in the Americas at commissioning. The state's high irradiance (5.8–6.1 kWh/m²/day) and existing transmission infrastructure make it attractive for both utility and distributed solar.",
+          "sources": [
+            {"organization": "Enel Green Power", "document": "Villanueva Solar Park Fact Sheet", "url": "https://www.enelgreenpower.com/our-projects/operating-assets/villanueva-solar-park", "accessed": "2026-04-10"}
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {"ghi_kwh_m2_day": 6.0}
+        },
+        {
+          "id": "MX_CHH_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Chihuahua",
+          "content": "Chihuahua faces higher-than-average grid congestion due to concentrated renewable capacity additions without proportional transmission upgrades. New solar projects in the northeast of the state have reported interconnection study delays of 15+ months.",
+          "sources": [
+            {"organization": "CENACE", "document": "Programa de Ampliación y Modernización de la RNT y RGD 2024-2038", "url": "https://www.cenace.gob.mx/Paginas/SIM/PAMRNT.aspx", "accessed": "2026-04-10"}
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {"interconnection_months_avg": 15}
+        }
+      ]
+    },
+    {
+      "name": "Baja California",
+      "iso_code": "MX-BCN",
+      "metrics": {
+        "capex_utility_usd_per_kw": 900,
+        "capex_rooftop_usd_per_kw": 1350,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 34,
+        "retail_tariff_usd_per_kwh": 0.14,
+        "interconnection_months_avg": 12,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.8,
+        "capacity_factor_pct": 25,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 35,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 220
+      },
+      "documents": [
+        {
+          "id": "MX_BCN_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Baja California",
+          "content": "Baja California is the only Mexican state NOT electrically connected to the National Interconnected System — it operates on the Baja California Interconnected System and is synchronously connected to California's WECC grid. This enables cross-border electricity trade and creates unique economics: residential tariffs are among the highest in Mexico (tier DAC >0.25 USD/kWh), making distributed solar payback very attractive.",
+          "sources": [
+            {"organization": "CENACE", "document": "Sistema Interconectado Baja California", "url": "https://www.cenace.gob.mx/Paginas/SIM/SistemaElectrico.aspx", "accessed": "2026-04-10"},
+            {"organization": "CFE", "document": "Tarifas DAC (Doméstico de Alto Consumo)", "url": "https://app.cfe.mx/Aplicaciones/CCFE/Tarifas/TarifasCRECasa/Tarifas/TarifaDAC.aspx", "accessed": "2026-04-10"}
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {"retail_tariff_usd_per_kwh": 0.14, "tariff_dac_usd_per_kwh": 0.25}
+        },
+        {
+          "id": "MX_BCN_UNKNOWN_001",
+          "dimension": "unknown_unknowns",
+          "scope": "Baja California",
+          "content": "Baja California's isolated grid has unique implications: (1) cross-border interconnection with CAISO (California ISO) creates potential for PPAs with US offtakers subject to bilateral agreements; (2) the grid's smaller inertia makes it more sensitive to intermittent generation — curtailment events have occurred during high-solar mid-day periods.",
+          "sources": [
+            {"organization": "CENACE", "document": "Informe Técnico Anual BC", "url": "https://www.cenace.gob.mx/Paginas/SIM/SistemaElectrico.aspx", "accessed": "2026-04-10"}
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {}
+        }
+      ]
+    },
+    {
+      "name": "Yucatan",
+      "iso_code": "MX-YUC",
+      "metrics": {
+        "capex_utility_usd_per_kw": 880,
+        "capex_rooftop_usd_per_kw": 1300,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 33,
+        "retail_tariff_usd_per_kwh": 0.11,
+        "interconnection_months_avg": 16,
+        "grid_congestion": "high",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 5.5,
+        "capacity_factor_pct": 24,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 35,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 180
+      },
+      "documents": [
+        {
+          "id": "MX_YUC_PUBLIC_001",
+          "dimension": "public_comment",
+          "scope": "Yucatan",
+          "content": "Yucatán has seen multiple solar and wind projects face legal challenges on the grounds of inadequate indigenous (Maya) consultation. Notable cases include the suspension of several mid-sized projects following amparo (constitutional injunction) filings. Project developers in the state should budget 12–18 additional months for consultation processes and community agreements.",
+          "sources": [
+            {"organization": "SCJN", "document": "Amparos en revisión — energía renovable en Yucatán", "url": "https://www.scjn.gob.mx/consultas-publicas", "accessed": "2026-04-10"},
+            {"organization": "SEMARNAT", "document": "Procesos de consulta indígena en proyectos energéticos", "url": "https://www.gob.mx/semarnat", "accessed": "2026-04-10"}
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {"consultation_additional_months_min": 12, "consultation_additional_months_max": 18}
+        },
+        {
+          "id": "MX_YUC_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Yucatan",
+          "content": "The Peninsula de Yucatán sub-system has historically been weakly connected to the rest of the SIN, with limited transmission capacity into/out of the region. This is being addressed by expansion projects but as of 2024-2025 remains a bottleneck for new utility-scale solar. Distributed generation below 500 kW is less affected.",
+          "sources": [
+            {"organization": "CENACE", "document": "Programa de Expansión Peninsula de Yucatán", "url": "https://www.cenace.gob.mx/Paginas/SIM/PAMRNT.aspx", "accessed": "2026-04-10"}
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {"interconnection_months_avg": 16}
+        }
+      ]
+    },
+    {
+      "name": "Coahuila",
+      "iso_code": "MX-COA",
+      "metrics": {
+        "capex_utility_usd_per_kw": 830,
+        "capex_rooftop_usd_per_kw": 1270,
+        "om_usd_per_kw_year": 11,
+        "lcoe_usd_per_mwh": 29,
+        "retail_tariff_usd_per_kwh": 0.10,
+        "interconnection_months_avg": 13,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.9,
+        "capacity_factor_pct": 27,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 35,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 310
+      },
+      "documents": [
+        {
+          "id": "MX_COA_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Coahuila",
+          "content": "Coahuila has multiple commissioned utility-scale solar facilities including projects from the 2016-2017 long-term auction rounds. Industrial demand in Saltillo and Ramos Arizpe (automotive cluster) supports distributed solar corporate PPAs.",
+          "sources": [
+            {"organization": "SENER", "document": "Prontuario Estadístico del Sector Energético", "url": "https://www.gob.mx/sener/documentos/estadisticas-del-sector-energetico", "accessed": "2026-04-10"}
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {"capex_utility_usd_per_kw": 830}
+        }
+      ]
+    },
+    {
+      "name": "Nuevo Leon",
+      "iso_code": "MX-NLE",
+      "metrics": {
+        "capex_utility_usd_per_kw": 870,
+        "capex_rooftop_usd_per_kw": 1320,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 32,
+        "retail_tariff_usd_per_kwh": 0.12,
+        "interconnection_months_avg": 14,
+        "grid_congestion": "high",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 5.6,
+        "capacity_factor_pct": 25,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 35,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 420
+      },
+      "documents": [
+        {
+          "id": "MX_NLE_UNKNOWN_001",
+          "dimension": "unknown_unknowns",
+          "scope": "Nuevo Leon",
+          "content": "Nuevo León is a primary beneficiary of nearshoring: major manufacturing investments (Tesla, Kia Motors suppliers, electronics) are creating unprecedented industrial electricity demand growth. This creates strong corporate PPA opportunities for distributed solar but also strains transmission infrastructure. Water scarcity in Monterrey (2022 crisis) introduces operational risk for panel cleaning and thermal plant cooling, paradoxically increasing solar relative attractiveness.",
+          "sources": [
+            {"organization": "Banco de México", "document": "Reporte sobre las Economías Regionales", "url": "https://www.banxico.org.mx/publicaciones-y-prensa/reportes-sobre-las-economias-regionales/reportes-sobre-las-economias-re.html", "accessed": "2026-04-10"}
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {}
+        },
+        {
+          "id": "MX_NLE_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Nuevo Leon",
+          "content": "Nuevo León's industrial tariffs (GDMTH, DIT) are among the highest among industrial consumers in Mexico due to transmission and distribution costs. This structurally advantages behind-the-meter distributed solar with a typical 4–6 year corporate payback for C&I projects.",
+          "sources": [
+            {"organization": "CFE", "document": "Tarifas Industriales y de Servicios", "url": "https://app.cfe.mx/aplicaciones/ccfe/tarifas/tarifas/tarifas_negocio.asp", "accessed": "2026-04-10"}
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {"retail_tariff_usd_per_kwh": 0.12, "payback_years_ci_min": 4, "payback_years_ci_max": 6}
+        }
+      ]
+    },
+    {
+      "name": "Jalisco",
+      "iso_code": "MX-JAL",
+      "metrics": {
+        "capex_utility_usd_per_kw": 860,
+        "capex_rooftop_usd_per_kw": 1310,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 31,
+        "retail_tariff_usd_per_kwh": 0.11,
+        "interconnection_months_avg": 13,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.7,
+        "capacity_factor_pct": 26,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 35,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 280
+      },
+      "documents": [
+        {
+          "id": "MX_JAL_SUBS_001",
+          "dimension": "subsidies_incentives",
+          "scope": "Jalisco",
+          "content": "Jalisco has maintained a supportive posture toward distributed solar through state-level agreements with CFE and streamlined permitting via the Agencia de Energía de Jalisco. Residential and commercial rooftop segments have grown steadily in Guadalajara's metropolitan zone, supported by Mexico's federal net metering framework.",
+          "sources": [
+            {"organization": "Agencia de Energía de Jalisco", "document": "Programa Estatal de Energía", "url": "https://energia.jalisco.gob.mx/", "accessed": "2026-04-10"}
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {}
+        }
+      ]
+    }
+  ]
+}

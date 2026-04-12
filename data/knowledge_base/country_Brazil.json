@@ -1,0 +1,713 @@
+{
+  "name": "Brazil",
+  "iso_code": "BR",
+  "currency": "BRL",
+  "exchange_rate_to_usd": 5.05,
+  "regulator": "ANEEL (Agência Nacional de Energia Elétrica)",
+  "grid_operator": "ONS (Operador Nacional do Sistema Elétrico)",
+  "last_updated": "2026-04-11",
+  "coverage_summary": {
+    "states_in_dataset": 6,
+    "states_total": 27,
+    "dimensions_covered": 6,
+    "coverage_note": "Priority: states leading distributed generation installed capacity per ANEEL's SIGA. Remaining 21 states planned.",
+    "hpc_audit": {
+      "national::grid_access": {
+        "scope": "national",
+        "accepted": 4,
+        "rejected": 1,
+        "corroborated_count": 0,
+        "unsupported_sentences": 1,
+        "consistency_min": 0,
+        "synthesis_chars": 634,
+        "issues": [
+          "1 unsupported sentence(s) in synthesis",
+          "at least one sentence has zero consistency support"
+        ]
+      },
+      "national::subsidies_incentives": {
+        "scope": "national",
+        "accepted": 3,
+        "rejected": 2,
+        "corroborated_count": 0,
+        "unsupported_sentences": 1,
+        "consistency_min": 1,
+        "synthesis_chars": 382,
+        "issues": [
+          "1 unsupported sentence(s) in synthesis"
+        ]
+      },
+      "national::utility_standards": {
+        "scope": "national",
+        "accepted": 3,
+        "rejected": 1,
+        "corroborated_count": 0,
+        "unsupported_sentences": 2,
+        "consistency_min": 0,
+        "synthesis_chars": 511,
+        "issues": [
+          "2 unsupported sentence(s) in synthesis",
+          "at least one sentence has zero consistency support"
+        ]
+      }
+    }
+  },
+  "data_audit": {
+    "collected": [
+      "ANEEL Resolution 482/2012 and REN 1.059/2023 on distributed generation",
+      "Lei 14.300/2022 — Marco Legal da Micro e Minigeração Distribuída",
+      "ANEEL SIGA — Sistema de Informações de Geração de Energia Elétrica",
+      "ONS grid operator published capacity / curtailment data",
+      "EPE Plano Decenal de Expansão de Energia",
+      "I-REC Brazil registry data"
+    ],
+    "gaps": [
+      "Distribution utility (distribuidora)-level interconnection queue data varies by concessionaire",
+      "State-level tax (ICMS) solar exemption details change per CONFAZ resolution",
+      "Community / land conflict data fragmented across regional agencies (IBAMA, state agencies)",
+      "Project-level PPA pricing is private between developers and offtakers"
+    ],
+    "impact": [
+      "Interconnection timelines vary ±30% depending on distribuidora",
+      "ICMS exemption status changes affect rooftop payback by 2–4 years in some states",
+      "CAPEX benchmarks based on national averages; real project costs vary with logistics and labor"
+    ]
+  },
+  "national_documents": [
+    {
+      "id": "BR_NAT_SUBS_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Brazil's distributed generation framework was established by ANEEL Resolution 482/2012, which introduced net metering (Sistema de Compensação de Energia Elétrica). Lei 14.300/2022 created the legal framework that preserves historical net metering benefits until 2045 for systems registered before 2023 (grandfathering), with a phased reduction of subsidies for new systems thereafter. This creates a time-sensitive window for new installations.",
+      "sources": [
+        {
+          "organization": "Presidência da República",
+          "document": "Lei 14.300/2022 — Marco Legal da Micro e Minigeração Distribuída",
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14300.htm",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "ANEEL",
+          "document": "Resolução Normativa 482/2012",
+          "url": "https://www.aneel.gov.br/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "grandfathering_until_year": 2045
+      }
+    },
+    {
+      "id": "BR_NAT_COST_001",
+      "dimension": "cost_economics",
+      "scope": "national",
+      "content": "Brazil's distributed generation installed capacity exceeded 30 GW by end of 2024 per ANEEL SIGA, making Brazil the largest distributed-solar market in Latin America. CAPEX for utility-scale solar in Brazil ranges approximately USD 700–900/kW; distributed solar (rooftop/small ground-mount) typically USD 900–1,250/kW depending on size and region. Brazil has one of the highest industrial electricity tariffs in Latin America, structurally favoring distributed solar economics.",
+      "sources": [
+        {
+          "organization": "ANEEL",
+          "document": "SIGA — Sistema de Informações de Geração de Energia Elétrica",
+          "url": "https://www.aneel.gov.br/siga",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "IRENA",
+          "document": "Renewable Power Generation Costs 2023",
+          "url": "https://www.irena.org/publications/2024/Sep/Renewable-Power-Generation-Costs-in-2023",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "dg_installed_gw_end_2024_min": 30,
+        "capex_utility_usd_per_kw_low": 700,
+        "capex_utility_usd_per_kw_high": 900
+      }
+    },
+    {
+      "id": "BR_NAT_UTIL_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Brazil participates in the I-REC Standard voluntary market for Renewable Energy Certificates and has a domestic BVM (Brazilian Voluntary Market). There is no federally mandated RPS; instead, energy auctions (A-4, A-6) organized by EPE/MME procure renewable capacity by contract. Large consumers in the free market (Mercado Livre) increasingly procure renewable energy directly via PPAs.",
+      "sources": [
+        {
+          "organization": "I-REC Standard",
+          "document": "Brazil Issuance Body",
+          "url": "https://www.irecstandard.org/territory/brazil",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "EPE",
+          "document": "Leilões de Energia Elétrica",
+          "url": "https://www.epe.gov.br/pt/leiloes-de-energia",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {}
+    },
+    {
+      "id": "BR_NAT_PUBLIC_001",
+      "dimension": "public_comment",
+      "scope": "national",
+      "content": "Brazil requires environmental licensing by IBAMA (federal) or state environmental agencies. Distributed generation below 5 MW typically qualifies for simplified licensing. Large ground-mount solar requires public hearings (Audiência Pública) and community consultation. Historically, solar has faced less opposition than hydro or wind in Brazil, but land-tenure disputes can arise, particularly in the cerrado and caatinga biomes.",
+      "sources": [
+        {
+          "organization": "IBAMA",
+          "document": "Licenciamento Ambiental Federal",
+          "url": "https://www.gov.br/ibama/pt-br/assuntos/laf/licenciamento-ambiental-federal",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "simplified_licensing_threshold_mw": 5
+      }
+    },
+    {
+      "id": "BR_NAT_GRID_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "Brazil's grid is managed by ONS as a unified SIN (Sistema Interligado Nacional) with four subsystems: Southeast/Center-West, South, Northeast, and North. Grid interconnection for distributed generation (<5 MW) is handled by distribuidoras (local utilities like CEMIG, CPFL, COPEL, ENEL-SP) with timelines varying from 60–180 days post-application. Utility-scale requires ANEEL-EPE outorga and can take 12–24 months.",
+      "sources": [
+        {
+          "organization": "ONS",
+          "document": "Operação do Sistema Interligado Nacional",
+          "url": "http://www.ons.org.br/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "ANEEL",
+          "document": "Procedimentos de Distribuição (PRODIST) Módulo 3",
+          "url": "https://www.aneel.gov.br/prodist",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "dg_interconnection_days_min": 60,
+        "dg_interconnection_days_max": 180
+      }
+    },
+    {
+      "id": "BR_NAT_UNKNOWN_001",
+      "dimension": "unknown_unknowns",
+      "scope": "national",
+      "content": "Brazil-specific risks: (1) hydro-dominant grid means solar curtailment is RARE historically, but grid modernization lags; (2) FX risk (BRL/USD) affects equipment imports — panels and inverters are primarily imported; (3) state-level ICMS tax treatment varies by CONFAZ agreement — some states still charge ICMS on the compensated energy portion, materially affecting DG payback; (4) Lei 14.300 transition creates uncertainty about the value of net metering post-2028 (phased subsidy reduction).",
+      "sources": [
+        {
+          "organization": "CONFAZ",
+          "document": "Convênio ICMS 16/2015 e alterações posteriores",
+          "url": "https://www.confaz.fazenda.gov.br/legislacao/convenios",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {}
+    },
+    {
+      "id": "BR_NAT_GRID_ACC_HPC_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The Resolução Normativa ANEEL nº 1.000/2021 was established on an unspecified date and sets the Regras de Prestação do Serviço Público de Distribuição de Energia Elétrica, which is complemented by the Prodist.",
+      "sources": [
+        {
+          "organization": "ANEEL",
+          "document": "PRODIST - Procedimentos de Distribuicao",
+          "url": "https://www.gov.br/aneel/pt-br/centrais-de-conteudos/procedimentos-regulatorios/prodist",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "BR_NAT_GRID_ACC_HPC_002",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The Resolução Normativa ANEEL nº 1.000/2021 entered into force on 3 January 2022 and revoked the Resolução Normativa nº 414/2010 and other previous resolutions on the subject.",
+      "sources": [
+        {
+          "organization": "ANEEL",
+          "document": "PRODIST - Procedimentos de Distribuicao",
+          "url": "https://www.gov.br/aneel/pt-br/centrais-de-conteudos/procedimentos-regulatorios/prodist",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "BR_NAT_GRID_ACC_HPC_003",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The Resolução Normativa ANEEL nº 956/2021 entered into force on 1 January 2022 and revoked previous resolutions on the subject.",
+      "sources": [
+        {
+          "organization": "ANEEL",
+          "document": "PRODIST - Procedimentos de Distribuicao",
+          "url": "https://www.gov.br/aneel/pt-br/centrais-de-conteudos/procedimentos-regulatorios/prodist",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "BR_NAT_GRID_ACC_HPC_004",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The Prodist is composed of 11 modules, including Módulo 1 - Glossário de Termos Técnicos do Prodist, Módulo 2 - Planejamento da Expansão do Sistema de Distribuição, and others.",
+      "sources": [
+        {
+          "organization": "ANEEL",
+          "document": "PRODIST - Procedimentos de Distribuicao",
+          "url": "https://www.gov.br/aneel/pt-br/centrais-de-conteudos/procedimentos-regulatorios/prodist",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 4
+        }
+      }
+    },
+    {
+      "id": "BR_NAT_SUBSIDIE_HPC_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "For units of minigeneration above 500 kW in non-dispatchable sources, the tariff components will be 100% from the start, and 40% for transmission system usage until 2028.",
+      "sources": [
+        {
+          "organization": "Presidencia da Republica (Brazil)",
+          "document": "Lei 14.300/2022 - Marco Legal da Micro e Minigeracao Distribuida",
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14300.htm",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "BR_NAT_SUBSIDIE_HPC_002",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Programa de Energia Renovável Social (PERS) will be funded by the Programa de Eficiência Energética (PEE), complementary resources, or a portion of the distributers' revenue.",
+      "sources": [
+        {
+          "organization": "Presidencia da Republica (Brazil)",
+          "document": "Lei 14.300/2022 - Marco Legal da Micro e Minigeracao Distribuida",
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14300.htm",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "BR_NAT_SUBSIDIE_HPC_003",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Distributors must publish any changes to their norms or procedures related to microgeneration or minigeneration with at least 90 days' notice before they come into effect.",
+      "sources": [
+        {
+          "organization": "Presidencia da Republica (Brazil)",
+          "document": "Lei 14.300/2022 - Marco Legal da Micro e Minigeracao Distribuida",
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14300.htm",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "BR_NAT_UTILITY__HPC_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The ANEEL has a Programa de Eficiência Energética (PEE) which is a program of energy efficiency.",
+      "sources": [
+        {
+          "organization": "ANEEL",
+          "document": "Relatorios e Indicadores",
+          "url": "https://www.gov.br/aneel/pt-br/centrais-de-conteudos/relatorios-e-indicadores",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "BR_NAT_UTILITY__HPC_002",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The ANEEL has a Regulação Tarifária (Proret) which is a tariff regulation.",
+      "sources": [
+        {
+          "organization": "ANEEL",
+          "document": "Relatorios e Indicadores",
+          "url": "https://www.gov.br/aneel/pt-br/centrais-de-conteudos/relatorios-e-indicadores",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "BR_NAT_UTILITY__HPC_003",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The ANEEL has a Prodist which is a procedure for distribution.",
+      "sources": [
+        {
+          "organization": "ANEEL",
+          "document": "Relatorios e Indicadores",
+          "url": "https://www.gov.br/aneel/pt-br/centrais-de-conteudos/relatorios-e-indicadores",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "name": "Minas Gerais",
+      "iso_code": "BR-MG",
+      "metrics": {
+        "capex_utility_usd_per_kw": 780,
+        "capex_rooftop_usd_per_kw": 1050,
+        "om_usd_per_kw_year": 10,
+        "lcoe_usd_per_mwh": 29,
+        "retail_tariff_usd_per_kwh": 0.15,
+        "interconnection_months_avg": 4,
+        "grid_congestion": "low",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.6,
+        "capacity_factor_pct": 24,
+        "net_metering": true,
+        "accelerated_depreciation": false,
+        "import_duty_exempt": true,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 5800
+      },
+      "documents": [
+        {
+          "id": "BR_MG_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Minas Gerais",
+          "content": "Minas Gerais is Brazil's #1 state for distributed generation installed capacity per ANEEL SIGA, with over 5 GW of DG installed as of late 2024. CEMIG (state distributor) covers most of the state; interconnection procedures are well-documented. The state has been a solar hub due to favorable irradiance, strong industrial demand, and proactive state-level policy.",
+          "sources": [
+            {
+              "organization": "ANEEL",
+              "document": "SIGA DG Dashboard",
+              "url": "https://www.aneel.gov.br/siga",
+              "accessed": "2026-04-10"
+            },
+            {
+              "organization": "CEMIG",
+              "document": "Procedimentos para Microgeração e Minigeração",
+              "url": "https://www.cemig.com.br/usina-solar/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "rank_in_brazil_dg": 1,
+            "installed_distributed_solar_mw_approx": 5800
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sao Paulo",
+      "iso_code": "BR-SP",
+      "metrics": {
+        "capex_utility_usd_per_kw": 800,
+        "capex_rooftop_usd_per_kw": 1100,
+        "om_usd_per_kw_year": 11,
+        "lcoe_usd_per_mwh": 32,
+        "retail_tariff_usd_per_kwh": 0.16,
+        "interconnection_months_avg": 4,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.3,
+        "capacity_factor_pct": 22,
+        "net_metering": true,
+        "accelerated_depreciation": false,
+        "import_duty_exempt": true,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 4700
+      },
+      "documents": [
+        {
+          "id": "BR_SP_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Sao Paulo",
+          "content": "São Paulo hosts Brazil's largest industrial and commercial electricity market. Multiple distribuidoras operate in the state (Enel SP, CPFL Paulista, EDP SP, Elektro). C&I distributed solar adoption is strongest in industrial corridors around Campinas, ABC region, and the interior. Rooftop segment has grown rapidly with many CEFB members and large roof-mounted installations on logistics / retail buildings.",
+          "sources": [
+            {
+              "organization": "ANEEL",
+              "document": "SIGA — SP Breakdown",
+              "url": "https://www.aneel.gov.br/siga",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {}
+        }
+      ]
+    },
+    {
+      "name": "Piaui",
+      "iso_code": "BR-PI",
+      "metrics": {
+        "capex_utility_usd_per_kw": 720,
+        "capex_rooftop_usd_per_kw": 1000,
+        "om_usd_per_kw_year": 10,
+        "lcoe_usd_per_mwh": 25,
+        "retail_tariff_usd_per_kwh": 0.12,
+        "interconnection_months_avg": 5,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 6.1,
+        "capacity_factor_pct": 28,
+        "net_metering": true,
+        "accelerated_depreciation": false,
+        "import_duty_exempt": true,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 480
+      },
+      "documents": [
+        {
+          "id": "BR_PI_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Piaui",
+          "content": "Piauí has among the highest solar irradiance in Brazil (GHI ~6.0 kWh/m²/day) and hosts large utility-scale solar complexes including the São Gonçalo and Nova Olinda clusters. The Pernambuco-Piauí-Maranhão corridor is a utility-scale solar hub with capacity factors above 28%. Distributed generation market is smaller than southern/southeastern states due to lower population density and income levels.",
+          "sources": [
+            {
+              "organization": "NREL",
+              "document": "Solar Resource Data for Brazil",
+              "url": "https://www.nrel.gov/gis/solar-resource-maps.html",
+              "accessed": "2026-04-10"
+            },
+            {
+              "organization": "EPE",
+              "document": "Anuário Estatístico de Energia Elétrica",
+              "url": "https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/anuario-estatistico-de-energia-eletrica",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "ghi_kwh_m2_day": 6.1,
+            "capacity_factor_pct": 28
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bahia",
+      "iso_code": "BR-BA",
+      "metrics": {
+        "capex_utility_usd_per_kw": 740,
+        "capex_rooftop_usd_per_kw": 1020,
+        "om_usd_per_kw_year": 10,
+        "lcoe_usd_per_mwh": 26,
+        "retail_tariff_usd_per_kwh": 0.13,
+        "interconnection_months_avg": 5,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 5.9,
+        "capacity_factor_pct": 27,
+        "net_metering": true,
+        "accelerated_depreciation": false,
+        "import_duty_exempt": true,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 1800
+      },
+      "documents": [
+        {
+          "id": "BR_BA_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Bahia",
+          "content": "Bahia is a top-3 state for utility-scale solar in Brazil, with major complexes in the Caetité and Oliveira dos Brejinhos regions. The state's combination of high GHI (5.7–6.0 kWh/m²/day), large flat areas, and proximity to transmission backbone makes it highly attractive for utility-scale. Distributed generation has also grown significantly in Salvador and industrial corridors.",
+          "sources": [
+            {
+              "organization": "EPE",
+              "document": "Balanço Energético Nacional",
+              "url": "https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/balanco-energetico-nacional-ben",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "ghi_kwh_m2_day": 5.9
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rio Grande do Sul",
+      "iso_code": "BR-RS",
+      "metrics": {
+        "capex_utility_usd_per_kw": 820,
+        "capex_rooftop_usd_per_kw": 1120,
+        "om_usd_per_kw_year": 11,
+        "lcoe_usd_per_mwh": 35,
+        "retail_tariff_usd_per_kwh": 0.15,
+        "interconnection_months_avg": 3,
+        "grid_congestion": "low",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 4.8,
+        "capacity_factor_pct": 20,
+        "net_metering": true,
+        "accelerated_depreciation": false,
+        "import_duty_exempt": true,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 2600
+      },
+      "documents": [
+        {
+          "id": "BR_RS_UNKNOWN_001",
+          "dimension": "unknown_unknowns",
+          "scope": "Rio Grande do Sul",
+          "content": "Rio Grande do Sul has a strong cooperative tradition (e.g. COPREL, CRELUZ) which has driven community-owned solar generation. Lower irradiance than northern states is offset by high electricity tariffs and strong participation in shared-generation business models. The 2024 floods in RS caused significant damage to solar installations — climate-risk insurance premiums have since risen, a factor developers should price into CAPEX.",
+          "sources": [
+            {
+              "organization": "Governo do RS",
+              "document": "Relatório de danos — eventos climáticos 2024",
+              "url": "https://estado.rs.gov.br/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {}
+        }
+      ]
+    },
+    {
+      "name": "Mato Grosso",
+      "iso_code": "BR-MT",
+      "metrics": {
+        "capex_utility_usd_per_kw": 760,
+        "capex_rooftop_usd_per_kw": 1080,
+        "om_usd_per_kw_year": 10,
+        "lcoe_usd_per_mwh": 28,
+        "retail_tariff_usd_per_kwh": 0.14,
+        "interconnection_months_avg": 4,
+        "grid_congestion": "low",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.4,
+        "capacity_factor_pct": 24,
+        "net_metering": true,
+        "accelerated_depreciation": false,
+        "import_duty_exempt": true,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 850
+      },
+      "documents": [
+        {
+          "id": "BR_MT_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Mato Grosso",
+          "content": "Mato Grosso's economy is dominated by large-scale agribusiness (soybean, cattle). Agricultural operators represent a significant distributed solar customer segment, driven by high diesel-backup costs in remote areas and the state's good irradiance. Energisa is the primary distribuidora covering most of the state with streamlined DG interconnection procedures.",
+          "sources": [
+            {
+              "organization": "Energisa Mato Grosso",
+              "document": "Procedimentos de Micro e Minigeração",
+              "url": "https://www.energisa.com.br/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {}
+        }
+      ]
+    }
+  ]
+}

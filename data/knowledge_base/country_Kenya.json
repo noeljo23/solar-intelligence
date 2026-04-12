@@ -1,0 +1,486 @@
+{
+  "name": "Kenya",
+  "iso_code": "KE",
+  "currency": "KES",
+  "exchange_rate_to_usd": 130.0,
+  "regulator": "EPRA (Energy and Petroleum Regulatory Authority)",
+  "grid_operator": "KETRACO (Kenya Electricity Transmission Company) / KPLC (Kenya Power and Lighting Company) — distribution & system operation",
+  "last_updated": "2026-04-12",
+  "coverage_summary": {
+    "counties_in_dataset": 2,
+    "counties_total": 47,
+    "dimensions_covered": 6,
+    "coverage_note": "Priority: Nairobi (largest C&I load center + deepest rooftop solar market in East Africa) and Turkana (host of Lake Turkana Wind and major utility-scale solar corridors near Loiyangalani / Lokichar).",
+    "hpc_audit": {
+      "national::grid_access": {
+        "scope": "national",
+        "accepted": 4,
+        "rejected": 0,
+        "corroborated_count": 0,
+        "unsupported_sentences": 2,
+        "consistency_min": 2,
+        "synthesis_chars": 390,
+        "issues": [
+          "2 unsupported sentence(s) in synthesis"
+        ]
+      },
+      "national::utility_standards": {
+        "scope": "national",
+        "accepted": 3,
+        "rejected": 0,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 0,
+        "synthesis_chars": 428,
+        "issues": [
+          "at least one sentence has zero consistency support"
+        ]
+      }
+    }
+  },
+  "data_audit": {
+    "collected": [
+      "Energy Act 2019 (consolidated the Energy Act 2006 and Geothermal Resources Act)",
+      "EPRA Energy (Electricity Licensing) Regulations 2022",
+      "EPRA Net Metering Regulations 2012 (amended in draft 2024)",
+      "EPRA Solar PV Systems Regulations 2012 (licensing of technicians/contractors)",
+      "Least Cost Power Development Plan (LCPDP) 2022-2041",
+      "KPLC System Operation Reports",
+      "EPRA tariff determinations (Retail Electricity Tariff Review)",
+      "Kenya Vision 2030 and Bottom-Up Economic Transformation Agenda (BETA) energy chapter"
+    ],
+    "gaps": [
+      "Net-metering compensation methodology (retail-rate vs avoided-cost) has been in draft revision since 2022; final gazettement still pending",
+      "County-level distribution queue data is not public at the feeder level",
+      "Feed-in Tariff (FiT) Policy 2021 revision for solar did not publish per-project clearing prices",
+      "KPLC's Single Buyer model creates pricing opacity for embedded/wheeled C&I PPAs"
+    ],
+    "impact": [
+      "KPLC's financial stress (accumulated losses, expensive take-or-pay thermal IPP PPAs) has led to a moratorium on new large PPAs — pushing corporate offtakers toward behind-the-meter solar",
+      "Retail tariff reforms (2023, 2024 EPRA determinations) raised C&I tariffs to USD 0.18-0.22/kWh, creating strong rooftop solar economics",
+      "Lake Turkana Wind 310 MW and Garissa Solar 54.6 MW set the precedent for large-scale renewables on KPLC transmission — paving the way for Radiant Energy, Kopere, Selenkei solar clusters"
+    ]
+  },
+  "national_documents": [
+    {
+      "id": "KE_NAT_UTIL_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Energy Act 2019 consolidated Kenya's energy regulatory framework, created EPRA as the sector regulator (successor to ERC), KETRACO for transmission, and the Rural Electrification and Renewable Energy Corporation (REREC) for electrification and renewables planning. EPRA's Electricity Licensing Regulations 2022 define licensing thresholds: installations above 1 MW require a generation license; installations between 100 kW and 1 MW require a permit; <100 kW is self-regulated subject to technician licensing under the Solar PV Regulations. The Least Cost Power Development Plan (LCPDP) 2022-2041 targets 100% clean electricity by 2030 (geothermal + hydro + wind + solar), with solar contributing ~2 GW by 2030.",
+      "sources": [
+        {
+          "organization": "National Council for Law Reporting",
+          "document": "Energy Act, 2019",
+          "url": "http://kenyalaw.org:8181/exist/rest/db/kenyalex/Kenya/Legislation/English/Acts%20and%20Regulations/E/Energy%20Act%20-%20No.%201%20of%202019/docs/EnergyAct1of2019.pdf",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "EPRA",
+          "document": "Energy (Electricity Licensing) Regulations 2022",
+          "url": "https://www.epra.go.ke/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "licensing_threshold_mw": 1.0,
+        "permit_threshold_kw": 100,
+        "lcpdp_solar_target_gw_2030": 2.0
+      }
+    },
+    {
+      "id": "KE_NAT_SUBS_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Kenya's net-metering regulations (EPRA Net Metering Regulations 2012) allow customers with systems up to 1 MW to export surplus to KPLC's grid, credited against subsequent month consumption. The 2024 draft revision proposes reducing the export credit to avoided-cost pricing rather than retail-rate parity; final gazettement remains pending. Fiscal incentives: VAT zero-rating on solar equipment restored in the Finance Act 2021 after brief removal; 0% import duty on solar panels, inverters, and batteries under the East African Community Common External Tariff; Investment Deduction Allowance (100% in Year 1 for renewable plant outside Nairobi/Mombasa counties, 150% in certain special economic zones).",
+      "sources": [
+        {
+          "organization": "EPRA",
+          "document": "Net Metering Regulations 2012 (and 2024 draft revision)",
+          "url": "https://www.epra.go.ke/",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "Kenya Revenue Authority (KRA)",
+          "document": "Investment Deduction Allowance — Income Tax Act First Schedule",
+          "url": "https://www.kra.go.ke/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "net_metering_cap_mw": 1.0,
+        "vat_rate_on_solar_pct": 0,
+        "import_duty_on_solar_pct": 0,
+        "ida_year1_pct": 100
+      }
+    },
+    {
+      "id": "KE_NAT_COST_001",
+      "dimension": "cost_economics",
+      "scope": "national",
+      "content": "Kenya utility-scale solar CAPEX is USD 850-1,050/kW (inland logistics via Mombasa port adds cost vs coastal markets). Rooftop C&I CAPEX is USD 950-1,250/kW. Kenya hosted East Africa's largest solar PPA benchmark when Garissa Solar (54.6 MW) signed at USD 120/MWh in 2019; more recent KenGen self-developed projects (e.g., Seven Forks hybrid) target sub-USD 60/MWh levelized. EPRA's 2023 Retail Electricity Tariff Review raised C&I tariffs to USD 0.18-0.22/kWh; combined with VAT/import-duty exemptions this creates 3-5 year simple paybacks for rooftop PV and 4-6 years for PV+storage hybrids at industrial customers.",
+      "sources": [
+        {
+          "organization": "EPRA",
+          "document": "2023 Retail Electricity Tariff Review Determination",
+          "url": "https://www.epra.go.ke/download/retail-electricity-tariff-review-2023/",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "KPLC",
+          "document": "Tariff Schedule for Electricity Supply Service",
+          "url": "https://kplc.co.ke/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "capex_utility_usd_per_kw_low": 850,
+        "capex_utility_usd_per_kw_high": 1050,
+        "garissa_ppa_usd_mwh": 120,
+        "ci_tariff_usd_kwh_low": 0.18,
+        "ci_tariff_usd_kwh_high": 0.22
+      }
+    },
+    {
+      "id": "KE_NAT_GRID_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "Kenya's grid is interconnected at national scale and integrated with Ethiopia (500 kV HVDC Ethiopia-Kenya, 1,000 km, commissioned 2022, 2,000 MW capacity) and Tanzania/Uganda under the East African Power Pool. KETRACO owns transmission; KPLC operates distribution and the system. Wheeling regulations under the Energy (Electricity Market, Bulk Supply and Open Access) Regulations 2024 formally enable third-party access — transforming the C&I PPA landscape. Interconnection timelines: <100 kW typically 2-4 months; 100 kW-1 MW 4-8 months; >1 MW 12-24 months depending on transmission availability.",
+      "sources": [
+        {
+          "organization": "KETRACO",
+          "document": "Transmission Master Plan and Ethiopia-Kenya HVDC updates",
+          "url": "https://www.ketraco.co.ke/",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "EPRA",
+          "document": "Energy (Electricity Market, Bulk Supply and Open Access) Regulations 2024",
+          "url": "https://www.epra.go.ke/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "ethiopia_hvdc_mw": 2000,
+        "ethiopia_hvdc_km": 1000,
+        "dg_interconnection_months_min": 2,
+        "dg_interconnection_months_max": 24,
+        "open_access_effective_year": 2024
+      }
+    },
+    {
+      "id": "KE_NAT_PUBLIC_001",
+      "dimension": "public_comment",
+      "scope": "national",
+      "content": "Environmental Impact Assessment under NEMA (National Environment Management Authority) is required for all power generation projects per the Environmental Management and Co-ordination Act (EMCA) and the Environmental (Impact Assessment and Audit) Regulations 2003. Community land (registered under the Community Land Act 2016) is the locus of multiple utility-scale renewable disputes — the Lake Turkana Wind case (High Court ruled 2021 that the community land acquisition was irregular but operational continuity was preserved) set precedent for subsequent projects.",
+      "sources": [
+        {
+          "organization": "NEMA",
+          "document": "Environmental (Impact Assessment and Audit) Regulations 2003",
+          "url": "https://www.nema.go.ke/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "eia_required_all_generation": true
+      }
+    },
+    {
+      "id": "KE_NAT_UNKNOWN_001",
+      "dimension": "unknown_unknowns",
+      "scope": "national",
+      "content": "Kenya-specific uncertainties: (1) KPLC's take-or-pay thermal IPP contracts (Kipevu, Mombasa, Rabai, Iberafrica) continue to create capacity-payment drag; renegotiation outcomes will shape solar competitiveness; (2) Net-metering regulation revision (draft 2024) may reduce the retail-rate export credit, materially impacting C&I rooftop IRR; (3) Open-access wheeling regulations are new (2024) — KPLC's system operator role vs third-party transactions is still being operationalized; (4) Finance Act amendments reinstated then removed VAT exemptions on solar inputs multiple times (2013, 2020, 2021) creating planning risk; (5) Community Land Act 2016 disputes (e.g., Lake Turkana) linger as precedent and due-diligence line items.",
+      "sources": [
+        {
+          "organization": "Ministry of Energy and Petroleum",
+          "document": "Kenya Energy Transition and Investment Plan 2023-2050",
+          "url": "https://energy.go.ke/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-11",
+      "data_points": {}
+    },
+    {
+      "id": "KEN_NAT_GRID_ACC_HPC_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "KETRACO has constructed 5,476Km of transmission lines in Kenya.",
+      "sources": [
+        {
+          "organization": "KETRACO",
+          "document": "Transmission Master Plan and Ethiopia-Kenya HVDC",
+          "url": "https://www.ketraco.co.ke/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "length": "5,476Km",
+        "location": "Kenya",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "KEN_NAT_GRID_ACC_HPC_002",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "KETRACO has constructed 39 substations in Kenya.",
+      "sources": [
+        {
+          "organization": "KETRACO",
+          "document": "Transmission Master Plan and Ethiopia-Kenya HVDC",
+          "url": "https://www.ketraco.co.ke/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "number_of_substations": 39,
+        "location": "Kenya",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "KEN_NAT_GRID_ACC_HPC_003",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "KETRACO has completed 38 transmission projects in Kenya.",
+      "sources": [
+        {
+          "organization": "KETRACO",
+          "document": "Transmission Master Plan and Ethiopia-Kenya HVDC",
+          "url": "https://www.ketraco.co.ke/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "number_of_completed_projects": 38,
+        "location": "Kenya",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "KEN_NAT_GRID_ACC_HPC_004",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "KETRACO has 27 ongoing transmission projects in Kenya.",
+      "sources": [
+        {
+          "organization": "KETRACO",
+          "document": "Transmission Master Plan and Ethiopia-Kenya HVDC",
+          "url": "https://www.ketraco.co.ke/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "number_of_ongoing_projects": 27,
+        "location": "Kenya",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 4
+        }
+      }
+    },
+    {
+      "id": "KEN_NAT_UTILITY__HPC_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Energy and Petroleum Regulatory Authority has a telephone number 0709336000 and an email address info@epra.go.ke for general inquiries.",
+      "sources": [
+        {
+          "organization": "EPRA",
+          "document": "Energy (Electricity Licensing) Regulations 2022",
+          "url": "https://www.epra.go.ke/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "KEN_NAT_UTILITY__HPC_002",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Energy and Petroleum Regulatory Authority has a telephone number 0202847000 and an email address compliance@epra.go.ke for compliance-related inquiries.",
+      "sources": [
+        {
+          "organization": "EPRA",
+          "document": "Energy (Electricity Licensing) Regulations 2022",
+          "url": "https://www.epra.go.ke/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "KEN_NAT_UTILITY__HPC_003",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Energy and Petroleum Regulatory Authority is located at Eagle Africa Centre, Longonot Rd, Upperhill, Nairobi, with a postal address P.O Box 42681-00100.",
+      "sources": [
+        {
+          "organization": "EPRA",
+          "document": "Energy (Electricity Licensing) Regulations 2022",
+          "url": "https://www.epra.go.ke/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "name": "Nairobi",
+      "iso_code": "KE-30",
+      "metrics": {
+        "capex_utility_usd_per_kw": 920,
+        "capex_rooftop_usd_per_kw": 1050,
+        "om_usd_per_kw_year": 14,
+        "lcoe_usd_per_mwh": 68,
+        "retail_tariff_usd_per_kwh": 0.2,
+        "interconnection_months_avg": 5,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.5,
+        "capacity_factor_pct": 19.5,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 220
+      },
+      "documents": [
+        {
+          "id": "KE_NA_SUBS_001",
+          "dimension": "subsidies_incentives",
+          "scope": "Nairobi",
+          "content": "Nairobi County is East Africa's deepest C&I rooftop solar market. Industrial customers on KPLC CI3/CI4/CI5 tariff categories pay USD 0.18-0.22/kWh; combined with 0% VAT on solar equipment and 100% first-year Investment Deduction Allowance (IDA), a typical rooftop PV installation achieves 3-4 year simple payback. Large corporate adopters include KenGen, Safaricom, Sameer Group, and the Export Processing Zones in Athi River. The Nairobi rooftop base is supplied through licensed installers under EPRA Solar PV Regulations 2012 (Class T1-T3 technician licensing required).",
+          "sources": [
+            {
+              "organization": "EPRA",
+              "document": "Licensed Solar PV Contractors — Nairobi register",
+              "url": "https://www.epra.go.ke/licensed-solar-pv-contractors-technicians/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "ci_tariff_usd_kwh_low": 0.18,
+            "ci_tariff_usd_kwh_high": 0.22,
+            "rooftop_payback_years_min": 3,
+            "rooftop_payback_years_max": 4
+          }
+        }
+      ],
+      "data_completeness_pct": 100.0
+    },
+    {
+      "name": "Turkana",
+      "iso_code": "KE-23",
+      "metrics": {
+        "capex_utility_usd_per_kw": 980,
+        "capex_rooftop_usd_per_kw": 1250,
+        "om_usd_per_kw_year": 16,
+        "lcoe_usd_per_mwh": 58,
+        "retail_tariff_usd_per_kwh": 0.15,
+        "interconnection_months_avg": 18,
+        "grid_congestion": "high",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 6.2,
+        "capacity_factor_pct": 23.5,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 65
+      },
+      "documents": [
+        {
+          "id": "KE_TU_RES_001",
+          "dimension": "cost_economics",
+          "scope": "Turkana",
+          "content": "Turkana County (northwestern Kenya, Lake Turkana basin) has among the country's highest solar GHI (6.0-6.3 kWh/m²/day around Lodwar, Kakuma, Loiyangalani) and world-class wind resource (Lake Turkana Wind 310 MW). Loiyangalani-Suswa 428 kV transmission line (commissioned 2018, delayed 3+ years) evacuates Lake Turkana output; its capacity underpins upcoming solar development in Loiyangalani and Lokichar. Remote siting and long transmission distances raise effective CAPEX ~10-15% above Nairobi-region benchmarks.",
+          "sources": [
+            {
+              "organization": "KETRACO",
+              "document": "Loiyangalani-Suswa 428 kV Line — project completion report",
+              "url": "https://www.ketraco.co.ke/",
+              "accessed": "2026-04-11"
+            },
+            {
+              "organization": "World Bank Global Solar Atlas",
+              "document": "Kenya — Turkana GHI",
+              "url": "https://globalsolaratlas.info/map?c=3.5,35.8,7&r=KEN",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "ghi_kwh_m2_day": 6.2,
+            "capacity_factor_pct": 23.5,
+            "loiyangalani_line_kv": 428,
+            "lake_turkana_wind_mw": 310
+          }
+        }
+      ],
+      "data_completeness_pct": 94.4
+    }
+  ]
+}

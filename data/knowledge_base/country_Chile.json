@@ -1,0 +1,961 @@
+{
+  "name": "Chile",
+  "iso_code": "CL",
+  "currency": "CLP",
+  "exchange_rate_to_usd": 950.0,
+  "regulator": "CNE (Comisión Nacional de Energía) / SEC (Superintendencia de Electricidad y Combustibles)",
+  "grid_operator": "Coordinador Eléctrico Nacional (CEN)",
+  "last_updated": "2026-04-12",
+  "coverage_summary": {
+    "regions_in_dataset": 2,
+    "regions_total": 16,
+    "dimensions_covered": 6,
+    "coverage_note": "Priority: regions with highest GHI (Antofagasta, Atacama) which host most of the country's PMGD and utility-scale solar; representative of Norte Grande solar belt.",
+    "hpc_audit": {
+      "national::grid_access": {
+        "scope": "national",
+        "accepted": 2,
+        "rejected": 0,
+        "corroborated_count": 0,
+        "unsupported_sentences": 1,
+        "consistency_min": 0,
+        "synthesis_chars": 272,
+        "issues": [
+          "1 unsupported sentence(s) in synthesis",
+          "at least one sentence has zero consistency support"
+        ]
+      },
+      "national::subsidies_incentives": {
+        "scope": "national",
+        "accepted": 13,
+        "rejected": 3,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 0,
+        "synthesis_chars": 414,
+        "issues": [
+          "at least one sentence has zero consistency support"
+        ]
+      },
+      "national::utility_standards": {
+        "scope": "national",
+        "accepted": 10,
+        "rejected": 2,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 2,
+        "synthesis_chars": 522,
+        "issues": []
+      }
+    }
+  },
+  "data_audit": {
+    "collected": [
+      "Ley 20.571 (Netbilling, 2012) as amended by Ley 21.118 (2018) raising cap to 300 kW",
+      "Ley 20.257 Non-Conventional Renewable Energy quota + Ley 20.698 expanding to 20% by 2025",
+      "PMGD regime — DS 244 and DS 88 regulating small generation <=9 MW",
+      "CNE Informe Técnico Definitivo de precios de nudo (stabilized price / precio estabilizado)",
+      "Coordinador Eléctrico Nacional — Plan de Expansión de Transmisión",
+      "Ley 21.505 Energy Storage and Electromobility (2022)",
+      "Ley 21.455 Climate Change Framework (2022) committing to carbon neutrality by 2050"
+    ],
+    "gaps": [
+      "Zonal curtailment data for Norte Grande (Atacama/Antofagasta) is published monthly but not consolidated",
+      "PMGD stabilized-price reform of 2022 (DS 88 modifications) is still being litigated by developers; retroactive ruling uncertain",
+      "SEC connection-queue positions are not fully public by feeder",
+      "Distribution-level wheeling tariffs for private PPAs are not centralized"
+    ],
+    "impact": [
+      "Zero-marginal-cost hours in SEN (Sistema Eléctrico Nacional) during solar peak (10:00-16:00) now exceed 40% of daytime hours in Norte Grande, heavily compressing PMGD merchant revenue",
+      "PMGD stabilized-price mechanism (precio estabilizado) was the primary revenue backstop for <9 MW solar; 2022 reform materially lowered returns and changed the C&I origination thesis",
+      "HVDC Kimal-Lo Aguirre (1,500 km, 3,000 MW) under construction (2024-2029) will unlock Norte Grande curtailed capacity once energized"
+    ]
+  },
+  "national_documents": [
+    {
+      "id": "CL_NAT_SUBS_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Chile's distributed generation framework is anchored in Ley 20.571 (2012), amended by Ley 21.118 (2018), which established a net-billing scheme for self-consumers. Ley 21.118 raised the system cap from 100 kW to 300 kW per connection point, expanding eligibility to the commercial & industrial (C&I) segment. Surplus energy is credited to the customer at a utility-specific injection price (not retail equivalent), so Chile's scheme is net billing rather than net metering. The government does not provide direct CAPEX subsidies for residential or C&I PV; incentive comes from avoided tariff, accelerated depreciation under the general tax code, and duty-free import of PV equipment under HS 8541.",
+      "sources": [
+        {
+          "organization": "Biblioteca del Congreso Nacional de Chile",
+          "document": "Ley 21.118 — modifica la Ley General de Servicios Eléctricos para incentivar la generación distribuida",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1125560",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "Superintendencia de Electricidad y Combustibles (SEC)",
+          "document": "Tramitación Ley de Generación Distribuida — normativa vigente",
+          "url": "https://www.sec.cl/areas-de-energia/electricidad/generacion-distribuida/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "netbilling_cap_kw": 300,
+        "mechanism": "net_billing",
+        "import_duty_exempt": true
+      }
+    },
+    {
+      "id": "CL_NAT_COST_001",
+      "dimension": "cost_economics",
+      "scope": "national",
+      "content": "Chile's utility-scale solar CAPEX is among the lowest in Latin America at USD 600-750/kW (2024 BNEF LCOE database), reflecting deep-liquid EPC market (Acciona, Enel Green Power, Colbún, AES Andes) and duty-free imports. Rooftop C&I CAPEX ranges USD 850-1,100/kW depending on region and roof complexity. CNE Informe de Precios de Nudo reports stabilized price around USD 60-75/MWh for PMGD (<9 MW) under the precio estabilizado regime; merchant spot prices in Norte Grande averaged USD 35-55/MWh in 2023 with heavy daytime compression during solar peak hours.",
+      "sources": [
+        {
+          "organization": "CNE (Comisión Nacional de Energía)",
+          "document": "Informe Técnico Definitivo de Precios de Nudo de Corto Plazo",
+          "url": "https://www.cne.cl/tarificacion/electrica/precio-nudo-corto-plazo/",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "Coordinador Eléctrico Nacional",
+          "document": "Reporte Mensual del Mercado — costos marginales",
+          "url": "https://www.coordinador.cl/mercados/documentos/reportes-mensuales/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "capex_utility_usd_per_kw_low": 600,
+        "capex_utility_usd_per_kw_high": 750,
+        "pmgd_stabilized_price_usd_mwh_low": 60,
+        "pmgd_stabilized_price_usd_mwh_high": 75
+      }
+    },
+    {
+      "id": "CL_NAT_GRID_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "Chile's grid is operated by the Coordinador Eléctrico Nacional (CEN) after the 2017 unification of SIC and SING into the Sistema Eléctrico Nacional (SEN). Solar penetration in Norte Grande (Atacama, Antofagasta) has driven increasing curtailment — 2023 CEN reports identify over 6 TWh of renewable desacople (decoupling) losses, the majority attributable to transmission congestion northward of Los Andes. The HVDC Kimal-Lo Aguirre link (3,000 MW, 1,500 km) is under construction (expected 2029-2030 commissioning) to evacuate Norte Grande surplus to central demand centers. SEC-regulated connection studies for distributed generation <=300 kW typically take 2-4 months; PMGD (<9 MW) interconnection takes 12-18 months.",
+      "sources": [
+        {
+          "organization": "Coordinador Eléctrico Nacional",
+          "document": "Plan de Expansión Anual de la Transmisión 2023",
+          "url": "https://www.coordinador.cl/desarrollo/documentos/planes-de-expansion/",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "CNE",
+          "document": "Decreto de Adjudicación Licitación Líneas HVDC Kimal-Lo Aguirre",
+          "url": "https://www.cne.cl/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "hvdc_kimal_lo_aguirre_mw": 3000,
+        "hvdc_km": 1500,
+        "curtailment_twh_2023": 6.0,
+        "pmgd_interconnection_months_min": 12,
+        "pmgd_interconnection_months_max": 18
+      }
+    },
+    {
+      "id": "CL_NAT_UTIL_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Chile's renewable obligation comes from Ley 20.257 (2008), expanded by Ley 20.698 (2013), requiring 20% of electricity sold under contract to come from Non-Conventional Renewable Energy (ERNC) sources by 2025. The country's Política Energética Nacional 2050 targets 80% renewables by 2030 and 100% by 2050. Ley 21.455 (2022) Climate Change Framework legislated carbon neutrality by 2050. Ley 21.505 (2022) created the first dedicated Energy Storage law, allowing standalone BESS to participate in the wholesale market and providing frequency-response remuneration. I-REC Standard is operational in Chile for voluntary corporate PPAs.",
+      "sources": [
+        {
+          "organization": "Ministerio de Energía",
+          "document": "Política Energética Nacional 2050",
+          "url": "https://energia.gob.cl/politica-energetica",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "Biblioteca del Congreso Nacional",
+          "document": "Ley 21.505 de almacenamiento y electromovilidad",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1183831",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "ernc_target_pct_2025": 20,
+        "renewable_target_pct_2030": 80,
+        "renewable_target_pct_2050": 100,
+        "rec_mechanism": true
+      }
+    },
+    {
+      "id": "CL_NAT_PUBLIC_001",
+      "dimension": "public_comment",
+      "scope": "national",
+      "content": "Environmental permitting is governed by Ley 19.300 (SEIA — Sistema de Evaluación de Impacto Ambiental). Solar projects >3 MW generally require a Declaración de Impacto Ambiental (DIA); projects >30 MW or with significant land-use impact require a full Estudio de Impacto Ambiental (EIA) including a Consulta Indígena under ILO Convention 169 in regions with indigenous communities (especially Atacama and Antofagasta with Atacameño/Lickanantay, Kolla, and Diaguita communities). SEIA rejection rates for solar are low (<5%) but average evaluation takes 12-24 months.",
+      "sources": [
+        {
+          "organization": "Servicio de Evaluación Ambiental (SEA)",
+          "document": "Guía para la tramitación de proyectos de generación eléctrica",
+          "url": "https://www.sea.gob.cl/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "eia_threshold_mw": 30,
+        "dia_typical_months_min": 12,
+        "dia_typical_months_max": 24
+      }
+    },
+    {
+      "id": "CL_NAT_UNKNOWN_001",
+      "dimension": "unknown_unknowns",
+      "scope": "national",
+      "content": "Chile-specific uncertainties: (1) PMGD stabilized-price regime (precio estabilizado) reform under DS 88 (2022) is subject to ongoing judicial review; developers argue retroactive application is unconstitutional; (2) New Constitution process (rejected 2022, then 2023) leaves property and resource rights stable but the Water Code reform could affect solar+green hydrogen projects in Norte Grande; (3) Grey hydrogen / green hydrogen policy (Estrategia Nacional de Hidrógeno Verde 2020) promised export industry by 2030 but permitting and coastal infrastructure have lagged; (4) Indigenous consultation (Convenio 169) outcomes in Atacama remain a project-level wildcard — SQM/Albemarle lithium litigation precedent is instructive.",
+      "sources": [
+        {
+          "organization": "Ministerio de Energía",
+          "document": "Estrategia Nacional de Hidrógeno Verde",
+          "url": "https://energia.gob.cl/hidrogenoverde",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-11",
+      "data_points": {}
+    },
+    {
+      "id": "CHI_NAT_GRID_ACC_HPC_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "There are 165 policies in the IEA Policies database for Chile.",
+      "sources": [
+        {
+          "organization": "International Energy Agency",
+          "document": "IEA Policies database - Chile grid and transmission policies",
+          "url": "https://www.iea.org/policies?country=Chile",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_GRID_ACC_HPC_002",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The IEA Policies database contains 142 national policies for Chile.",
+      "sources": [
+        {
+          "organization": "International Energy Agency",
+          "document": "IEA Policies database - Chile grid and transmission policies",
+          "url": "https://www.iea.org/policies?country=Chile",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Tax incentives for renewable hydrogen were announced in Chile in 2025.",
+      "sources": [
+        {
+          "organization": "International Energy Agency",
+          "document": "IEA Policies and Measures database - Chile",
+          "url": "https://www.iea.org/policies?country=Chile",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_002",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "A subsidy for H2V demand was announced in Chile in 2023.",
+      "sources": [
+        {
+          "organization": "International Energy Agency",
+          "document": "IEA Policies and Measures database - Chile",
+          "url": "https://www.iea.org/policies?country=Chile",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_003",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Tax credits for investments that consider a green dimension were announced in Chile in 2023.",
+      "sources": [
+        {
+          "organization": "International Energy Agency",
+          "document": "IEA Policies and Measures database - Chile",
+          "url": "https://www.iea.org/policies?country=Chile",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_004",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The share of fossil fuels in total energy demand in Chile has fallen from 78% in 2010 to 64% in 2024.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "year_2010": 78,
+        "year_2024": 64,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 4
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_005",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Most fossil fuels are imported, at a cost of around US dollars 14 billion in 2024.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "cost": 14,
+        "unit": "billion US dollars",
+        "year": 2024,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 5
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_006",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Oil accounts for 43% of total energy demand in Chile.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "percentage": 43,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 6
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_007",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Electricity demand in Chile has increased by 3.1% annually since 2010.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "annual_increase": 3.1,
+        "unit": "%",
+        "start_year": 2010,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 7
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_008",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Solar photovoltaics (PV) accounted for 23% of generation in Chile in 2024.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "percentage": 23,
+        "year": 2024,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 8
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_009",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Hydropower supplied 29% of electricity in Chile in 2024.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "percentage": 29,
+        "year": 2024,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 9
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_010",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The energy sector accounts for three-quarters of total greenhouse gas emissions in Chile.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "percentage": 75,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 10
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_011",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Carbon dioxide emissions from the energy sector peaked in 2019, and have since declined by roughly 20% in Chile.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "peak_year": 2019,
+        "decline_percentage": 20,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 11
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_012",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Around 90% of Chileans are exposed to polluted air, and around 10% to heavily polluted air.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "exposed_percentage": 90,
+        "heavily_exposed_percentage": 10,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 12
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_SUBSIDIE_HPC_013",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "More than 5,000 people in Chile died prematurely from exposure to ambient air pollution in 2024.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "deaths": 5000,
+        "year": 2024,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 13
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_UTILITY__HPC_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The share of fossil fuels in total energy demand in Chile has fallen from 78% in 2010 to 64% in 2024.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "year_2010": 78,
+        "year_2024": 64,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_UTILITY__HPC_002",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Most fossil fuels are imported, at a cost of around US dollars 14 billion in 2024.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "cost": 14,
+        "unit": "billion US dollars",
+        "year": 2024,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_UTILITY__HPC_003",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Oil accounts for 43% of total energy demand in Chile.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "percentage": 43,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_UTILITY__HPC_004",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Electricity demand in Chile has increased by 3.1% annually since 2010.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "annual_increase": 3.1,
+        "unit": "%",
+        "start_year": 2010,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 4
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_UTILITY__HPC_005",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Solar photovoltaics (PV) accounted for 23% of generation in Chile in 2024.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "percentage": 23,
+        "year": 2024,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 5
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_UTILITY__HPC_006",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Hydropower supplied 29% of electricity in Chile in 2024.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "percentage": 29,
+        "year": 2024,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 6
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_UTILITY__HPC_007",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The energy sector accounts for three-quarters of total greenhouse gas emissions in Chile.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "percentage": 75,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 7
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_UTILITY__HPC_008",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Carbon dioxide emissions from the energy sector peaked in 2019, and have since declined by roughly 20% in Chile.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "peak_year": 2019,
+        "decline_percentage": 20,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 8
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_UTILITY__HPC_009",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "90% of Chileans are exposed to polluted air, and around 10% to heavily polluted air.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "exposed_percentage": 90,
+        "heavily_exposed_percentage": 10,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 9
+        }
+      }
+    },
+    {
+      "id": "CHI_NAT_UTILITY__HPC_010",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "More than 5,000 people in Chile died prematurely from exposure to ambient air pollution in 2024.",
+      "sources": [
+        {
+          "organization": "REGlobal",
+          "document": "REGlobal - Chile renewable energy regulation overview",
+          "url": "https://reglobal.org/chile/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "deaths": 5000,
+        "year": 2024,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 10
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "name": "Antofagasta",
+      "iso_code": "CL-AN",
+      "metrics": {
+        "capex_utility_usd_per_kw": 620,
+        "capex_rooftop_usd_per_kw": 900,
+        "om_usd_per_kw_year": 10,
+        "lcoe_usd_per_mwh": 38,
+        "retail_tariff_usd_per_kwh": 0.14,
+        "interconnection_months_avg": 15,
+        "grid_congestion": "high",
+        "curtailment_risk": "high",
+        "ghi_kwh_m2_day": 6.9,
+        "capacity_factor_pct": 27.0,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 80.0,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 3100
+      },
+      "documents": [
+        {
+          "id": "CL_AN_RES_001",
+          "dimension": "cost_economics",
+          "scope": "Antofagasta",
+          "content": "Antofagasta region hosts the highest solar irradiance on earth (>6.8 kWh/m²/day in the Atacama Desert plateau near Calama and Pampa), supporting unlevered capacity factors above 27% for fixed-tilt PV and 32% for single-axis tracking. Utility-scale CAPEX in the region averages USD 600-650/kW, the lowest in the Americas. Major mining operations (Escondida, Collahuasi, Chuquicamata) have signed long-duration corporate PPAs at USD 25-40/MWh (Enel Atacama, AES Los Cururos) reflecting the structural cost advantage.",
+          "sources": [
+            {
+              "organization": "World Bank Global Solar Atlas",
+              "document": "Chile — Atacama/Antofagasta GHI data",
+              "url": "https://globalsolaratlas.info/map?c=-22.5,-69.5,7&r=CHL",
+              "accessed": "2026-04-11"
+            },
+            {
+              "organization": "Coordinador Eléctrico Nacional",
+              "document": "Registro de Contratos PPA Mineros",
+              "url": "https://www.coordinador.cl/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "ghi_kwh_m2_day": 6.9,
+            "capacity_factor_pct": 27.0,
+            "mining_ppa_usd_mwh_low": 25,
+            "mining_ppa_usd_mwh_high": 40
+          }
+        },
+        {
+          "id": "CL_AN_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Antofagasta",
+          "content": "Antofagasta's solar fleet faces the country's worst curtailment risk due to the former SING network's limited evacuation capacity northward to Arica and southward into the central load center near Santiago. The HVDC Kimal converter station is located in the region and will be the northern anchor of the 3 GW Kimal-Lo Aguirre link. Until commissioning (~2029), operational solar assets face double-digit percent curtailment in peak-sun hours. 500 kV AC reinforcements (Kapatur-Los Changos, Kimal-Los Changos) are operational and have partially relieved evacuation bottlenecks.",
+          "sources": [
+            {
+              "organization": "Coordinador Eléctrico Nacional",
+              "document": "Informe de Operación Norte Grande 2023",
+              "url": "https://www.coordinador.cl/operacion/documentos/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "hvdc_converter_location": "Kimal",
+            "curtailment_pct_peak_hours": 15.0
+          }
+        }
+      ],
+      "data_completeness_pct": 100.0
+    },
+    {
+      "name": "Atacama",
+      "iso_code": "CL-AT",
+      "metrics": {
+        "capex_utility_usd_per_kw": 640,
+        "capex_rooftop_usd_per_kw": 920,
+        "om_usd_per_kw_year": 10,
+        "lcoe_usd_per_mwh": 40,
+        "retail_tariff_usd_per_kwh": 0.14,
+        "interconnection_months_avg": 14,
+        "grid_congestion": "high",
+        "curtailment_risk": "high",
+        "ghi_kwh_m2_day": 6.7,
+        "capacity_factor_pct": 26.0,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 80.0,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 2400
+      },
+      "documents": [
+        {
+          "id": "CL_AT_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Atacama",
+          "content": "Atacama region (Copiapó, Diego de Almagro, Domeyko) hosts Cerro Dominador CSP+PV hybrid (210 MW PV + 110 MW CSP with 17.5 h storage). Transmission evacuation south of Copiapó is constrained; 2x500 kV Nueva Cardones-Nueva Maitencillo reinforcement commissioned in 2022 partially alleviated this. Small-scale PMGD (<9 MW) connections under DS 244 typically clear in 8-14 months via SEC's simplified process.",
+          "sources": [
+            {
+              "organization": "Coordinador Eléctrico Nacional",
+              "document": "Infraestructura 500 kV Atacama",
+              "url": "https://www.coordinador.cl/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "cerro_dominador_pv_mw": 210,
+            "cerro_dominador_csp_mw": 110
+          }
+        }
+      ],
+      "data_completeness_pct": 94.4
+    }
+  ]
+}

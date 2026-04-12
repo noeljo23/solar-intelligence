@@ -1,0 +1,545 @@
+{
+  "name": "Vietnam",
+  "iso_code": "VN",
+  "currency": "VND",
+  "exchange_rate_to_usd": 25300.0,
+  "regulator": "MOIT / ERAV (Ministry of Industry and Trade / Electricity Regulatory Authority)",
+  "grid_operator": "EVN (Vietnam Electricity / Tập đoàn Điện lực Việt Nam)",
+  "last_updated": "2026-04-11",
+  "coverage_summary": {
+    "provinces_in_dataset": 5,
+    "provinces_total": 63,
+    "dimensions_covered": 6,
+    "coverage_note": "Priority: southern provinces with highest GHI + Ho Chi Minh City industrial demand. Remaining 58 provinces planned.",
+    "hpc_audit": {
+      "national::utility_standards": {
+        "scope": "national",
+        "accepted": 4,
+        "rejected": 3,
+        "corroborated_count": 1,
+        "unsupported_sentences": 1,
+        "consistency_min": 0,
+        "synthesis_chars": 428,
+        "issues": [
+          "1 unsupported sentence(s) in synthesis",
+          "at least one sentence has zero consistency support"
+        ]
+      }
+    }
+  },
+  "data_audit": {
+    "collected": [
+      "Power Development Plan 8 (PDP8) — Decision 500/QĐ-TTg (2023)",
+      "MOIT Decree 135/2024/NĐ-CP on rooftop solar mechanism",
+      "Decision 13/2020/QĐ-TTg (expired FiT scheme)",
+      "Direct Power Purchase Agreement (DPPA) framework — Decree 80/2024/NĐ-CP",
+      "EVN annual reports on grid capacity and dispatch",
+      "IRENA Vietnam renewable energy profile",
+      "JETP Vietnam USD 15.5B commitment (2022)"
+    ],
+    "gaps": [
+      "Post-FiT (expired 2020) project-specific PPA pricing is not publicly disclosed",
+      "EVN dispatch curtailment logs per plant not public; reported curtailment is aggregate only",
+      "Provincial Department of Industry and Trade (DOIT) licensing queue not centralized",
+      "DPPA virtual PPA market is new (launched 2024) — transaction volumes still limited"
+    ],
+    "impact": [
+      "Developers cannot benchmark PPA pricing without direct EVN/offtaker engagement",
+      "Historical solar FiT (2019-2020) is gone; PDP8 framework pivots to competitive auctions, changing project economics",
+      "Curtailment in Ninh Thuan and Binh Thuan has historically reached 15-30% in specific months per CSIS/reports",
+      "DPPA enables corporate renewable procurement but mechanisms are still being tested"
+    ]
+  },
+  "national_documents": [
+    {
+      "id": "VN_NAT_SUBS_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Vietnam's feed-in tariff scheme for solar (Decision 13/2020/QĐ-TTg at USD 0.0709/kWh for ground-mount, USD 0.0838/kWh for rooftop) expired December 31, 2020. The PDP8 framework (Decision 500/QĐ-TTg, May 2023) pivots future renewable procurement to competitive auctions. Decree 135/2024/NĐ-CP introduced a rooftop solar mechanism permitting self-consumption with limited grid export. Decree 80/2024/NĐ-CP legalized Direct Power Purchase Agreements (DPPA), enabling large corporate buyers to procure renewable power directly from IPPs.",
+      "sources": [
+        {
+          "organization": "Prime Minister of Vietnam",
+          "document": "Decision 500/QĐ-TTg — Power Development Plan 8 (PDP8)",
+          "url": "https://vanbanphapluat.co/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "Government of Vietnam",
+          "document": "Decree 80/2024/NĐ-CP on Direct Power Purchase Agreements",
+          "url": "https://vanbanphapluat.co/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "MOIT",
+          "document": "Decree 135/2024/NĐ-CP rooftop solar mechanism",
+          "url": "https://moit.gov.vn/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "fit_expired_year": 2020,
+        "dppa_legalized_year": 2024
+      }
+    },
+    {
+      "id": "VN_NAT_COST_001",
+      "dimension": "cost_economics",
+      "scope": "national",
+      "content": "Vietnam's utility-scale solar CAPEX ranged USD 780-980/kW in 2023-2024 per IRENA, benefiting from proximity to Chinese module supply and an established domestic EPC industry. Distributed/rooftop systems typically USD 900-1,100/kW. Retail tariffs (EVN) for industrial customers average USD 0.07-0.09/kWh depending on voltage class and time of use. DPPA prices for new corporate offtakers are being established and are reported in the USD 0.07-0.10/kWh range.",
+      "sources": [
+        {
+          "organization": "IRENA",
+          "document": "Renewable Power Generation Costs in 2023",
+          "url": "https://www.irena.org/publications/2024/Sep/Renewable-Power-Generation-Costs-in-2023",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "EVN",
+          "document": "Electricity tariff schedule 2024",
+          "url": "https://www.evn.com.vn/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "capex_utility_usd_per_kw_low": 780,
+        "capex_utility_usd_per_kw_high": 980
+      }
+    },
+    {
+      "id": "VN_NAT_GRID_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "EVN (Vietnam Electricity) is the state-owned vertically integrated utility and near-monopoly transmission operator. PDP8 targets 21 GW of solar by 2030. The south-central coast (Ninh Thuan, Binh Thuan) saw massive solar buildout in 2019-2020 under the FiT scheme, causing grid congestion and curtailment of up to 15-30% in certain months per CSIS analysis. PDP8 prioritizes new solar in load-center provinces to reduce transmission stress. Interconnection agreements with EVN for utility-scale solar typically take 12-24 months including technical studies and environmental approvals.",
+      "sources": [
+        {
+          "organization": "EVN",
+          "document": "Annual Report 2023",
+          "url": "https://www.evn.com.vn/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "CSIS",
+          "document": "Vietnam's Solar Curtailment Challenge",
+          "url": "https://www.csis.org/analysis",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "pdp8_solar_target_gw_2030": 21,
+        "curtailment_pct_ninh_thuan_peak": 30
+      }
+    },
+    {
+      "id": "VN_NAT_UTIL_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Vietnam committed to net-zero emissions by 2050 at COP26. PDP8 targets 30.9-39.2% non-hydro renewables in electricity generation by 2030 and 67.5-71.5% by 2050. JETP Vietnam (2022) committed USD 15.5 billion in international finance to accelerate coal retirement and renewables buildout. Vietnam participates in the I-REC Standard voluntary REC market. There is no federal RPS; renewable deployment occurs through auctions, DPPAs, and the new Decree 135 rooftop framework.",
+      "sources": [
+        {
+          "organization": "Government of Vietnam",
+          "document": "Nationally Determined Contribution (NDC) 2022 update",
+          "url": "https://unfccc.int/NDCREG",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "JETP Vietnam Secretariat",
+          "document": "Resource Mobilization Plan 2023",
+          "url": "https://jetp.gov.vn/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "I-REC Standard",
+          "document": "Vietnam issuance body",
+          "url": "https://www.irecstandard.org/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "jetp_commitment_usd_billion": 15.5,
+        "net_zero_year": 2050,
+        "re_share_2030_pct_low": 30.9,
+        "re_share_2030_pct_high": 39.2
+      }
+    },
+    {
+      "id": "VN_NAT_PUBLIC_001",
+      "dimension": "public_comment",
+      "scope": "national",
+      "content": "Environmental impact assessment (ĐTM) is required under the Law on Environmental Protection 2020 for projects above certain thresholds. Solar projects above 50 MW require formal EIA; smaller projects may qualify for environmental plan (kế hoạch bảo vệ môi trường). Provincial People's Committees control land allocation, and land-use conversion from agricultural to energy use is a common friction point. Ethnic minority communities in the Central Highlands have raised land-rights concerns around wind/solar development.",
+      "sources": [
+        {
+          "organization": "National Assembly of Vietnam",
+          "document": "Law on Environmental Protection 2020 (Luật Bảo vệ Môi trường 2020)",
+          "url": "https://vbpl.vn/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "eia_threshold_mw": 50
+      }
+    },
+    {
+      "id": "VN_NAT_UNKNOWN_001",
+      "dimension": "unknown_unknowns",
+      "scope": "national",
+      "content": "Key Vietnam-specific uncertainties: (1) Post-FiT transitional solar projects (~2-3 GW) remain in PPA limbo with EVN — contract terms unresolved; (2) PDP8 implementation pace is slower than announced targets per Vietnam Energy Institute; (3) DPPA market liquidity is unproven — corporate offtakers are still testing; (4) Retrospective anti-dumping investigations by US Commerce Dept on Vietnam-origin modules (active 2023-2024) have cooled export-oriented manufacturing expansion; (5) Coal IPP oversupply continues to compete with solar in EVN dispatch merit order.",
+      "sources": [
+        {
+          "organization": "Vietnam Energy Institute",
+          "document": "PDP8 Implementation Progress Reports",
+          "url": "https://vni.evn.com.vn/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-10",
+      "data_points": {}
+    },
+    {
+      "id": "VN_NAT_UTILITY__HPC_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Vietnam targets saving at least 3% of total power consumption in 2026",
+      "sources": [
+        {
+          "organization": "EVN",
+          "document": "EVN - utility standards",
+          "url": "https://en.evn.com.vn/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "VN_NAT_UTILITY__HPC_002",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The year 2025 marked the second consecutive year that Vietnam Electricity (EVN) exceeded its investment and construction targets",
+      "sources": [
+        {
+          "organization": "EVN",
+          "document": "EVN - utility standards",
+          "url": "https://en.evn.com.vn/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "VN_NAT_UTILITY__HPC_003",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Two Ninh Thuan nuclear power plants are expected to operate safely by 2035",
+      "sources": [
+        {
+          "organization": "EVN",
+          "document": "EVN - utility standards",
+          "url": "https://en.evn.com.vn/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "VN_NAT_UTILITY__HPC_004",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "From 24:00 on March 26, 2026, to the end of April 15, 2026, the environmental protection tax rate on gasoline (excluding ethanol), diesel, and aviation fuel is set at VND 0 per litre in Vietnam.",
+      "sources": [
+        {
+          "organization": "MOIT Vietnam",
+          "document": "MOIT - technical regulations",
+          "url": "https://moit.gov.vn/en/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 2,
+          "corroborated": true,
+          "fact_index": 4
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "name": "Ninh Thuận",
+      "iso_code": "VN-36",
+      "metrics": {
+        "capex_utility_usd_per_kw": 820,
+        "capex_rooftop_usd_per_kw": 950,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 52,
+        "retail_tariff_usd_per_kwh": 0.075,
+        "interconnection_months_avg": 18,
+        "grid_congestion": "high",
+        "curtailment_risk": "high",
+        "ghi_kwh_m2_day": 5.8,
+        "capacity_factor_pct": 21.5,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 30,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 2800
+      },
+      "documents": [
+        {
+          "id": "VN_NT_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Ninh Thuận",
+          "content": "Ninh Thuận province hosts the largest concentration of Vietnam's solar capacity (~2.8 GW installed as of 2023) from the 2019-2020 FiT boom. Transmission infrastructure into the province was overwhelmed; 500kV upgrades are ongoing per EVN NPT 220kV/500kV expansion plan. Curtailment in peak solar hours has been reported at 15-30% in specific months (CSIS analysis). New interconnection for additional utility-scale solar is constrained until transmission upgrades complete.",
+          "sources": [
+            {
+              "organization": "EVN National Power Transmission Corporation (NPT)",
+              "document": "Grid Expansion Plan",
+              "url": "https://npt.com.vn/",
+              "accessed": "2026-04-10"
+            },
+            {
+              "organization": "CSIS",
+              "document": "Vietnam Solar Curtailment Analysis",
+              "url": "https://www.csis.org/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "installed_solar_mw": 2800,
+            "curtailment_pct_peak": 30
+          }
+        },
+        {
+          "id": "VN_NT_RES_001",
+          "dimension": "cost_economics",
+          "scope": "Ninh Thuận",
+          "content": "Ninh Thuận has Vietnam's highest solar irradiance at 5.7-5.9 kWh/m²/day with low monsoon cloud cover. Capacity factor of 21.5% exceeds national average by 3-4 percentage points. Utility-scale ground-mount CAPEX is among Vietnam's lowest at USD 800-850/kW due to concentrated EPC capacity and developed infrastructure from prior buildout.",
+          "sources": [
+            {
+              "organization": "World Bank Global Solar Atlas",
+              "document": "Vietnam solar resource map",
+              "url": "https://globalsolaratlas.info/map?c=11.7,108.9,7&r=VNM",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "ghi_kwh_m2_day": 5.8,
+            "capacity_factor_pct": 21.5
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bình Thuận",
+      "iso_code": "VN-40",
+      "metrics": {
+        "capex_utility_usd_per_kw": 830,
+        "capex_rooftop_usd_per_kw": 960,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 54,
+        "retail_tariff_usd_per_kwh": 0.075,
+        "interconnection_months_avg": 16,
+        "grid_congestion": "high",
+        "curtailment_risk": "high",
+        "ghi_kwh_m2_day": 5.6,
+        "capacity_factor_pct": 20.8,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 30,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 1500
+      },
+      "documents": [
+        {
+          "id": "VN_BT_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Bình Thuận",
+          "content": "Bình Thuận is the second-largest solar province by installed capacity (~1.5 GW) adjacent to Ninh Thuận. Similar transmission constraints apply. EVN's 500kV Vinh Tan-Song May line adds capacity but completion has been delayed. The province also hosts major wind development, creating multi-asset dispatch competition.",
+          "sources": [
+            {
+              "organization": "EVN NPT",
+              "document": "Southern Grid Expansion",
+              "url": "https://npt.com.vn/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "installed_solar_mw": 1500
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hồ Chí Minh City",
+      "iso_code": "VN-SG",
+      "metrics": {
+        "capex_utility_usd_per_kw": null,
+        "capex_rooftop_usd_per_kw": 1050,
+        "om_usd_per_kw_year": 14,
+        "lcoe_usd_per_mwh": 70,
+        "retail_tariff_usd_per_kwh": 0.095,
+        "interconnection_months_avg": 4,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 4.9,
+        "capacity_factor_pct": 17.8,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 30,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 420
+      },
+      "documents": [
+        {
+          "id": "VN_SG_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Hồ Chí Minh City",
+          "content": "Ho Chi Minh City is Vietnam's largest electricity demand center. Industrial zones (Tan Thuan, Cat Lai, Tan Phu Trung) drive strong C&I rooftop solar demand. Rooftop CAPEX averages USD 1,000-1,100/kW. Commercial/industrial tariffs reach USD 0.10/kWh at peak hours, making self-consumption solar economic without FiT.",
+          "sources": [
+            {
+              "organization": "EVN HCMC",
+              "document": "Commercial Tariff Schedule 2024",
+              "url": "https://hcmpc.com.vn/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "commercial_tariff_usd_per_kwh": 0.095
+          }
+        }
+      ]
+    },
+    {
+      "name": "Đắk Lắk",
+      "iso_code": "VN-33",
+      "metrics": {
+        "capex_utility_usd_per_kw": 870,
+        "capex_rooftop_usd_per_kw": 1000,
+        "om_usd_per_kw_year": 13,
+        "lcoe_usd_per_mwh": 58,
+        "retail_tariff_usd_per_kwh": 0.075,
+        "interconnection_months_avg": 14,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 5.3,
+        "capacity_factor_pct": 19.5,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 30,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 640
+      },
+      "documents": [
+        {
+          "id": "VN_DL_RES_001",
+          "dimension": "cost_economics",
+          "scope": "Đắk Lắk",
+          "content": "Đắk Lắk in the Central Highlands has strong solar resource (5.2-5.4 kWh/m²/day) and available land at lower cost than coastal provinces. Social risk: significant ethnic minority population (Ê Đê, M'Nông) with customary land rights. Land acquisition requires careful provincial-level consultation.",
+          "sources": [
+            {
+              "organization": "World Bank Global Solar Atlas",
+              "document": "Vietnam solar map",
+              "url": "https://globalsolaratlas.info/map",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "ghi_kwh_m2_day": 5.3
+          }
+        }
+      ]
+    },
+    {
+      "name": "Long An",
+      "iso_code": "VN-41",
+      "metrics": {
+        "capex_utility_usd_per_kw": 860,
+        "capex_rooftop_usd_per_kw": 1000,
+        "om_usd_per_kw_year": 13,
+        "lcoe_usd_per_mwh": 57,
+        "retail_tariff_usd_per_kwh": 0.083,
+        "interconnection_months_avg": 10,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.0,
+        "capacity_factor_pct": 18.5,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 30,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 310
+      },
+      "documents": [
+        {
+          "id": "VN_LA_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Long An",
+          "content": "Long An sits adjacent to Ho Chi Minh City and hosts rapidly expanding industrial parks (Đức Hoà, Bến Lức). Proximity to the HCMC load center reduces curtailment risk vs Ninh Thuận / Bình Thuận. Interconnection timelines for utility-scale projects average 10-12 months — faster than south-central coast but longer than urban HCMC distributed systems.",
+          "sources": [
+            {
+              "organization": "EVN SPC",
+              "document": "Southern Power Corporation Annual Report",
+              "url": "https://evnspc.vn/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "interconnection_months_typical": 10
+          }
+        }
+      ]
+    }
+  ]
+}

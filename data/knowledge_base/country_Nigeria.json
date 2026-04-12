@@ -1,0 +1,600 @@
+{
+  "name": "Nigeria",
+  "iso_code": "NG",
+  "currency": "NGN",
+  "exchange_rate_to_usd": 1550.0,
+  "regulator": "NERC (Nigerian Electricity Regulatory Commission) / FMP (Federal Ministry of Power)",
+  "grid_operator": "TCN (Transmission Company of Nigeria) — System Operator division",
+  "last_updated": "2026-04-12",
+  "coverage_summary": {
+    "states_in_dataset": 2,
+    "states_total": 36,
+    "dimensions_covered": 6,
+    "coverage_note": "Priority: Lagos (largest commercial load center + most mature C&I solar market) and Kano (best northern GHI + state-level electricity market under Electricity Act 2023).",
+    "hpc_audit": {
+      "national::grid_access": {
+        "scope": "national",
+        "accepted": 3,
+        "rejected": 1,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 1,
+        "synthesis_chars": 471,
+        "issues": []
+      },
+      "national::subsidies_incentives": {
+        "scope": "national",
+        "accepted": 7,
+        "rejected": 3,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 1,
+        "synthesis_chars": 426,
+        "issues": []
+      },
+      "national::utility_standards": {
+        "scope": "national",
+        "accepted": 1,
+        "rejected": 5,
+        "corroborated_count": 0,
+        "unsupported_sentences": 1,
+        "consistency_min": 1,
+        "synthesis_chars": 283,
+        "issues": [
+          "1 unsupported sentence(s) in synthesis"
+        ]
+      }
+    }
+  },
+  "data_audit": {
+    "collected": [
+      "Electricity Act 2023 — devolves electricity to states, allows concurrent jurisdiction",
+      "NERC Regulation for Mini-Grids 2016 + 2023 amendment",
+      "NERC Embedded Generation Regulations 2012 (as amended)",
+      "NERC Metering Asset Provider (MAP) Regulations 2018",
+      "Rural Electrification Agency (REA) Nigeria Electrification Project (NEP) pipeline (World Bank, AfDB financed)",
+      "FMP Nigeria Energy Transition Plan (ETP) 2022",
+      "Energising Economies Initiative (EEI) / Energising Education Programme (EEP) REA reports",
+      "NBET (Nigerian Bulk Electricity Trader) PPA records"
+    ],
+    "gaps": [
+      "Distribution company (Disco) interconnection queue per 11/33 kV feeder is not public",
+      "Unlicensed behind-the-meter diesel displacement (estimated 14 GW installed) is not separately tracked",
+      "Captive C&I solar (unlicensed <1 MW) installed base is only roughly estimated by industry bodies",
+      "State-level Electricity Markets (post-2023 Electricity Act) are still being stood up and regulatory clarity varies"
+    ],
+    "impact": [
+      "NESI (Nigerian Electricity Supply Industry) grid delivers only ~4-5 GW average despite ~13 GW nameplate — commercial customers pay both tariff AND diesel",
+      "Diesel displacement thesis: C&I solar+storage can arbitrage USD 0.30-0.50/kWh diesel cost vs. USD 0.08-0.14/kWh solar LCOE, creating attractive hybrid economics",
+      "The Electricity Act 2023 devolution to states is restructuring the market — Lagos, Edo, Enugu, Ekiti, Ondo, Kaduna, Oyo have all issued state electricity laws as of 2024-2025"
+    ]
+  },
+  "national_documents": [
+    {
+      "id": "NG_NAT_UTIL_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Electricity Act 2023 repealed and replaced the Electric Power Sector Reform Act (EPSRA) 2005, devolving electricity generation, transmission (within state), and distribution to state governments under concurrent jurisdiction. States can now establish state electricity markets (SEMs) with state regulators (e.g., Lagos Electricity Regulatory Commission, Enugu State Electricity Regulatory Commission). NERC retains oversight of inter-state and trans-border electricity and the national grid. This structural change materially expands the addressable market for distributed and captive generation.",
+      "sources": [
+        {
+          "organization": "National Assembly of Nigeria",
+          "document": "Electricity Act 2023",
+          "url": "https://nerc.gov.ng/index.php/library/industry-statutes",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "NERC",
+          "document": "Industry Statutes — Electricity Act 2023",
+          "url": "https://nerc.gov.ng/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "devolution_year": 2023,
+        "state_sems_as_of_2025": 7
+      }
+    },
+    {
+      "id": "NG_NAT_SUBS_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Nigeria's primary renewable incentives are administered through the Rural Electrification Agency (REA), which runs the Nigeria Electrification Project (NEP) funded by the World Bank (USD 350M) and African Development Bank (USD 200M) providing results-based grants for solar mini-grids and solar home systems. The Solar Naija Programme aims to electrify 5 million households (25 M beneficiaries) through off-grid solar. Fiscal incentives: 5-year tax holiday (Pioneer Status Incentive, PSI) for qualifying renewable projects; VAT exemption on solar equipment reinstated in 2022 Finance Act; 7.5% import duty applies but often waived under investment-promotion agreements. No residential net metering exists at national level.",
+      "sources": [
+        {
+          "organization": "Rural Electrification Agency (REA)",
+          "document": "Nigeria Electrification Project — Programme Overview",
+          "url": "https://nep.rea.gov.ng/",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "Federal Inland Revenue Service (FIRS)",
+          "document": "Pioneer Status Incentive — Qualifying Industries",
+          "url": "https://www.firs.gov.ng/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "nep_world_bank_usd_million": 350,
+        "nep_afdb_usd_million": 200,
+        "solar_naija_target_households_million": 5,
+        "pioneer_status_years": 5,
+        "vat_exempt_equipment": true
+      }
+    },
+    {
+      "id": "NG_NAT_COST_001",
+      "dimension": "cost_economics",
+      "scope": "national",
+      "content": "Nigeria's utility-scale solar CAPEX runs USD 900-1,200/kW (currency depreciation and import logistics raise costs above LatAm benchmarks). C&I rooftop CAPEX is USD 1,000-1,400/kW. The compelling economics come from diesel displacement: commercial users who pay USD 0.30-0.50/kWh for diesel generation achieve 2-4 year simple paybacks on solar+BESS hybrids even at current CAPEX. NERC's April 2024 tariff reform moved Band A customers (20+ hours/day supply) to cost-reflective tariffs near USD 0.13/kWh while maintaining subsidies for Bands B-E; the Band A segment is where rooftop solar arbitrage is now most attractive.",
+      "sources": [
+        {
+          "organization": "NERC",
+          "document": "April 2024 Multi-Year Tariff Order — Band A reform",
+          "url": "https://nerc.gov.ng/index.php/library/publications/tariff-orders",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "REA",
+          "document": "Interconnected Mini-Grid Business Case studies",
+          "url": "https://rea.gov.ng/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "capex_utility_usd_per_kw_low": 900,
+        "capex_utility_usd_per_kw_high": 1200,
+        "diesel_cost_usd_kwh_low": 0.3,
+        "diesel_cost_usd_kwh_high": 0.5,
+        "band_a_tariff_usd_kwh": 0.13
+      }
+    },
+    {
+      "id": "NG_NAT_GRID_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "Nigeria's transmission network has ~13 GW of installed generation capacity but typically dispatches only 4-5 GW due to gas supply constraints, transmission bottlenecks, and accumulated sector debt. NERC's Mini-Grid Regulations (2016, amended 2023) define two mini-grid categories: isolated (up to 1 MW, permit) and interconnected (above 100 kW, license). Mini-grid developers can serve unserved and underserved areas with cost-reflective tariffs approved by NERC. Embedded Generation Regulations (2012) allow generators <20 MW to connect directly to Disco networks without full IPP licensing. The Siemens Presidential Power Initiative targets grid expansion to 25 GW dispatchable by 2025 — progress has lagged.",
+      "sources": [
+        {
+          "organization": "NERC",
+          "document": "Regulations for Mini-Grids 2016 (amended 2023)",
+          "url": "https://nerc.gov.ng/index.php/library/documents/Regulations/Mini-Grid-Regulations",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "Transmission Company of Nigeria (TCN)",
+          "document": "Transmission Grid Expansion Programme — Siemens Initiative updates",
+          "url": "https://www.tcn.org.ng/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "installed_capacity_gw": 13,
+        "typical_dispatch_gw": 4.5,
+        "isolated_minigrid_cap_mw": 1,
+        "embedded_gen_cap_mw": 20
+      }
+    },
+    {
+      "id": "NG_NAT_PUBLIC_001",
+      "dimension": "public_comment",
+      "scope": "national",
+      "content": "Environmental Impact Assessment (EIA) under the National Environmental Standards and Regulations Enforcement Agency (NESREA) Act and the Federal Ministry of Environment EIA Procedural Guidelines is required for projects >10 MW. Smaller projects follow an Environmental Audit Report. State environmental agencies (e.g., Lagos State Environmental Protection Agency) have concurrent jurisdiction for within-state projects. Community engagement is practical-rather-than-mandated but Niger Delta and Middle-Belt projects routinely require CDAs (Community Development Agreements). No federal indigenous-consultation regime akin to ILO 169 applies, but local chieftaincy engagement is critical in the north.",
+      "sources": [
+        {
+          "organization": "Federal Ministry of Environment",
+          "document": "EIA Procedural Guidelines",
+          "url": "https://environment.gov.ng/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "eia_threshold_mw": 10
+      }
+    },
+    {
+      "id": "NG_NAT_UNKNOWN_001",
+      "dimension": "unknown_unknowns",
+      "scope": "national",
+      "content": "Nigeria-specific uncertainties: (1) FX convertibility and Naira volatility (2023-2024 devaluation cut NGN/USD from 460 to ~1,550) materially impacts USD-denominated PPA capture and equipment repricing; (2) Electricity Act 2023 devolution means state regulatory regimes are still forming — developer risk hinges on which state moves first to clear frameworks; (3) DisCo financial insolvency (ATC&C losses >40% at several DisCos) raises counterparty risk for embedded generation and MAP deployments; (4) NNPC gas-to-power contract pricing and availability drives the marginal spot price that solar must outperform; (5) Security concerns in the Northeast (Borno, Yobe, Adamawa) and Middle-Belt banditry corridors affect project insurability.",
+      "sources": [
+        {
+          "organization": "Central Bank of Nigeria",
+          "document": "FX policy reforms — Monetary Policy Committee Communiques",
+          "url": "https://www.cbn.gov.ng/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "ngn_per_usd_2022": 460,
+        "ngn_per_usd_2025_approx": 1550
+      }
+    },
+    {
+      "id": "NIG_NAT_GRID_ACC_HPC_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The Transmission Company of Nigeria (TCN) was incorporated in November 2005.",
+      "sources": [
+        {
+          "organization": "Transmission Company of Nigeria (TCN)",
+          "document": "Transmission Grid Expansion Programme",
+          "url": "https://www.tcn.org.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "NIG_NAT_GRID_ACC_HPC_002",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "TCN emerged from the defunct National Electric Power Authority (NEPA) as a product of the merger of the Transmission and Operations sectors on April 1, 2004.",
+      "sources": [
+        {
+          "organization": "Transmission Company of Nigeria (TCN)",
+          "document": "Transmission Grid Expansion Programme",
+          "url": "https://www.tcn.org.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "NIG_NAT_GRID_ACC_HPC_003",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The Electric Power Sector Reform (EPSR) Act was enacted in 2005.",
+      "sources": [
+        {
+          "organization": "Transmission Company of Nigeria (TCN)",
+          "document": "Transmission Grid Expansion Programme",
+          "url": "https://www.tcn.org.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "NIG_NAT_SUBSIDIE_HPC_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Nigeria Electrification Programme (NEP) has impacted 7.8 million Nigerian lives with clean energy.",
+      "sources": [
+        {
+          "organization": "Rural Electrification Agency (REA)",
+          "document": "Nigeria Electrification Project - Programme Overview",
+          "url": "https://nep.rea.gov.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "NIG_NAT_SUBSIDIE_HPC_002",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Nigeria Electrification Programme (NEP) plans to provide new or improved electricity services to 3,244,900 households.",
+      "sources": [
+        {
+          "organization": "Rural Electrification Agency (REA)",
+          "document": "Nigeria Electrification Project - Programme Overview",
+          "url": "https://nep.rea.gov.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "NIG_NAT_SUBSIDIE_HPC_003",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Nigeria Electrification Programme (NEP) has provided new or improved electricity services to 1,100,000 households.",
+      "sources": [
+        {
+          "organization": "Rural Electrification Agency (REA)",
+          "document": "Nigeria Electrification Project - Programme Overview",
+          "url": "https://nep.rea.gov.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "NIG_NAT_SUBSIDIE_HPC_004",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Nigeria Electrification Programme (NEP) plans to provide new and improved electricity services to 236,986 MSMEs.",
+      "sources": [
+        {
+          "organization": "Rural Electrification Agency (REA)",
+          "document": "Nigeria Electrification Project - Programme Overview",
+          "url": "https://nep.rea.gov.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 4
+        }
+      }
+    },
+    {
+      "id": "NIG_NAT_SUBSIDIE_HPC_005",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Nigeria Electrification Programme (NEP) has provided new and improved electricity services to 11,400 MSMEs.",
+      "sources": [
+        {
+          "organization": "Rural Electrification Agency (REA)",
+          "document": "Nigeria Electrification Project - Programme Overview",
+          "url": "https://nep.rea.gov.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 5
+        }
+      }
+    },
+    {
+      "id": "NIG_NAT_SUBSIDIE_HPC_006",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Nigeria Electrification Programme (NEP) plans to deploy or install 465 MW of renewable energy generation capacity.",
+      "sources": [
+        {
+          "organization": "Rural Electrification Agency (REA)",
+          "document": "Nigeria Electrification Project - Programme Overview",
+          "url": "https://nep.rea.gov.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 6
+        }
+      }
+    },
+    {
+      "id": "NIG_NAT_SUBSIDIE_HPC_007",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Nigeria Electrification Programme (NEP) has deployed or installed 94 MW of PV capacity.",
+      "sources": [
+        {
+          "organization": "Rural Electrification Agency (REA)",
+          "document": "Nigeria Electrification Project - Programme Overview",
+          "url": "https://nep.rea.gov.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 7
+        }
+      }
+    },
+    {
+      "id": "NIG_NAT_UTILITY__HPC_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Nigerian Electricity Regulatory Commission (NERC) was officially nominated and voted as the Chair of the Electricity Sector at the 22nd African Forum for Utility Regulators (AFUR) Annual General Assembly on 26th March 2026.",
+      "sources": [
+        {
+          "organization": "NERC",
+          "document": "Industry Statutes - Electricity Act 2023",
+          "url": "https://nerc.gov.ng/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "name": "Lagos",
+      "iso_code": "NG-LA",
+      "metrics": {
+        "capex_utility_usd_per_kw": 1050,
+        "capex_rooftop_usd_per_kw": 1200,
+        "om_usd_per_kw_year": 18,
+        "lcoe_usd_per_mwh": 85,
+        "retail_tariff_usd_per_kwh": 0.14,
+        "interconnection_months_avg": 7,
+        "grid_congestion": "high",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 4.4,
+        "capacity_factor_pct": 16.5,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": null,
+        "rec_mechanism": false,
+        "installed_distributed_solar_mw": 310
+      },
+      "documents": [
+        {
+          "id": "NG_LA_SUBS_001",
+          "dimension": "subsidies_incentives",
+          "scope": "Lagos",
+          "content": "Lagos passed its Lagos State Electricity Law 2024, establishing LASERC (Lagos State Electricity Regulatory Commission) and a state electricity market under the Electricity Act 2023 framework. The law enables state-level licensing of embedded generators, mini-grids, and off-takers within Lagos. Combined with Band A tariff reform (USD 0.13-0.14/kWh for 20+ hour supply areas including Victoria Island, Ikoyi, Lekki, and industrial zones like Apapa and Ikeja), C&I rooftop PV has some of the fastest paybacks in sub-Saharan Africa (2-3 years for diesel-displacement hybrids).",
+          "sources": [
+            {
+              "organization": "Lagos State Government",
+              "document": "Lagos State Electricity Law 2024",
+              "url": "https://lagosstate.gov.ng/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "state_law_year": 2024,
+            "band_a_tariff_usd_kwh": 0.14,
+            "rooftop_payback_years_min": 2,
+            "rooftop_payback_years_max": 3
+          }
+        },
+        {
+          "id": "NG_LA_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Lagos",
+          "content": "Lagos is served by two DisCos: Eko Electricity Distribution Company (EKEDC) covering Lagos Island, Lekki, Victoria Island, Ibeju-Lekki; and Ikeja Electric (IE) covering Ikeja, Ikorodu, Agege, and mainland industrial belts. Ikeja Electric has the highest grid density and most Band A feeders (~40% of its load). Embedded generation connection under NERC Embedded Gen Reg 2012 (up to 20 MW) takes 6-9 months. Lagos's Eko Atlantic development and the Lekki Free Trade Zone (Dangote Refinery, LADOL) are attracting dedicated solar+gas hybrid captive plants.",
+          "sources": [
+            {
+              "organization": "Ikeja Electric",
+              "document": "Band classification and tariff updates",
+              "url": "https://www.ikejaelectric.com/",
+              "accessed": "2026-04-11"
+            },
+            {
+              "organization": "Eko Electricity Distribution Company",
+              "document": "Service Band Categorization",
+              "url": "https://ekedp.com/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "band_a_feeders_pct_ikeja": 40,
+            "embedded_gen_months_min": 6,
+            "embedded_gen_months_max": 9
+          }
+        }
+      ],
+      "data_completeness_pct": 94.4
+    },
+    {
+      "name": "Kano",
+      "iso_code": "NG-KN",
+      "metrics": {
+        "capex_utility_usd_per_kw": 1000,
+        "capex_rooftop_usd_per_kw": 1150,
+        "om_usd_per_kw_year": 15,
+        "lcoe_usd_per_mwh": 70,
+        "retail_tariff_usd_per_kwh": 0.1,
+        "interconnection_months_avg": 10,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.8,
+        "capacity_factor_pct": 21.0,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": null,
+        "rec_mechanism": false,
+        "installed_distributed_solar_mw": 90
+      },
+      "documents": [
+        {
+          "id": "NG_KN_RES_001",
+          "dimension": "cost_economics",
+          "scope": "Kano",
+          "content": "Kano State has significantly better solar resource than Lagos (GHI ~5.8 kWh/m²/day vs 4.4) and hosts textile, tannery, and agro-processing industrial clusters (Bompai, Sharada). The REA's Interconnected Distributed Generation Framework has piloted Interconnected Mini-Grids (IMG) in Kano via Kano Electricity Distribution Company (KEDCO) to serve unreliable 11 kV feeders. 16 MW of solar has been deployed via REA's Energising Economies Initiative in Kano's Sabon Gari market and similar commercial clusters.",
+          "sources": [
+            {
+              "organization": "Rural Electrification Agency",
+              "document": "Energising Economies Initiative — Kano implementations",
+              "url": "https://rea.gov.ng/eei/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "ghi_kwh_m2_day": 5.8,
+            "capacity_factor_pct": 21.0,
+            "eei_deployed_mw": 16
+          }
+        }
+      ],
+      "data_completeness_pct": 94.4
+    }
+  ]
+}

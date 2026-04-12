@@ -1,0 +1,671 @@
+{
+  "name": "South Africa",
+  "iso_code": "ZA",
+  "currency": "ZAR",
+  "exchange_rate_to_usd": 18.6,
+  "regulator": "NERSA (National Energy Regulator of South Africa)",
+  "grid_operator": "Eskom / NTCSA (National Transmission Company of South Africa)",
+  "last_updated": "2026-04-11",
+  "coverage_summary": {
+    "provinces_in_dataset": 5,
+    "provinces_total": 9,
+    "dimensions_covered": 6,
+    "coverage_note": "Priority: provinces with highest GHI (Northern Cape) + largest industrial/commercial demand (Gauteng, Western Cape, KZN, Mpumalanga).",
+    "hpc_audit": {
+      "national::grid_access": {
+        "scope": "national",
+        "accepted": 6,
+        "rejected": 0,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 1,
+        "synthesis_chars": 413,
+        "issues": []
+      },
+      "national::utility_standards": {
+        "scope": "national",
+        "accepted": 3,
+        "rejected": 4,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 0,
+        "synthesis_chars": 288,
+        "issues": [
+          "at least one sentence has zero consistency support"
+        ]
+      }
+    }
+  },
+  "data_audit": {
+    "collected": [
+      "Integrated Resource Plan (IRP) 2019 / IRP 2023 update draft",
+      "REIPPPP (Renewable Energy Independent Power Producer Procurement Programme) rounds 1-6 results",
+      "Schedule 2 of Electricity Regulation Act (amended 2021, 2022)",
+      "NERSA tariff determinations for Eskom (MYPD methodology)",
+      "IRENA South Africa profile",
+      "National Transmission Company of South Africa (NTCSA) Grid Code",
+      "Carbon Tax Act 2019 and its second phase reforms"
+    ],
+    "gaps": [
+      "Embedded-generation connection queue per Eskom distribution region is not fully transparent",
+      "Municipal-level wheeling tariffs (where legal) vary and are not centralized",
+      "Private PPA pricing between IPPs and commercial offtakers is confidential",
+      "Curtailment logs by IPP are not publicly disaggregated"
+    ],
+    "impact": [
+      "Eskom's transmission congestion in Northern Cape has blocked REIPPPP bid windows 5 & 6 bids from moving to financial close",
+      "2021/2022 licensing exemption threshold raises (from 1 MW → 100 MW → no cap for self-generation) created a private-sector PV boom that is still being quantified",
+      "Loadshedding severity (Stages 2-6) has historically driven captive solar ROI dramatically below 4 years for C&I customers"
+    ]
+  },
+  "national_documents": [
+    {
+      "id": "ZA_NAT_SUBS_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "South Africa's Schedule 2 of the Electricity Regulation Act was amended in 2021 (threshold raised from 1 MW to 100 MW) and again in 2022 (threshold removed entirely) for self-generation without a NERSA license, though registration is still required above 100 kW. This triggered a private-sector rooftop and captive solar boom. The 2023 Budget Speech introduced a rooftop solar tax rebate (25% of panel cost, capped at R15,000) for individuals and 125% depreciation for businesses on renewable assets through 2025.",
+      "sources": [
+        {
+          "organization": "Government of South Africa",
+          "document": "Electricity Regulation Act Schedule 2 Amendments (GN 44978 and subsequent)",
+          "url": "https://www.gov.za/documents",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "National Treasury",
+          "document": "2023 Budget Review — Renewable Energy Tax Incentives",
+          "url": "https://www.treasury.gov.za/documents/national%20budget/2023/review/default.aspx",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "license_exemption_cap_removed_year": 2022,
+        "business_depreciation_pct": 125,
+        "individual_rebate_cap_zar": 15000
+      }
+    },
+    {
+      "id": "ZA_NAT_COST_001",
+      "dimension": "cost_economics",
+      "scope": "national",
+      "content": "South Africa's utility-scale solar CAPEX has fallen from ZAR 40M/MW (R40,000/kW) in REIPPPP Window 1 (2011) to approximately ZAR 12-15M/MW in Windows 5-6 (2021-2022), equivalent to USD 650-800/kW at current exchange rates per IPP Office data. Distributed/C&I rooftop CAPEX is typically USD 800-1,100/kW depending on roof complexity and battery integration. Eskom's NERSA-approved retail tariffs average USD 0.09-0.14/kWh across Megaflex/Homeflex classes; loadshedding has driven unprecedented demand for behind-the-meter solar.",
+      "sources": [
+        {
+          "organization": "IPP Office (DMRE)",
+          "document": "REIPPPP Bid Window Results Summary",
+          "url": "https://www.ipp-projects.co.za/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "NERSA",
+          "document": "MYPD5 Tariff Determination 2022",
+          "url": "https://www.nersa.org.za/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "reippp_w5_capex_usd_per_kw_low": 650,
+        "reippp_w5_capex_usd_per_kw_high": 800
+      }
+    },
+    {
+      "id": "ZA_NAT_GRID_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "Eskom historically operated as vertically integrated state utility. The Electricity Regulation Amendment Act (2024) legally separates transmission into the National Transmission Company of South Africa (NTCSA). Transmission congestion in the Northern Cape — which has the country's best solar resource — has prevented REIPPPP Bid Windows 5 and 6 solar awards from reaching financial close; NTCSA published a Transmission Development Plan 2023-2032 committing to 14,000 km of new transmission lines to unlock renewables capacity. Embedded generation connection timelines range 4-12 months depending on municipality and Eskom region.",
+      "sources": [
+        {
+          "organization": "NTCSA / Eskom",
+          "document": "Transmission Development Plan 2023-2032",
+          "url": "https://www.eskom.co.za/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "DMRE",
+          "document": "REIPPPP Bid Window 5 & 6 Progress Updates",
+          "url": "https://www.ipp-projects.co.za/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "transmission_plan_km": 14000,
+        "embedded_gen_months_min": 4,
+        "embedded_gen_months_max": 12
+      }
+    },
+    {
+      "id": "ZA_NAT_UTIL_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Integrated Resource Plan (IRP) 2019 (currently being updated — IRP 2023 draft released for comment) is the national electricity capacity plan. REIPPPP is the primary procurement mechanism, running in competitive bid windows. IRP 2019 targets 8,288 MW of solar PV by 2030. South Africa participates in the I-REC Standard for voluntary RECs. The country has no federally mandated RPS; instead, capacity is procured through REIPPPP auctions, ministerial determinations, and the new emergency procurement programmes (RMIPPPP, RMI).",
+      "sources": [
+        {
+          "organization": "DMRE",
+          "document": "Integrated Resource Plan 2019 (IRP 2019)",
+          "url": "https://www.energy.gov.za/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "I-REC Standard",
+          "document": "South Africa issuance body",
+          "url": "https://www.irecstandard.org/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "irp_solar_target_mw_2030": 8288
+      }
+    },
+    {
+      "id": "ZA_NAT_PUBLIC_001",
+      "dimension": "public_comment",
+      "scope": "national",
+      "content": "Environmental authorization under the National Environmental Management Act (NEMA) is required for solar projects above certain thresholds. Basic Assessment Reports (BARs) are required for 10-20 MW installations; full Environmental Impact Assessments (EIAs) for >20 MW. Public participation is mandated. Specific concerns in the Northern Cape include heritage sites (San rock art), biodiversity (nama-karoo vegetation), and conflicts with astronomy observatories (SKA radio interference zones). Agrarian land-reform dynamics also influence site selection.",
+      "sources": [
+        {
+          "organization": "DFFE (Department of Forestry, Fisheries and the Environment)",
+          "document": "NEMA EIA Regulations 2014 (as amended)",
+          "url": "https://www.dffe.gov.za/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "eia_threshold_mw": 20
+      }
+    },
+    {
+      "id": "ZA_NAT_UNKNOWN_001",
+      "dimension": "unknown_unknowns",
+      "scope": "national",
+      "content": "South Africa-specific uncertainties: (1) Eskom debt restructuring (ZAR 254B transfer to National Treasury 2023) affects tariff pathway; (2) NTCSA operationalization is new (2024) — unbundling dispatch dynamics still maturing; (3) 2024 GNU (Government of National Unity) coalition politics could shift energy policy direction; (4) Carbon tax phase 2 (post-2025) could raise coal generation costs and indirectly improve solar competitiveness; (5) Just Energy Transition Partnership (JETP-SA) USD 8.5B deployment lags commitments, creating project finance uncertainty.",
+      "sources": [
+        {
+          "organization": "National Treasury",
+          "document": "Eskom Debt Relief Arrangement (2023)",
+          "url": "https://www.treasury.gov.za/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "JETP South Africa Secretariat",
+          "document": "JET Investment Plan Implementation Report",
+          "url": "https://www.thepresidency.gov.za/jet-ip",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "jetp_commitment_usd_billion": 8.5,
+        "eskom_debt_relief_zar_billion": 254
+      }
+    },
+    {
+      "id": "ZA_NAT_GRID_ACC_HPC_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The IPP Office is a programme of the Department of Electricity and Energy (DEE) in South Africa.",
+      "sources": [
+        {
+          "organization": "IPP Office (DMRE)",
+          "document": "IPP Procurement Programme portal",
+          "url": "https://www.ipp-projects.co.za/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "ZA_NAT_GRID_ACC_HPC_002",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The IPP Office is located at Bylsbridge Office Park, Building 9 Cnr Olievenhoutbosch Str. & Jean Ave, Centurion, Pretoria, South Africa.",
+      "sources": [
+        {
+          "organization": "IPP Office (DMRE)",
+          "document": "IPP Procurement Programme portal",
+          "url": "https://www.ipp-projects.co.za/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "ZA_NAT_GRID_ACC_HPC_003",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The IPP Office can be contacted at Tel: +27 87 351 3000 and Email: info@ipp-projects.com.",
+      "sources": [
+        {
+          "organization": "IPP Office (DMRE)",
+          "document": "IPP Procurement Programme portal",
+          "url": "https://www.ipp-projects.co.za/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "ZA_NAT_GRID_ACC_HPC_004",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The IRP 2025 is an electricity infrastructure development plan for South Africa.",
+      "sources": [
+        {
+          "organization": "IPP Office (DMRE)",
+          "document": "IPP Procurement Programme portal",
+          "url": "https://www.ipp-projects.co.za/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 4
+        }
+      }
+    },
+    {
+      "id": "ZA_NAT_GRID_ACC_HPC_005",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The National Energy Regulator of South Africa (NERSA) regulates the electricity, piped-gas and petroleum pipelines industries at the national level in South Africa.",
+      "sources": [
+        {
+          "organization": "NERSA",
+          "document": "NERSA - grid access and licensing",
+          "url": "https://www.nersa.org.za/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 5
+        }
+      }
+    },
+    {
+      "id": "ZA_NAT_GRID_ACC_HPC_006",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "NERSA has 9 members, consisting of 5 part-time and 4 full-time members, including the Chief Executive Office (CEO), to regulate the energy sector at the national level in South Africa.",
+      "sources": [
+        {
+          "organization": "NERSA",
+          "document": "NERSA - grid access and licensing",
+          "url": "https://www.nersa.org.za/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 6
+        }
+      }
+    },
+    {
+      "id": "ZA_NAT_UTILITY__HPC_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The National Energy Regulator of South Africa (NERSA) was established in terms of Section 3 of the National Energy Regulator Act, 2004 (Act No. 40 of 2004).",
+      "sources": [
+        {
+          "organization": "NERSA",
+          "document": "NERSA official portal (standards)",
+          "url": "https://www.nersa.org.za/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "ZA_NAT_UTILITY__HPC_002",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "NERSA regulates the electricity, piped-gas and petroleum pipelines industries in terms of the Electricity Regulation Act, 2006 (Act No. 4 of 2006), Gas Act, 2001 (Act No. 48 of 2001) and Petroleum Pipelines Act, 2003 (Act No. 60 of 2003).",
+      "sources": [
+        {
+          "organization": "NERSA",
+          "document": "NERSA official portal (standards)",
+          "url": "https://www.nersa.org.za/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "ZA_NAT_UTILITY__HPC_003",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The access to electricity in South Africa was at a lower percentage in 1994.",
+      "sources": [
+        {
+          "organization": "DMRE",
+          "document": "DMRE Electricity policy",
+          "url": "https://www.dmre.gov.za/energy-resources/energy-sources/electricity",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "name": "Northern Cape",
+      "iso_code": "ZA-NC",
+      "metrics": {
+        "capex_utility_usd_per_kw": 720,
+        "capex_rooftop_usd_per_kw": 900,
+        "om_usd_per_kw_year": 11,
+        "lcoe_usd_per_mwh": 42,
+        "retail_tariff_usd_per_kwh": 0.11,
+        "interconnection_months_avg": 18,
+        "grid_congestion": "high",
+        "curtailment_risk": "high",
+        "ghi_kwh_m2_day": 6.3,
+        "capacity_factor_pct": 23.5,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 2400
+      },
+      "documents": [
+        {
+          "id": "ZA_NC_RES_001",
+          "dimension": "cost_economics",
+          "scope": "Northern Cape",
+          "content": "Northern Cape has among the highest solar irradiance in the world at 6.2-6.4 kWh/m²/day, supporting capacity factors above 23%. Utility-scale CAPEX in REIPPPP Windows 5-6 from this region reached USD 650-720/kW. LCOE at auction clearing prices (~ZAR 0.45-0.55/kWh) is globally competitive. The province hosts over 2 GW of operating solar PV from REIPPPP Windows 1-4.",
+          "sources": [
+            {
+              "organization": "IPP Office",
+              "document": "REIPPPP Operational Projects Overview",
+              "url": "https://www.ipp-projects.co.za/ProjectDatabase",
+              "accessed": "2026-04-10"
+            },
+            {
+              "organization": "World Bank Global Solar Atlas",
+              "document": "South Africa GHI",
+              "url": "https://globalsolaratlas.info/map?c=-29.5,22.5,7&r=ZAF",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "ghi_kwh_m2_day": 6.3,
+            "capacity_factor_pct": 23.5
+          }
+        },
+        {
+          "id": "ZA_NC_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Northern Cape",
+          "content": "Northern Cape transmission network is severely constrained. REIPPPP Bid Window 5 awarded 1,608 MW of solar capacity in 2021 but most projects could not reach financial close due to lack of available transmission capacity on existing lines to load centers. NTCSA's priority transmission corridors for the Northern Cape include Mercury-Aries-Aggeneys-Gromis to unlock 7.8 GW of queued renewables.",
+          "sources": [
+            {
+              "organization": "NTCSA",
+              "document": "Transmission Development Plan 2023-2032 — Northern Cape corridors",
+              "url": "https://www.eskom.co.za/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "reippp_w5_awarded_mw": 1608,
+            "queued_capacity_gw": 7.8
+          }
+        }
+      ]
+    },
+    {
+      "name": "Western Cape",
+      "iso_code": "ZA-WC",
+      "metrics": {
+        "capex_utility_usd_per_kw": 780,
+        "capex_rooftop_usd_per_kw": 950,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 55,
+        "retail_tariff_usd_per_kwh": 0.13,
+        "interconnection_months_avg": 8,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 5.4,
+        "capacity_factor_pct": 20.5,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 520
+      },
+      "documents": [
+        {
+          "id": "ZA_WC_SUBS_001",
+          "dimension": "subsidies_incentives",
+          "scope": "Western Cape",
+          "content": "The City of Cape Town was the first South African municipality to introduce a cash-for-power feed-in arrangement for small-scale embedded generators (SSEG), paying residential and commercial customers for exported electricity starting 2023. The city's net-billing approach creates stronger rooftop solar economics than elsewhere in South Africa and makes Cape Town a leading market for distributed solar penetration.",
+          "sources": [
+            {
+              "organization": "City of Cape Town",
+              "document": "Cash for Power programme",
+              "url": "https://www.capetown.gov.za/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "cash_for_power_active": true,
+            "year_launched": 2023
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gauteng",
+      "iso_code": "ZA-GT",
+      "metrics": {
+        "capex_utility_usd_per_kw": null,
+        "capex_rooftop_usd_per_kw": 900,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 58,
+        "retail_tariff_usd_per_kwh": 0.14,
+        "interconnection_months_avg": 6,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.6,
+        "capacity_factor_pct": 20.2,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 380
+      },
+      "documents": [
+        {
+          "id": "ZA_GP_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Gauteng",
+          "content": "Gauteng is South Africa's largest electricity demand center (Johannesburg-Pretoria industrial corridor). Commercial/industrial tariffs reach USD 0.14/kWh, the highest in the country; loadshedding has driven captive-solar paybacks below 4 years for C&I customers. Rooftop CAPEX averages USD 850-950/kW for commercial installations; municipalities (Johannesburg, Tshwane, Ekurhuleni) have varying SSEG registration regimes.",
+          "sources": [
+            {
+              "organization": "NERSA",
+              "document": "Gauteng Municipal Tariff Determinations 2024",
+              "url": "https://www.nersa.org.za/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "commercial_tariff_usd_per_kwh": 0.14
+          }
+        }
+      ]
+    },
+    {
+      "name": "KwaZulu-Natal",
+      "iso_code": "ZA-KZN",
+      "metrics": {
+        "capex_utility_usd_per_kw": 820,
+        "capex_rooftop_usd_per_kw": 980,
+        "om_usd_per_kw_year": 13,
+        "lcoe_usd_per_mwh": 62,
+        "retail_tariff_usd_per_kwh": 0.11,
+        "interconnection_months_avg": 7,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.1,
+        "capacity_factor_pct": 18.5,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 190
+      },
+      "documents": [
+        {
+          "id": "ZA_KZN_GRID_001",
+          "dimension": "grid_access",
+          "scope": "KwaZulu-Natal",
+          "content": "KwaZulu-Natal is home to Durban's industrial port and Richards Bay Minerals corridor. Grid constraints are less severe than in the Northern Cape, and the province's hydropower legacy and mixed-generation profile reduce curtailment risk for new solar. Interconnection for distributed solar via Eskom distribution or eThekwini Municipality typically takes 5-9 months.",
+          "sources": [
+            {
+              "organization": "Eskom",
+              "document": "Eskom Distribution KZN Region Connection Guidelines",
+              "url": "https://www.eskom.co.za/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "interconnection_months_typical": 7
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mpumalanga",
+      "iso_code": "ZA-MP",
+      "metrics": {
+        "capex_utility_usd_per_kw": 800,
+        "capex_rooftop_usd_per_kw": 950,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 58,
+        "retail_tariff_usd_per_kwh": 0.1,
+        "interconnection_months_avg": 10,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 5.5,
+        "capacity_factor_pct": 20.0,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 220
+      },
+      "documents": [
+        {
+          "id": "ZA_MP_UNK_001",
+          "dimension": "unknown_unknowns",
+          "scope": "Mpumalanga",
+          "content": "Mpumalanga hosts 12 of Eskom's 15 coal-fired power stations and is the epicenter of South Africa's Just Energy Transition. JETP Investment Plan targets Mpumalanga for repurposing of retiring coal assets into solar + battery + green hydrogen hubs. Grid infrastructure from decommissioning coal sites (e.g., Komati station repowering) creates uniquely available transmission capacity for new solar development.",
+          "sources": [
+            {
+              "organization": "JETP-SA Secretariat",
+              "document": "JET Investment Plan — Mpumalanga Priority Interventions",
+              "url": "https://www.thepresidency.gov.za/jet-ip",
+              "accessed": "2026-04-10"
+            },
+            {
+              "organization": "Eskom",
+              "document": "Komati Coal-to-Clean Repowering Pilot",
+              "url": "https://www.eskom.co.za/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "coal_stations_in_province": 12
+          }
+        }
+      ]
+    }
+  ]
+}

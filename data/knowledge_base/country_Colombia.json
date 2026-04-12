@@ -1,0 +1,411 @@
+{
+  "name": "Colombia",
+  "iso_code": "CO",
+  "currency": "COP",
+  "exchange_rate_to_usd": 4100.0,
+  "regulator": "CREG (Comisión de Regulación de Energía y Gas) / UPME (Unidad de Planeación Minero-Energética)",
+  "grid_operator": "XM S.A. (CND — Centro Nacional de Despacho)",
+  "last_updated": "2026-04-12",
+  "coverage_summary": {
+    "departments_in_dataset": 2,
+    "departments_total": 32,
+    "dimensions_covered": 6,
+    "coverage_note": "Priority: La Guajira (highest GHI + host of Colombia's largest utility PV cluster) and Atlántico (Caribbean coast industrial demand + rooftop C&I).",
+    "hpc_audit": {
+      "national::utility_standards": {
+        "scope": "national",
+        "accepted": 4,
+        "rejected": 0,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 1,
+        "synthesis_chars": 396,
+        "issues": []
+      }
+    }
+  },
+  "data_audit": {
+    "collected": [
+      "Ley 1715 de 2014 (Integración de fuentes no convencionales al Sistema Energético Nacional)",
+      "Ley 2099 de 2021 (Transición Energética — expands FNCER incentives)",
+      "Resolución CREG 030 de 2018 (Autogeneración a pequeña y gran escala, y generación distribuida)",
+      "Resolución CREG 174 de 2021 (Mecanismo de subastas de largo plazo)",
+      "Decreto 2143 de 2015 (Reglamentario de Ley 1715 — beneficios tributarios)",
+      "UPME Plan de Expansión de Referencia Generación-Transmisión 2022-2036",
+      "PND 2022-2026 — Colombia Potencia Mundial de la Vida"
+    ],
+    "gaps": [
+      "La Guajira interconnection queue is opaque; Colectora 1/Colectora 2 transmission projects have been delayed by prior-consultation processes",
+      "CREG 030 2018 self-generation metering reform has inconsistent municipal-level implementation",
+      "C&I rooftop adoption outside Bogotá/Medellín/Barranquilla is not tracked in any consolidated database",
+      "Prior consultation (consulta previa) timelines with Wayúu and other indigenous communities are not standardized"
+    ],
+    "impact": [
+      "La Guajira transmission delays (Colectora 500 kV) have stranded ~2 GW of auctioned utility-scale solar, impacting 2019 and 2021 auction winners (Enel, EDP, Celsia)",
+      "Ley 2099 extended Ley 1715 tax incentives (50% income tax deduction over 15 years, accelerated depreciation, VAT exemption on equipment, import-duty exemption) — creates a strong fiscal tailwind for C&I self-generation",
+      "2023 El Niño caused hydro generation stress and raised spot prices, improving solar capture prices above the previous 5-year average"
+    ]
+  },
+  "national_documents": [
+    {
+      "id": "CO_NAT_SUBS_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Colombia's core renewables law is Ley 1715 de 2014, significantly expanded by Ley 2099 de 2021 (Transición Energética). Fiscal incentives for FNCER (Fuentes No Convencionales de Energía Renovable) include: (a) a 50% income-tax deduction of the project cost distributed over 15 years; (b) accelerated depreciation up to 20% per year; (c) VAT exemption on qualifying equipment; (d) import-duty exemption (0% arancel) for renewable-energy equipment. Small-scale self-generation (Autogeneración a Pequeña Escala, APE <=0.1 MW) is entitled to a net-billing-like credit under CREG Resolución 030/2018 where surplus energy is compensated at the hourly spot price minus distribution and commercialization charges.",
+      "sources": [
+        {
+          "organization": "Congreso de la República de Colombia",
+          "document": "Ley 2099 de 2021 (Transición Energética)",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=164997",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "CREG",
+          "document": "Resolución CREG 030 de 2018 — Autogeneración y Generación Distribuida",
+          "url": "https://www.creg.gov.co/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "income_tax_deduction_pct": 50,
+        "income_tax_deduction_years": 15,
+        "accelerated_depreciation_pct": 20,
+        "ape_cap_mw": 0.1,
+        "import_duty_exempt": true,
+        "vat_exempt": true
+      }
+    },
+    {
+      "id": "CO_NAT_COST_001",
+      "dimension": "cost_economics",
+      "scope": "national",
+      "content": "Colombia's utility-scale solar CAPEX sits at USD 750-900/kW (higher than Chile due to smaller market and longer logistics from Caribbean ports). Rooftop C&I CAPEX is USD 950-1,200/kW. UPME long-term contracting auctions (Subastas CLPE) cleared 2019 round at USD 28.10/MWh and 2021 round at USD 32.10/MWh — some of the lowest in LatAm. XM spot market prices averaged USD 90-180/MWh during the 2023 El Niño event and USD 40-70/MWh during normal hydrology, creating significant capture-price volatility for merchant solar.",
+      "sources": [
+        {
+          "organization": "UPME",
+          "document": "Resultados Subasta Pública CLPE 03-2021",
+          "url": "https://www1.upme.gov.co/PromocionSector/SeccionesInteres/Paginas/Subastas.aspx",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "XM S.A.",
+          "document": "Reportes del Mercado Eléctrico — Bolsa de Energía",
+          "url": "https://www.xm.com.co/consumo",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "capex_utility_usd_per_kw_low": 750,
+        "capex_utility_usd_per_kw_high": 900,
+        "auction_2021_price_usd_mwh": 32.1,
+        "auction_2019_price_usd_mwh": 28.1
+      }
+    },
+    {
+      "id": "CO_NAT_GRID_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The Sistema Interconectado Nacional (SIN) is operated by XM S.A. (subsidiary of ISA). UPME runs a transmission-expansion process and procures new lines through public tender. La Guajira (northeast) is Colombia's highest-GHI region but transmission evacuation via the Colectora 1 and Colectora 2 500 kV projects has been delayed multiple years due to consulta previa processes with Wayúu indigenous communities. As a result, approximately 2 GW of auctioned solar and wind capacity has not reached commercial operation. Colectora 1 is now targeted for late-2025 energization. Distributed-generation connection under CREG 030/2018 is administered by the local distribution utility (Afinia, Air-e, Enel Colombia, EPM, Celsia) with typical timelines of 4-9 months for <1 MW.",
+      "sources": [
+        {
+          "organization": "UPME",
+          "document": "Plan de Expansión de Referencia 2022-2036",
+          "url": "https://www1.upme.gov.co/Energia_electrica/Paginas/Plan-Expansion-Referencia-Generacion-Transmision.aspx",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "XM S.A.",
+          "document": "Informe Anual del Operador del Sistema",
+          "url": "https://www.xm.com.co/informes-anuales",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "stranded_capacity_gw_la_guajira": 2.0,
+        "colectora_1_target_year": 2025,
+        "dg_interconnection_months_min": 4,
+        "dg_interconnection_months_max": 9
+      }
+    },
+    {
+      "id": "CO_NAT_UTIL_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Colombia does not have a mandatory RPS but procures renewable capacity through UPME-run long-term auctions (Subastas CLPE) that bundle 15-year PPAs. The Plan Nacional de Desarrollo 2022-2026 sets a target of adding 6 GW of renewables by 2026 as part of the Transición Energética Justa. I-REC Standard is active for voluntary corporate sourcing. The Financial Closing Agreement (CFC) structure used in UPME auctions and bilateral commercialization makes Colombia one of the few LatAm markets where bankable corporate PPAs denominated in USD are relatively common.",
+      "sources": [
+        {
+          "organization": "Ministerio de Minas y Energía",
+          "document": "Plan Nacional de Desarrollo 2022-2026 — capítulo energético",
+          "url": "https://www.minenergia.gov.co/",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "UPME",
+          "document": "Subastas de Contratación de Largo Plazo — marco regulatorio",
+          "url": "https://www1.upme.gov.co/PromocionSector/SeccionesInteres/Paginas/Subastas.aspx",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "pnd_renewable_target_gw_2026": 6,
+        "rec_mechanism": true
+      }
+    },
+    {
+      "id": "CO_NAT_PUBLIC_001",
+      "dimension": "public_comment",
+      "scope": "national",
+      "content": "Environmental licensing is administered by ANLA (Autoridad Nacional de Licencias Ambientales). Solar projects >=100 MW or projects in protected / ethnic-community territory require full environmental licensing; smaller projects follow a DAA (Diagnóstico Ambiental de Alternativas) + PMA (Plan de Manejo Ambiental). Prior consultation (consulta previa) with indigenous and Afro-descendant communities is mandatory under Constitutional Court jurisprudence (Sentencia SU-039/97 and subsequent), most relevant in La Guajira (Wayúu), Cauca (Nasa, Misak), Chocó (Afrodescendants), and the Amazon frontier.",
+      "sources": [
+        {
+          "organization": "ANLA",
+          "document": "Licenciamiento ambiental — guías",
+          "url": "https://www.anla.gov.co/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "licensing_threshold_mw": 100,
+        "consulta_previa_required_regions": 4
+      }
+    },
+    {
+      "id": "CO_NAT_UNKNOWN_001",
+      "dimension": "unknown_unknowns",
+      "scope": "national",
+      "content": "Colombia-specific uncertainties: (1) Petro administration (2022-2026) has signaled a faster phase-out of hydrocarbon exploration; this could create electricity-sector knock-ons if gas-fired backup becomes scarce before renewables + storage replace it; (2) El Niño cycle severity (2023-2024) highlighted hydro dependence (~65% of energy mix) — the case for solar+storage hedging is now a sector-level policy topic; (3) Reforma Pensional / Reforma Tributaria 2023 did not materially alter Ley 1715/2099 benefits but tax interpretation (especially the 50% deduction distribution) continues to evolve in DIAN rulings; (4) Grid-expansion tenders in La Guajira are hostage to continuing consulta previa litigation.",
+      "sources": [
+        {
+          "organization": "DNP (Departamento Nacional de Planeación)",
+          "document": "Documentos CONPES — Transición Energética Justa",
+          "url": "https://www.dnp.gov.co/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-11",
+      "data_points": {}
+    },
+    {
+      "id": "COL_NAT_UTILITY__HPC_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Ministerio de Minas y Energía has a phone number (+57 1) 2200 300 and is available from Monday to Friday from 7:00 a.m. to 5:00 p.m.",
+      "sources": [
+        {
+          "organization": "Ministerio de Minas y Energia",
+          "document": "Plan Nacional de Desarrollo 2022-2026 - capitulo energetico",
+          "url": "https://www.minenergia.gov.co/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "COL_NAT_UTILITY__HPC_002",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Ministerio de Minas y Energía has a sede principal at Calle 43 No. 57 - 31 CAN - Bogotá D.C., Colombia with a Código Postal: 111321 and is open from Lunes a Viernes 7:00 AM - 4:00 PM",
+      "sources": [
+        {
+          "organization": "Ministerio de Minas y Energia",
+          "document": "Plan Nacional de Desarrollo 2022-2026 - capitulo energetico",
+          "url": "https://www.minenergia.gov.co/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "COL_NAT_UTILITY__HPC_003",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Ministerio de Minas y Energía has a línea gratuita 01-8000-910-180",
+      "sources": [
+        {
+          "organization": "Ministerio de Minas y Energia",
+          "document": "Plan Nacional de Desarrollo 2022-2026 - capitulo energetico",
+          "url": "https://www.minenergia.gov.co/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "COL_NAT_UTILITY__HPC_004",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Comisión de Regulación de Energía y Gas - CREG is the entity in charge of regulating the public services of energy, gas, and fuel in a technical, independent, and transparent manner",
+      "sources": [
+        {
+          "organization": "Ministerio de Minas y Energia",
+          "document": "Plan Nacional de Desarrollo 2022-2026 - capitulo energetico",
+          "url": "https://www.minenergia.gov.co/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 4
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "name": "La Guajira",
+      "iso_code": "CO-LAG",
+      "metrics": {
+        "capex_utility_usd_per_kw": 780,
+        "capex_rooftop_usd_per_kw": 1050,
+        "om_usd_per_kw_year": 13,
+        "lcoe_usd_per_mwh": 45,
+        "retail_tariff_usd_per_kwh": 0.16,
+        "interconnection_months_avg": 24,
+        "grid_congestion": "high",
+        "curtailment_risk": "high",
+        "ghi_kwh_m2_day": 6.1,
+        "capacity_factor_pct": 23.5,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 120
+      },
+      "documents": [
+        {
+          "id": "CO_LAG_RES_001",
+          "dimension": "cost_economics",
+          "scope": "La Guajira",
+          "content": "La Guajira holds Colombia's best combined solar + wind resource: GHI of 6.0-6.3 kWh/m²/day and coastal wind above 10 m/s. Auction winners from Subastas CLPE 2019 and 2021 concentrated capacity in La Guajira — but most have been delayed by Colectora 1 transmission construction. Operating utility-scale projects (El Paso, La Loma, Escandalosa Solar) report unlevered equity IRR in the 10-12% range at auction prices once grid access is secured.",
+          "sources": [
+            {
+              "organization": "World Bank Global Solar Atlas",
+              "document": "Colombia — La Guajira GHI",
+              "url": "https://globalsolaratlas.info/map?c=11.5,-72.5,7&r=COL",
+              "accessed": "2026-04-11"
+            },
+            {
+              "organization": "UPME",
+              "document": "Seguimiento proyectos Subasta CLPE 2021",
+              "url": "https://www1.upme.gov.co/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "ghi_kwh_m2_day": 6.1,
+            "capacity_factor_pct": 23.5
+          }
+        },
+        {
+          "id": "CO_LAG_GRID_001",
+          "dimension": "grid_access",
+          "scope": "La Guajira",
+          "content": "La Guajira evacuation depends on the Colectora 1 (500 kV, ~500 km, ISA) and Colectora 2 (Grupo Energía Bogotá) transmission projects. Both have been delayed by consulta previa processes with Wayúu indigenous communities. Colectora 1 construction resumed in 2023 after revised prior-consultation protocol; commercial operation targeted late 2025. Until energization, operational solar and wind assets in La Guajira face material curtailment and deferred revenue.",
+          "sources": [
+            {
+              "organization": "ISA",
+              "document": "Proyecto Colectora 1 — avance de construcción",
+              "url": "https://www.isa.co/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "colectora_1_kv": 500,
+            "colectora_1_target_year": 2025
+          }
+        }
+      ],
+      "data_completeness_pct": 94.4
+    },
+    {
+      "name": "Atlantico",
+      "iso_code": "CO-ATL",
+      "metrics": {
+        "capex_utility_usd_per_kw": 820,
+        "capex_rooftop_usd_per_kw": 1000,
+        "om_usd_per_kw_year": 13,
+        "lcoe_usd_per_mwh": 52,
+        "retail_tariff_usd_per_kwh": 0.19,
+        "interconnection_months_avg": 6,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 5.6,
+        "capacity_factor_pct": 20.5,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": null,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 180
+      },
+      "documents": [
+        {
+          "id": "CO_ATL_SUBS_001",
+          "dimension": "subsidies_incentives",
+          "scope": "Atlantico",
+          "content": "Atlántico (Barranquilla metro) is one of Colombia's most active C&I rooftop solar markets. Industrial tariffs above USD 0.18/kWh under Air-e (formerly Electricaribe) give rooftop PV a 3-5 year simple payback at USD 1,000/kW CAPEX. Ley 1715 / 2099 incentives (50% income-tax deduction, accelerated depreciation, VAT + import-duty exemption) are available and widely used by C&I offtakers. Barranquilla's Puerto industrial zone and free-trade zones (Zona Franca) host prominent rooftop installations (Procaps, Tecnoglass, etc.).",
+          "sources": [
+            {
+              "organization": "Air-e",
+              "document": "Tarifas reguladas CREG — Atlántico 2024",
+              "url": "https://aire.com.co/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "industrial_tariff_usd_per_kwh": 0.19,
+            "typical_rooftop_payback_years_min": 3,
+            "typical_rooftop_payback_years_max": 5
+          }
+        }
+      ],
+      "data_completeness_pct": 94.4
+    }
+  ]
+}

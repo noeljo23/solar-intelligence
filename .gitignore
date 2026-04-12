@@ -1,0 +1,40 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Build artifacts
+dist/
+build/
+
+# Local vector store
+.chroma/
+chroma_db/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+.turbo/
+next-env.d.ts
+*.tsbuildinfo
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,1203 @@
+{
+  "name": "Indonesia",
+  "iso_code": "ID",
+  "currency": "IDR",
+  "exchange_rate_to_usd": 16250.0,
+  "regulator": "MEMR / ESDM (Ministry of Energy and Mineral Resources)",
+  "grid_operator": "PLN (Perusahaan Listrik Negara)",
+  "last_updated": "2026-04-11",
+  "coverage_summary": {
+    "provinces_in_dataset": 5,
+    "provinces_total": 38,
+    "dimensions_covered": 6,
+    "coverage_note": "Priority: provinces on Java-Bali grid with highest industrial electricity demand + Sulawesi/Sumatra islands with highest GHI. Remaining 33 provinces planned after initial analysis.",
+    "hpc_audit": {
+      "national::grid_access": {
+        "scope": "national",
+        "accepted": 8,
+        "rejected": 2,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 2,
+        "synthesis_chars": 452,
+        "issues": []
+      },
+      "national::subsidies_incentives": {
+        "scope": "national",
+        "accepted": 6,
+        "rejected": 1,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 0,
+        "synthesis_chars": 517,
+        "issues": [
+          "at least one sentence has zero consistency support"
+        ]
+      },
+      "national::utility_standards": {
+        "scope": "national",
+        "accepted": 16,
+        "rejected": 6,
+        "corroborated_count": 0,
+        "unsupported_sentences": 0,
+        "consistency_min": 2,
+        "synthesis_chars": 340,
+        "issues": []
+      }
+    }
+  },
+  "data_audit": {
+    "collected": [
+      "MEMR Regulation No. 2/2024 on rooftop solar (rooftop PV)",
+      "Presidential Regulation PERPRES 112/2022 on renewable energy tariffs",
+      "Rencana Usaha Penyediaan Tenaga Listrik (RUPTL) 2021-2030 PLN business plan",
+      "Just Energy Transition Partnership (JETP) Comprehensive Investment and Policy Plan (CIPP)",
+      "IRENA Renewable Energy Statistics 2024 — Indonesia profile",
+      "IEA Indonesia Energy Outlook 2022",
+      "World Bank Global Solar Atlas data per province"
+    ],
+    "gaps": [
+      "PLN province-level interconnection queue not publicly published; requires direct request",
+      "Industrial PPA prices are confidential between IPPs and PLN (Kontrak Jual Beli Tenaga Listrik)",
+      "Local content requirement (TKDN) enforcement varies by project and is not transparently tracked",
+      "Regional auction results in specific PLN subsystems (e.g., Sulbagsel) not consolidated publicly"
+    ],
+    "impact": [
+      "MEMR 2/2024 removed net metering and replaced with capacity-based export caps — historical rooftop payback analyses are now obsolete",
+      "JETP funding deployment lags published commitments; project-finance certainty depends on bilateral negotiations",
+      "TKDN (Tingkat Komponen Dalam Negeri) local content rule adds 15-25% to module CAPEX vs imported",
+      "PLN single-buyer structure means grid access decisions are centralized and slow"
+    ]
+  },
+  "national_documents": [
+    {
+      "id": "ID_NAT_SUBS_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "MEMR Regulation No. 2/2024 replaced the prior net-metering framework (MEMR 26/2021). Under the new rule, rooftop solar owners no longer receive credit for surplus exports to the PLN grid — exports are uncompensated. A capacity cap is imposed per PLN distribution area ('kuota') and customer installations must not exceed 100% of contracted power. This materially weakens the rooftop solar economic case vs the prior regime and shifts payback toward self-consumption optimization.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Peraturan Menteri ESDM No. 2 Tahun 2024 tentang Pembangkit Listrik Tenaga Surya Atap",
+          "url": "https://jdih.esdm.go.id/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "Institute for Essential Services Reform",
+          "document": "Analysis of MEMR 2/2024 impact on rooftop solar economics",
+          "url": "https://iesr.or.id/en/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "net_metering_active": false,
+        "export_compensation_pct": 0,
+        "self_consumption_cap_pct": 100
+      }
+    },
+    {
+      "id": "ID_NAT_COST_001",
+      "dimension": "cost_economics",
+      "scope": "national",
+      "content": "Indonesia's utility-scale solar CAPEX ranged from USD 900-1,200/kW in 2023-2024 per IRENA, higher than peer markets due to TKDN (local content) requirements, import logistics across the archipelago, and limited domestic manufacturing scale. Distributed/rooftop CAPEX typically USD 1,000-1,400/kW. Retail tariffs range USD 0.07-0.11/kWh across consumer classes; industrial tariffs (I-3/I-4) around USD 0.085/kWh make self-consumption solar economically viable despite the removal of net metering.",
+      "sources": [
+        {
+          "organization": "IRENA",
+          "document": "Renewable Power Generation Costs in 2023",
+          "url": "https://www.irena.org/publications/2024/Sep/Renewable-Power-Generation-Costs-in-2023",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "PLN",
+          "document": "Tarif Tenaga Listrik 2024",
+          "url": "https://web.pln.co.id/pelanggan/tarif-tenaga-listrik",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "capex_utility_usd_per_kw_low": 900,
+        "capex_utility_usd_per_kw_high": 1200,
+        "industrial_tariff_usd_per_kwh": 0.085
+      }
+    },
+    {
+      "id": "ID_NAT_GRID_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "PLN operates as the near-monopoly single-buyer grid operator across Indonesia. The country's grid is fragmented into the Java-Bali-Madura interconnected system (~73% of demand), Sumatra system, and 600+ isolated grids on eastern islands. Java-Bali grid is congested with legacy coal oversupply (per RUPTL 2021-2030), creating curtailment risk for new solar. Interconnection for distributed solar under 500 kVA typically takes 90-180 days; utility-scale IPP contracts (PPA) require competitive tender and can take 18-36 months including financial close.",
+      "sources": [
+        {
+          "organization": "PLN",
+          "document": "Rencana Usaha Penyediaan Tenaga Listrik (RUPTL) 2021-2030",
+          "url": "https://web.pln.co.id/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "IEA",
+          "document": "Indonesia Energy Outlook 2022",
+          "url": "https://www.iea.org/reports/indonesia-energy-outlook-2022",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "java_bali_share_pct": 73,
+        "dg_interconnection_days_min": 90,
+        "dg_interconnection_days_max": 180
+      }
+    },
+    {
+      "id": "ID_NAT_UTIL_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Indonesia targets 23% renewable energy in the primary energy mix by 2025 (National Energy Policy, KEN) and Net Zero Emissions by 2060. There is no mandatory RPS; renewable deployment occurs via PLN auctions, captive/rooftop installations, and IPP tenders under PERPRES 112/2022. JETP (Just Energy Transition Partnership) committed USD 21.6 billion in 2022 across Indonesia Partners' Group (IPG) and Glasgow Financial Alliance for Net Zero (GFANZ), conditioned on an early coal retirement pathway. Indonesia participates in the I-REC Standard for voluntary RECs.",
+      "sources": [
+        {
+          "organization": "Government of Indonesia",
+          "document": "Kebijakan Energi Nasional (KEN) / National Energy Policy",
+          "url": "https://www.esdm.go.id/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "JETP Indonesia Secretariat",
+          "document": "Comprehensive Investment and Policy Plan (CIPP) 2023",
+          "url": "https://jetp-id.org/",
+          "accessed": "2026-04-10"
+        },
+        {
+          "organization": "I-REC Standard",
+          "document": "Indonesia Issuance Body",
+          "url": "https://www.irecstandard.org/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "re_target_2025_pct": 23,
+        "jetp_commitment_usd_billion": 21.6,
+        "net_zero_year": 2060
+      }
+    },
+    {
+      "id": "ID_NAT_PUBLIC_001",
+      "dimension": "public_comment",
+      "scope": "national",
+      "content": "Environmental licensing (AMDAL for large projects or UKL-UPL for smaller) is required under Law 32/2009 and Government Regulation 22/2021. Solar projects under 10 MW typically qualify for simplified licensing. Land acquisition is the primary social risk, especially in Java where land prices are high and titles can be contested (adat / customary land). On outer islands (Sulawesi, Kalimantan) land conflicts with indigenous communities and palm concessions are documented risks. Public consultation is legally mandated but implementation varies by region.",
+      "sources": [
+        {
+          "organization": "Ministry of Environment and Forestry (KLHK)",
+          "document": "PP 22/2021 on Environmental Protection and Management Implementation",
+          "url": "https://www.menlhk.go.id/",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-10",
+      "data_points": {
+        "simplified_licensing_threshold_mw": 10
+      }
+    },
+    {
+      "id": "ID_NAT_UNKNOWN_001",
+      "dimension": "unknown_unknowns",
+      "scope": "national",
+      "content": "Key uncertainties specific to Indonesia: (1) MEMR 2/2024's uncompensated export rule could be revised under new administration pressure — developers modeling ≥10yr paybacks face policy-regime risk; (2) TKDN local content thresholds are periodically tightened and inconsistently enforced, distorting CAPEX planning; (3) PLN's coal oversupply on Java-Bali creates structural curtailment risk for new renewables; (4) Nusantara (IKN) new capital development in East Kalimantan is an emerging demand center with unclear grid architecture; (5) Geothermal competes politically with solar for JETP funding allocation.",
+      "sources": [
+        {
+          "organization": "IESR",
+          "document": "Indonesia Energy Transition Outlook 2024",
+          "url": "https://iesr.or.id/en/pustaka/indonesia-energy-transition-outlook-2024",
+          "accessed": "2026-04-10"
+        }
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-10",
+      "data_points": {}
+    },
+    {
+      "id": "ID_NAT_GRID_ACC_HPC_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "PLN has a transmission line of 80.59 kilometers to increase the reliability of electricity in Sulut and Gorontalo.",
+      "sources": [
+        {
+          "organization": "PLN",
+          "document": "PLN state utility portal",
+          "url": "https://web.pln.co.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_GRID_ACC_HPC_002",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "PLN has allocated Rp 18.6 billion for electricity connections to illuminate 18,377 families.",
+      "sources": [
+        {
+          "organization": "PLN",
+          "document": "PLN state utility portal",
+          "url": "https://web.pln.co.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_GRID_ACC_HPC_003",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "PLN has signed 16 projects with a total value of Rp 21.1 trillion as part of the 35,000 MW project.",
+      "sources": [
+        {
+          "organization": "PLN",
+          "document": "PLN state utility portal",
+          "url": "https://web.pln.co.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_GRID_ACC_HPC_004",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "PLN can save Rp 60 million per year in maintenance costs by using Mini LNG at the Pesanggaran PLTDG.",
+      "sources": [
+        {
+          "organization": "PLN",
+          "document": "PLN state utility portal",
+          "url": "https://web.pln.co.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 4
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_GRID_ACC_HPC_005",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "PLN has implemented digitalization, resulting in efficiency of up to Rp 10.85 trillion.",
+      "sources": [
+        {
+          "organization": "PLN",
+          "document": "PLN state utility portal",
+          "url": "https://web.pln.co.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 5
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_GRID_ACC_HPC_006",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The electrification ratio in Indonesia is 99.83% as of 06 Apr 2026.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "MEMR English (grid code / interconnection)",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "date": "06 Apr 2026",
+        "electrification_ratio": "99.83%",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 6
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_GRID_ACC_HPC_007",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The electricity grid status in Java and Bali System is 1 normal, 1 alert, 0 deficit as of 08 Apr 2026.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "MEMR English (grid code / interconnection)",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "date": "08 Apr 2026",
+        "normal": 1,
+        "alert": 1,
+        "deficit": 0,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 7
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_GRID_ACC_HPC_008",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "The electricity grid status in Eastern Indonesia System is 19 normal, 12 alert, 6 deficit, 1 other as of 08 Apr 2026.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "MEMR English (grid code / interconnection)",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "date": "08 Apr 2026",
+        "normal": 19,
+        "alert": 12,
+        "deficit": 6,
+        "other": 1,
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 8
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_SUBSIDIE_HPC_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Electrification Ratio in Indonesia was 99.83% as of 06 Apr 2026.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "MEMR English portal (policy)",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_SUBSIDIE_HPC_002",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Indonesian government's state revenue from the energy and mineral resources sector (PNBP) was 249 trillion IDR in 2025, which is 98.03% of the target of 254 trillion IDR.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "MEMR English portal (policy)",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_SUBSIDIE_HPC_003",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Indonesian government's state revenue from the energy and mineral resources sector (PNBP) was 268 trillion IDR in 2024, which is 118.06% of the target of 227 trillion IDR.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "MEMR English portal (policy)",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_SUBSIDIE_HPC_004",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Oil Production in Indonesia was 575,245 barrels per day (BOPD) as of 08 Apr 2026.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "MEMR English portal (policy)",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 4
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_SUBSIDIE_HPC_005",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Gas Production in Indonesia was 6,936 million standard cubic feet per day (MMSCFD) as of 08 Apr 2026.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "MEMR English portal (policy)",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 5
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_SUBSIDIE_HPC_006",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "The Indonesia Crude Price (ICP) was 68.79 USD/Barrel as of 06 Apr 2026.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "MEMR English portal (policy)",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 6
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Ministry of Energy and Mineral Resources of Indonesia has a Directorate General of Electricity.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Ministry of Energy and Mineral Resources - English",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_002",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The gas production in Indonesia was 6,936 MMSCFD on 08 Apr 2026.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Ministry of Energy and Mineral Resources - English",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "gas_production": "6,936 MMSCFD",
+        "date": "08 Apr 2026",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_003",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The electricity grid status in Java and Bali was 1 1 0 0 on an unspecified date.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Ministry of Energy and Mineral Resources - English",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "electricity_grid_status": "1 1 0 0",
+        "location": "Java and Bali",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_004",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The electricity grid status in Sumatera was 2 1 1 0 on an unspecified date.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Ministry of Energy and Mineral Resources - English",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "electricity_grid_status": "2 1 1 0",
+        "location": "Sumatera",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 4
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_005",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The electricity grid status in Eastern Indonesia was 12 5 1 2 on 12 Jun 2024.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Ministry of Energy and Mineral Resources - English",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "electricity_grid_status": "12 5 1 2",
+        "location": "Eastern Indonesia",
+        "date": "12 Jun 2024",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 5
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_006",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The state revenue from the energy and mineral resources sector in Indonesia was 249 trillion as of 2025, which is 98.03% of the target of 254 trillion.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Ministry of Energy and Mineral Resources - English",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "state_revenue": "249 trillion",
+        "year": "2025",
+        "percentage_of_target": "98.03%",
+        "target": "254 trillion",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 6
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_007",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The electrification ratio in Indonesia was 99.83% as of 06 Apr 2026.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Ministry of Energy and Mineral Resources - English",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "electrification_ratio": "99.83%",
+        "date": "06 Apr 2026",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 7
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_008",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Indonesian Crude Price was 68.79 USD/Barrel as of 06 Apr 2026.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Ministry of Energy and Mineral Resources - English",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "indonesian_crude_price": "68.79 USD/Barrel",
+        "date": "06 Apr 2026",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 8
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_009",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The oil and gas balance in Indonesia had an export of -23.2% and an import of -7.0% in January 2025.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Ministry of Energy and Mineral Resources - English",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "export_percentage": "-23.2%",
+        "import_percentage": "-7.0%",
+        "month": "January",
+        "year": "2025",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 9
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_010",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The gas production in Indonesia was 6,867 MMSCFD on 08 Apr 2025.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM",
+          "document": "Ministry of Energy and Mineral Resources - English",
+          "url": "https://www.esdm.go.id/en",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "gas_production": "6,867 MMSCFD",
+        "date": "08 Apr 2025",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 10
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_011",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Jaringan Dokumentasi dan Informasi Hukum (JDIH) Nasional was established based on Keputusan Presiden Nomor 91 tahun 1999.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM JDIH",
+          "document": "JDIH ESDM - law repository",
+          "url": "https://jdih.esdm.go.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "document_type": "Keputusan Presiden",
+        "document_number": "91",
+        "year": "1999",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 11
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_012",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Jaringan Dokumentasi dan Informasi Hukum (JDIH) Nasional was revoked by Peraturan Presiden Nomor 33 tahun 2012.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM JDIH",
+          "document": "JDIH ESDM - law repository",
+          "url": "https://jdih.esdm.go.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "document_type": "Peraturan Presiden",
+        "document_number": "33",
+        "year": "2012",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 12
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_013",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Peraturan Menteri Energi dan Sumber Daya Mineral Nomor 26 Tahun 2018 was issued about Pelaksanaan Kaidah Pertambangan yang Baik.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM JDIH",
+          "document": "JDIH ESDM - law repository",
+          "url": "https://jdih.esdm.go.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "document_type": "Peraturan Menteri",
+        "document_number": "26",
+        "year": "2018",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 13
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_014",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The website of Kementerian ESDM had 11,063,129 total visits as of the data update.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM JDIH",
+          "document": "JDIH ESDM - law repository",
+          "url": "https://jdih.esdm.go.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "total_visits": "11,063,129",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 14
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_015",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The website of Kementerian ESDM had 2,566 visits on the previous day as of the data update.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM JDIH",
+          "document": "JDIH ESDM - law repository",
+          "url": "https://jdih.esdm.go.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "previous_day_visits": "2,566",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 15
+        }
+      }
+    },
+    {
+      "id": "ID_NAT_UTILITY__HPC_016",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The website of Kementerian ESDM had 2,115,288 total visits to Peraturan as of the data update.",
+      "sources": [
+        {
+          "organization": "MEMR / ESDM JDIH",
+          "document": "JDIH ESDM - law repository",
+          "url": "https://jdih.esdm.go.id/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "peraturan_visits": "2,115,288",
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 16
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "name": "Jawa Barat (West Java)",
+      "iso_code": "ID-JB",
+      "metrics": {
+        "capex_utility_usd_per_kw": 1000,
+        "capex_rooftop_usd_per_kw": 1250,
+        "om_usd_per_kw_year": 14,
+        "lcoe_usd_per_mwh": 68,
+        "retail_tariff_usd_per_kwh": 0.09,
+        "interconnection_months_avg": 5.5,
+        "grid_congestion": "high",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 4.9,
+        "capacity_factor_pct": 17.5,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": 23,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 140
+      },
+      "documents": [
+        {
+          "id": "ID_JB_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Jawa Barat (West Java)",
+          "content": "West Java hosts Indonesia's largest industrial zones (Karawang, Bekasi, Cikarang) with heavy rooftop solar demand. Rooftop CAPEX approx USD 1,200-1,300/kW for industrial scale; higher than utility due to integration complexity. Industrial tariffs (I-3 tariff class) around USD 0.09/kWh make self-consumption solar attractive even without net metering.",
+          "sources": [
+            {
+              "organization": "PLN",
+              "document": "Tarif Tenaga Listrik 2024 — Golongan I-3",
+              "url": "https://web.pln.co.id/pelanggan/tarif-tenaga-listrik",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "capex_rooftop_industrial_usd_per_kw": 1250
+          }
+        },
+        {
+          "id": "ID_JB_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Jawa Barat (West Java)",
+          "content": "West Java is connected to the Java-Bali interconnected system and faces significant transmission congestion due to concentrated demand. PLN Distribusi Jawa Barat handles distributed generation interconnection; reported average processing time 4-7 months including technical study, with delays driven by feeder hosting capacity studies in Cikarang-Karawang industrial zones.",
+          "sources": [
+            {
+              "organization": "PLN",
+              "document": "PLN Distribusi Jawa Barat Annual Report",
+              "url": "https://web.pln.co.id/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "interconnection_months_typical": 5.5
+          }
+        }
+      ]
+    },
+    {
+      "name": "DKI Jakarta",
+      "iso_code": "ID-JK",
+      "metrics": {
+        "capex_utility_usd_per_kw": null,
+        "capex_rooftop_usd_per_kw": 1300,
+        "om_usd_per_kw_year": 15,
+        "lcoe_usd_per_mwh": 82,
+        "retail_tariff_usd_per_kwh": 0.11,
+        "interconnection_months_avg": 4.5,
+        "grid_congestion": "high",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 4.7,
+        "capacity_factor_pct": 16.8,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": 23,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 35
+      },
+      "documents": [
+        {
+          "id": "ID_JK_COST_001",
+          "dimension": "cost_economics",
+          "scope": "DKI Jakarta",
+          "content": "Jakarta has minimal land for utility-scale solar; distributed rooftop is the dominant deployment mode. Commercial tariffs (B-3 class) are among the highest in Indonesia at approx USD 0.10-0.11/kWh. CBD rooftop installations typically cost USD 1,250-1,350/kW including grid-tie equipment and structural engineering for high-rises.",
+          "sources": [
+            {
+              "organization": "PLN",
+              "document": "Tarif Tenaga Listrik 2024",
+              "url": "https://web.pln.co.id/pelanggan/tarif-tenaga-listrik",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "commercial_tariff_usd_per_kwh": 0.11
+          }
+        }
+      ]
+    },
+    {
+      "name": "Jawa Timur (East Java)",
+      "iso_code": "ID-JI",
+      "metrics": {
+        "capex_utility_usd_per_kw": 950,
+        "capex_rooftop_usd_per_kw": 1200,
+        "om_usd_per_kw_year": 13,
+        "lcoe_usd_per_mwh": 65,
+        "retail_tariff_usd_per_kwh": 0.085,
+        "interconnection_months_avg": 4.5,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 5.2,
+        "capacity_factor_pct": 18.3,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": 23,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 95
+      },
+      "documents": [
+        {
+          "id": "ID_JI_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Jawa Timur (East Java)",
+          "content": "East Java hosts Surabaya's industrial corridor and Gresik petrochemical zone. Irradiance is higher than West Java at ~5.2 kWh/m²/day. Utility-scale ground-mount CAPEX trends USD 900-1,000/kW where land is available outside the Surabaya-Sidoarjo belt. Industrial tariffs make captive (behind-the-meter) solar competitive.",
+          "sources": [
+            {
+              "organization": "World Bank Global Solar Atlas",
+              "document": "Indonesia GHI map",
+              "url": "https://globalsolaratlas.info/map?c=-7.3,112.7,7&r=IDN:IDN.11_1",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "ghi_kwh_m2_day": 5.2
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sulawesi Selatan (South Sulawesi)",
+      "iso_code": "ID-SN",
+      "metrics": {
+        "capex_utility_usd_per_kw": 1050,
+        "capex_rooftop_usd_per_kw": 1300,
+        "om_usd_per_kw_year": 15,
+        "lcoe_usd_per_mwh": 72,
+        "retail_tariff_usd_per_kwh": 0.09,
+        "interconnection_months_avg": 6.5,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "high",
+        "ghi_kwh_m2_day": 5.4,
+        "capacity_factor_pct": 19.2,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": 23,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 22
+      },
+      "documents": [
+        {
+          "id": "ID_SN_COST_001",
+          "dimension": "cost_economics",
+          "scope": "Sulawesi Selatan (South Sulawesi)",
+          "content": "South Sulawesi's Sistem Sulbagsel grid is smaller and more constrained than Java-Bali. Shipping logistics for PV modules from Surabaya/Singapore add approximately 7-12% to CAPEX. GHI of 5.3-5.5 kWh/m²/day is among the highest on Indonesia's populated islands, offering a strong resource premium.",
+          "sources": [
+            {
+              "organization": "World Bank Global Solar Atlas",
+              "document": "Indonesia GHI map",
+              "url": "https://globalsolaratlas.info/map?c=-5.1,119.4,7&r=IDN",
+              "accessed": "2026-04-10"
+            },
+            {
+              "organization": "PLN",
+              "document": "RUPTL Sistem Sulbagsel",
+              "url": "https://web.pln.co.id/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "ghi_kwh_m2_day": 5.4,
+            "shipping_capex_uplift_pct": 10
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sumatera Utara (North Sumatra)",
+      "iso_code": "ID-SU",
+      "metrics": {
+        "capex_utility_usd_per_kw": 1000,
+        "capex_rooftop_usd_per_kw": 1275,
+        "om_usd_per_kw_year": 14,
+        "lcoe_usd_per_mwh": 70,
+        "retail_tariff_usd_per_kwh": 0.088,
+        "interconnection_months_avg": 5.5,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "moderate",
+        "ghi_kwh_m2_day": 4.8,
+        "capacity_factor_pct": 17.1,
+        "net_metering": false,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": false,
+        "renewable_target_pct": 23,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 28
+      },
+      "documents": [
+        {
+          "id": "ID_SU_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Sumatera Utara (North Sumatra)",
+          "content": "North Sumatra is on the Sumatra interconnected grid, separate from Java-Bali. Hydro and geothermal dominate the generation mix around Medan, creating competition for grid capacity with solar. PLN Distribusi Sumatera Utara typical interconnection processing is 5-7 months. Industrial zones around Medan-Belawan show growing rooftop demand from palm-oil downstream processors.",
+          "sources": [
+            {
+              "organization": "PLN",
+              "document": "PLN Distribusi Sumatera Utara",
+              "url": "https://web.pln.co.id/",
+              "accessed": "2026-04-10"
+            }
+          ],
+          "confidence": "medium",
+          "last_verified": "2026-04-10",
+          "data_points": {
+            "interconnection_months_typical": 5.5
+          }
+        }
+      ]
+    }
+  ]
+}

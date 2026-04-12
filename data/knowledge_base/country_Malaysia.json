@@ -1,0 +1,391 @@
+{
+  "name": "Malaysia",
+  "iso_code": "MY",
+  "currency": "MYR",
+  "exchange_rate_to_usd": 4.75,
+  "regulator": "Energy Commission / Suruhanjaya Tenaga (ST) — Peninsular & Sabah; Sarawak Energy Commission",
+  "grid_operator": "TNB (Tenaga Nasional Berhad) — Peninsular; SESB (Sabah Electricity) — Sabah; SEB (Sarawak Energy) — Sarawak",
+  "last_updated": "2026-04-12",
+  "coverage_summary": {
+    "states_in_dataset": 2,
+    "states_total": 13,
+    "dimensions_covered": 6,
+    "coverage_note": "Priority: Selangor (largest industrial C&I load, highest rooftop PV adoption) and Johor (LSS utility-scale cluster + data-center PPA boom). Sabah/Sarawak operate independent grids and are not yet in the dataset.",
+    "hpc_audit": {
+      "national::utility_standards": {
+        "scope": "national",
+        "accepted": 3,
+        "rejected": 1,
+        "corroborated_count": 0,
+        "unsupported_sentences": 1,
+        "consistency_min": 0,
+        "synthesis_chars": 420,
+        "issues": [
+          "1 unsupported sentence(s) in synthesis",
+          "at least one sentence has zero consistency support"
+        ]
+      }
+    }
+  },
+  "data_audit": {
+    "collected": [
+      "Renewable Energy Act 2011 (RE Act) — establishes SEDA + FiT framework",
+      "Energy Commission Guidelines on NEM 3.0 (NEM Rakyat, NEM GoMEn, NOVA) 2021-2024",
+      "Large Scale Solar (LSS) 1-5 auction results (ST + EPU)",
+      "Corporate Green Power Programme (CGPP) 2022-2023 — 800 MW allocation",
+      "National Energy Transition Roadmap (NETR) 2023 — Part 1 & Part 2",
+      "Income Tax Act — Green Investment Tax Allowance (GITA) & Green Income Tax Exemption (GITE)",
+      "Sustainable Energy Development Authority (SEDA) MyHIJAU Green Technology directory",
+      "Grid Code for Peninsular Malaysia (TNB)"
+    ],
+    "gaps": [
+      "LSS5 Package P4 — Solar + Storage terms are publicly summarized but full PPA pricing is under NDA",
+      "CGPP developer-offtaker pairings (Data Centers with Google/Microsoft/AWS) are partial — specific tariffs confidential",
+      "Sabah and Sarawak distributed-generation regulatory frameworks differ and are not included",
+      "NEM 3.0 queue and per-feeder hosting capacity data are not publicly consolidated"
+    ],
+    "impact": [
+      "NEM 3.0 quota (excluding LSS/CGPP) of ~800 MW for NOVA (C&I) + NEM Rakyat is heavily oversubscribed in Peninsular Malaysia — queue dynamics materially shape project feasibility",
+      "The CGPP scheme launched the first formal third-party access for renewables via a virtual PPA structure — creating the template for data-center driven corporate PPAs post-2023",
+      "LSS5 incorporated 400 MW of solar+storage (4-hour BESS) — first Malaysian auction requiring storage, setting precedent for future tenders"
+    ]
+  },
+  "national_documents": [
+    {
+      "id": "MY_NAT_SUBS_001",
+      "dimension": "subsidies_incentives",
+      "scope": "national",
+      "content": "Malaysia's Net Energy Metering 3.0 (NEM 3.0, launched January 2021) replaced earlier net-metering and net-billing schemes. It has three tracks: (a) NEM Rakyat (residential, up to 12 kW single-phase / 72 kW three-phase, one-to-one credit for 10 years); (b) NEM GoMEn (government buildings, up to 5 MW per premise); (c) NEM NOVA (Net Offset Virtual Aggregation for C&I, up to 10 MW per contract, one-to-one credit for 10 years). Quota for NEM NOVA was enlarged to 800 MW in mid-2023 via Energy Commission decision. Tax incentives: Green Investment Tax Allowance (GITA) — 100% of qualifying capital expenditure offsetting 70% of statutory income for 5 years; Green Income Tax Exemption (GITE Services) — 70% for 5 years on statutory income of RE service providers.",
+      "sources": [
+        {
+          "organization": "Energy Commission / Suruhanjaya Tenaga",
+          "document": "NEM 3.0 Guidelines — NEM Rakyat, NEM GoMEn, NEM NOVA",
+          "url": "https://www.st.gov.my/en/contents/files/download/173/Guidelines_on_NEM_3.0.pdf",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "SEDA Malaysia",
+          "document": "Green Investment Tax Allowance (GITA) and Green Income Tax Exemption (GITE) — Guidelines",
+          "url": "https://www.seda.gov.my/gt/gita-gite/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "nem_nova_cap_mw": 10,
+        "nem_rakyat_cap_kw_three_phase": 72,
+        "nem_nova_quota_mw_2023": 800,
+        "gita_pct": 100,
+        "gita_offset_pct": 70,
+        "gita_years": 5
+      }
+    },
+    {
+      "id": "MY_NAT_COST_001",
+      "dimension": "cost_economics",
+      "scope": "national",
+      "content": "Malaysian utility-scale solar CAPEX has declined from RM 5.0M/MW in LSS1 (2017) to RM 3.0-3.5M/MW in LSS4 (2021), approximately USD 630-735/kW at current exchange rates — globally competitive. Rooftop C&I CAPEX is RM 3.5-5.0M/MW (USD 730-1,050/kW) depending on roof complexity and inverter-battery configuration. LSS4 clearing prices ranged RM 0.1768-0.2497/kWh (USD 37-53/MWh). TNB retail tariffs: industrial (Tariff E1, E2) at USD 0.08-0.10/kWh; commercial (Tariff C1, C2) at USD 0.10-0.13/kWh; domestic tiered from USD 0.04 to USD 0.12/kWh. C&I rooftop paybacks are 4-6 years under NEM NOVA.",
+      "sources": [
+        {
+          "organization": "Energy Commission",
+          "document": "Large Scale Solar (LSS) Auction Results — LSS1 to LSS5",
+          "url": "https://www.st.gov.my/",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "TNB (Tenaga Nasional Berhad)",
+          "document": "Pricing & Tariff Schedule",
+          "url": "https://www.tnb.com.my/commercial-industrial/pricing-tariffs1",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "capex_utility_usd_per_kw_low": 630,
+        "capex_utility_usd_per_kw_high": 735,
+        "lss4_auction_price_usd_mwh_low": 37,
+        "lss4_auction_price_usd_mwh_high": 53,
+        "ci_tariff_usd_kwh_low": 0.1,
+        "ci_tariff_usd_kwh_high": 0.13
+      }
+    },
+    {
+      "id": "MY_NAT_GRID_001",
+      "dimension": "grid_access",
+      "scope": "national",
+      "content": "Malaysia operates three independent grids: Peninsular Malaysia (TNB, ~27 GW peak demand), Sabah (SESB, ~1 GW), and Sarawak (SEB, ~4 GW, largely hydro-driven). Cross-region transmission is limited. The Corporate Green Power Programme (CGPP) launched in 2022 introduced Virtual Power Purchase Agreement (VPPA) structures enabling third-party access — Malaysia's first formal open-access mechanism. Approximately 800 MW was allocated under CGPP Round 1 to multiple developer-offtaker pairings. The National Energy Transition Roadmap (NETR) Part 2 (2023) flagged the Energy Exchange Malaysia (ENEGEM) cross-border trading platform and the ASEAN Power Grid interconnection with Singapore and Thailand as growth enablers. NEM 3.0 interconnection timelines under TNB are typically 3-5 months for <1 MW and 6-12 months for 1-10 MW.",
+      "sources": [
+        {
+          "organization": "Economic Planning Unit (EPU)",
+          "document": "National Energy Transition Roadmap (NETR) Part 1 & Part 2",
+          "url": "https://www.ekonomi.gov.my/en/netr",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "Energy Commission",
+          "document": "Corporate Green Power Programme (CGPP) — Round 1 results",
+          "url": "https://www.st.gov.my/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "peninsular_peak_demand_gw": 27,
+        "cgpp_round1_mw": 800,
+        "dg_interconnection_months_small_min": 3,
+        "dg_interconnection_months_small_max": 5,
+        "dg_interconnection_months_large_min": 6,
+        "dg_interconnection_months_large_max": 12
+      }
+    },
+    {
+      "id": "MY_NAT_UTIL_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Renewable Energy Act 2011 (RE Act) established SEDA (Sustainable Energy Development Authority) and the Feed-in Tariff (FiT) mechanism (essentially closed for solar PV since 2016). The National Energy Transition Roadmap (NETR), announced in August 2023, targets 70% installed renewables capacity by 2050 (up from ~25% in 2023), with 31% by 2025 and 40% by 2035. The I-REC Standard is active for Peninsular Malaysia; REC issuance is via MGTC (Malaysian Green Technology and Climate Change Corporation). Large Scale Solar (LSS) auctions are the main utility-scale procurement; LSS5 (2023) procured 2 GW including 400 MW of solar+storage (4-hour duration BESS) — a first for Malaysian auctions.",
+      "sources": [
+        {
+          "organization": "Economic Planning Unit (EPU)",
+          "document": "National Energy Transition Roadmap (NETR) targets",
+          "url": "https://www.ekonomi.gov.my/en/netr",
+          "accessed": "2026-04-11"
+        },
+        {
+          "organization": "SEDA Malaysia",
+          "document": "Renewable Energy Act 2011 and FiT / LSS programme overview",
+          "url": "https://www.seda.gov.my/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "renewable_target_pct_2025": 31,
+        "renewable_target_pct_2035": 40,
+        "renewable_target_pct_2050": 70,
+        "lss5_capacity_mw": 2000,
+        "lss5_storage_mw": 400,
+        "storage_duration_hours": 4,
+        "rec_mechanism": true
+      }
+    },
+    {
+      "id": "MY_NAT_PUBLIC_001",
+      "dimension": "public_comment",
+      "scope": "national",
+      "content": "Environmental Impact Assessment (EIA) under the Environmental Quality Act 1974 is administered by the Department of Environment (DOE). Solar projects above 50 hectares of land clearance require a detailed EIA; projects below are covered by simplified Environmental Management Plans. Peninsular Malaysia land-use for utility-scale PV is typically on former palm-oil estates or degraded land — community-engagement dynamics are lighter than in Latin America or Africa, but pockets of Orang Asli (Indigenous Peninsular Malays) consultation is required where state-gazetted land overlaps. Sarawak has distinct Native Customary Rights (NCR) land considerations that complicate utility-scale renewable projects.",
+      "sources": [
+        {
+          "organization": "Department of Environment Malaysia",
+          "document": "EIA Order 2015 and Environmental Quality Act Guidelines",
+          "url": "https://www.doe.gov.my/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "eia_threshold_hectares": 50
+      }
+    },
+    {
+      "id": "MY_NAT_UNKNOWN_001",
+      "dimension": "unknown_unknowns",
+      "scope": "national",
+      "content": "Malaysia-specific uncertainties: (1) Data-center demand boom in Johor (USD 15+ billion committed by Google, Microsoft, AWS, ByteDance, Nvidia partners 2023-2025) is straining TNB's dispatchable capacity and creating a policy tension between fast grid expansion and renewable penetration; (2) Electricity subsidy reform (targeted subsidies replacing blanket) has been discussed since 2022 but not fully implemented — could raise C&I tariffs and improve solar economics; (3) CGPP Round 2 structure is under consultation — whether VPPA caps expand beyond 800 MW and whether data centers can aggregate offtake shapes the 2025-2027 corporate PPA landscape; (4) Sarawak's ambition to become regional hydro/solar/green-hydrogen hub (SCORE zone, Bakun) is legally distinct from Peninsular rules and under-represented in federal roadmaps.",
+      "sources": [
+        {
+          "organization": "Economic Planning Unit (EPU)",
+          "document": "NETR Part 2 — Flagship Projects including data-center zones",
+          "url": "https://www.ekonomi.gov.my/",
+          "accessed": "2026-04-11"
+        }
+      ],
+      "confidence": "medium",
+      "last_verified": "2026-04-11",
+      "data_points": {
+        "data_center_committed_usd_billion": 15
+      }
+    },
+    {
+      "id": "MAL_NAT_UTILITY__HPC_001",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "Over 96,000 existing rooftop solar users are under the Malaysian Building Integrated Photovoltaic (MBIPV) and Net Energy Metering (NEM) schemes in Malaysia as of 2025.",
+      "sources": [
+        {
+          "organization": "SEDA Malaysia",
+          "document": "Renewable Energy Act 2011 and FiT LSS programme overview",
+          "url": "https://www.seda.gov.my/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 1
+        }
+      }
+    },
+    {
+      "id": "MAL_NAT_UTILITY__HPC_002",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The government of Malaysia will continue to allow over 96,000 existing rooftop solar users under the Malaysian Building Integrated Photovoltaic (MBIPV) and Net Energy Metering (NEM) schemes to earn electricity bill credits as of 2025.",
+      "sources": [
+        {
+          "organization": "SEDA Malaysia",
+          "document": "Renewable Energy Act 2011 and FiT LSS programme overview",
+          "url": "https://www.seda.gov.my/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 2
+        }
+      }
+    },
+    {
+      "id": "MAL_NAT_UTILITY__HPC_003",
+      "dimension": "utility_standards",
+      "scope": "national",
+      "content": "The Ministry of Energy Transition and Water Transformation (PETRA) has allocated RM70 million for the Program Nikmat Untuk Rakyat PETRA (NUR@PETRA) in 2025.",
+      "sources": [
+        {
+          "organization": "SEDA Malaysia",
+          "document": "Renewable Energy Act 2011 and FiT LSS programme overview",
+          "url": "https://www.seda.gov.my/",
+          "accessed": "2026-04-12"
+        }
+      ],
+      "confidence": "high",
+      "last_verified": "2026-04-12",
+      "data_points": {
+        "_hpc": {
+          "corroboration_count": 1,
+          "corroborated": false,
+          "fact_index": 3
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "name": "Selangor",
+      "iso_code": "MY-10",
+      "metrics": {
+        "capex_utility_usd_per_kw": 700,
+        "capex_rooftop_usd_per_kw": 850,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 48,
+        "retail_tariff_usd_per_kwh": 0.11,
+        "interconnection_months_avg": 4,
+        "grid_congestion": "moderate",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 4.7,
+        "capacity_factor_pct": 17.5,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 40.0,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 640
+      },
+      "documents": [
+        {
+          "id": "MY_SL_SUBS_001",
+          "dimension": "subsidies_incentives",
+          "scope": "Selangor",
+          "content": "Selangor hosts Malaysia's densest industrial belt (Shah Alam, Klang Port, Petaling Jaya, Cyberjaya, Puchong) and has the highest adoption of NEM NOVA contracts among Peninsular states. C&I customers on TNB Tariff E1/E2 (USD 0.08-0.10/kWh) combined with GITA (100% of CapEx offsetting 70% statutory income over 5 years) and NEM NOVA one-to-one export credit over 10 years typically achieve rooftop PV paybacks of 4-5 years. Selangor's Lembaga Hasil Dalam Negeri (LHDN) GITA filings have the highest volume nationally.",
+          "sources": [
+            {
+              "organization": "TNB",
+              "document": "Pricing & Tariff Schedule — E1/E2 industrial",
+              "url": "https://www.tnb.com.my/commercial-industrial/pricing-tariffs1",
+              "accessed": "2026-04-11"
+            },
+            {
+              "organization": "SEDA Malaysia",
+              "document": "GITA / GITE Statistics by State",
+              "url": "https://www.seda.gov.my/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "industrial_tariff_usd_kwh_low": 0.08,
+            "industrial_tariff_usd_kwh_high": 0.1,
+            "rooftop_payback_years_min": 4,
+            "rooftop_payback_years_max": 5
+          }
+        }
+      ],
+      "data_completeness_pct": 100.0
+    },
+    {
+      "name": "Johor",
+      "iso_code": "MY-01",
+      "metrics": {
+        "capex_utility_usd_per_kw": 680,
+        "capex_rooftop_usd_per_kw": 830,
+        "om_usd_per_kw_year": 12,
+        "lcoe_usd_per_mwh": 46,
+        "retail_tariff_usd_per_kwh": 0.1,
+        "interconnection_months_avg": 5,
+        "grid_congestion": "high",
+        "curtailment_risk": "low",
+        "ghi_kwh_m2_day": 4.6,
+        "capacity_factor_pct": 17.0,
+        "net_metering": true,
+        "accelerated_depreciation": true,
+        "import_duty_exempt": true,
+        "renewable_target_pct": 40.0,
+        "rec_mechanism": true,
+        "installed_distributed_solar_mw": 510
+      },
+      "documents": [
+        {
+          "id": "MY_JH_GRID_001",
+          "dimension": "grid_access",
+          "scope": "Johor",
+          "content": "Johor is the epicentre of Malaysia's 2023-2025 data-center boom — USD 15+ billion committed across Iskandar Puteri, Kulai, Sedenak Tech Park, and YTL Green Data Center Park (500 MW target by 2027). TNB's Johor transmission is undergoing major reinforcement (2x500 kV Lenggeng-Yong Peng lines) to absorb load growth. Corporate Green Power Programme (CGPP) Round 1 (2023) allocated several Johor-sited solar farms to data-center offtakers via 10-year VPPAs. LSS4 and LSS5 projects in Kluang and Muar districts add ~600 MW of utility-scale solar to the state. Interconnection queue is longer than Peninsular average (5-8 months for <5 MW) due to data-center congestion.",
+          "sources": [
+            {
+              "organization": "TNB",
+              "document": "Transmission Development Plan — Johor reinforcements",
+              "url": "https://www.tnb.com.my/",
+              "accessed": "2026-04-11"
+            },
+            {
+              "organization": "Energy Commission",
+              "document": "CGPP Round 1 Johor allocations summary",
+              "url": "https://www.st.gov.my/",
+              "accessed": "2026-04-11"
+            }
+          ],
+          "confidence": "high",
+          "last_verified": "2026-04-11",
+          "data_points": {
+            "data_center_committed_usd_billion": 15,
+            "ytl_data_center_mw_target_2027": 500,
+            "queue_months_small_min": 5,
+            "queue_months_small_max": 8
+          }
+        }
+      ],
+      "data_completeness_pct": 100.0
+    }
+  ]
+}
