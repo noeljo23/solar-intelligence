@@ -115,3 +115,9 @@ export interface ChatResponseOut {
   answer: string;
   sources: Array<Record<string, unknown>>;
 }
+
+export interface GlobalChatResponseOut {
+  answer: string;
+  countries_used: string[];
+  sources: Array<Record<string, unknown>>;
+}

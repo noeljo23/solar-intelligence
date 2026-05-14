@@ -1,4 +1,4 @@
-import { ExternalLink, ShieldCheck, Cpu, Languages } from "lucide-react";
+import { ExternalLink, ShieldCheck, Languages } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { DocumentOut } from "@/lib/types";
 
@@ -35,12 +35,6 @@ export function DocumentCard({ doc }: { doc: DocumentOut }) {
           <ShieldCheck className="h-3 w-3 mr-1" />
           {doc.confidence}
         </Badge>
-        {doc.is_hpc && (
-          <Badge variant="default">
-            <Cpu className="h-3 w-3 mr-1" />
-            HPC
-          </Badge>
-        )}
         {langs.map((l) => (
           <Badge key={l} variant="outline">
             <Languages className="h-3 w-3 mr-1" />

@@ -16,7 +16,7 @@ export function CountryHeader({ profile }: { profile: CountryProfileOut }) {
           {profile.iso_code}
         </div>
       </div>
-      <h1 className="text-4xl font-semibold tracking-tight">{profile.name}</h1>
+      <h1 className="text-[36px] font-semibold tracking-tight">{profile.name}</h1>
       <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
         {meta.map((m) => {
           const Icon = m.icon;

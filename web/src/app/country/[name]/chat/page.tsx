@@ -9,9 +9,11 @@ export default async function ChatPage({ params }: { params: { name: string } })
   const stateNames = profile.states.map((s) => s.name);
 
   return (
-    <div className="flex flex-col h-[calc(100vh-5rem)]">
+    <div className="flex flex-col min-h-[70vh]">
       <CountryHeader profile={profile} />
-      <ChatBox country={profile.name} stateNames={stateNames} />
+      <div className="flex flex-col flex-1 min-h-[60vh]">
+        <ChatBox country={profile.name} stateNames={stateNames} />
+      </div>
     </div>
   );
 }

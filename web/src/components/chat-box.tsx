@@ -122,7 +122,7 @@ function Bubble({ msg }: { msg: Msg }) {
     <div className="flex gap-3">
       <Bot className="h-5 w-5 text-primary mt-1 shrink-0" />
       <div className="space-y-3 max-w-3xl">
-        <div className="text-sm leading-relaxed whitespace-pre-wrap text-foreground/95">{msg.content}</div>
+        <div className="text-[20px] leading-relaxed whitespace-pre-wrap text-foreground/95">{msg.content}</div>
         {msg.sources && msg.sources.length > 0 && (
           <details className="group">
             <summary className="text-xs text-muted-foreground cursor-pointer hover:text-foreground select-none">

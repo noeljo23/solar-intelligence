@@ -4,6 +4,7 @@ import type {
   CountryProfileOut,
   CountrySummary,
   FeasibilityScoreOut,
+  GlobalChatResponseOut,
 } from "./types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://127.0.0.1:8000";
@@ -38,6 +39,18 @@ export const api = {
     if (!res.ok) throw new Error(`chat ${res.status}`);
     return res.json();
   },
+  chatGlobal: async (
+    message: string,
+    history: Array<{ role: string; content: string }>,
+  ): Promise<GlobalChatResponseOut> => {
+    const res = await fetch(`${API_BASE}/api/chat-global`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message, history }),
+    });
+    if (!res.ok) throw new Error(`chat-global ${res.status}`);
+    return res.json();
+  },
 };
 
 export const DIMENSION_LABELS: Record<string, string> = {
@@ -50,11 +63,11 @@ export const DIMENSION_LABELS: Record<string, string> = {
 };
 
 export const RATING_TONE: Record<string, { bg: string; text: string; ring: string }> = {
-  Excellent:   { bg: "bg-emerald-500/10", text: "text-emerald-400", ring: "ring-emerald-500/30" },
-  Good:        { bg: "bg-lime-500/10",    text: "text-lime-400",    ring: "ring-lime-500/30"    },
-  Moderate:    { bg: "bg-amber-500/10",   text: "text-amber-400",   ring: "ring-amber-500/30"   },
-  Challenging: { bg: "bg-orange-500/10",  text: "text-orange-400",  ring: "ring-orange-500/30"  },
-  Poor:        { bg: "bg-rose-500/10",    text: "text-rose-400",    ring: "ring-rose-500/30"    },
+  Excellent:   { bg: "bg-emerald-50",  text: "text-emerald-700", ring: "ring-emerald-200" },
+  Good:        { bg: "bg-lime-50",     text: "text-lime-700",    ring: "ring-lime-200"    },
+  Moderate:    { bg: "bg-amber-50",    text: "text-amber-700",   ring: "ring-amber-200"   },
+  Challenging: { bg: "bg-orange-50",   text: "text-orange-700",  ring: "ring-orange-200"  },
+  Poor:        { bg: "bg-rose-50",     text: "text-rose-700",    ring: "ring-rose-200"    },
 };
 
 export const RATING_COLOR: Record<string, string> = {

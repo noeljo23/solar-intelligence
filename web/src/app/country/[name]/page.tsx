@@ -92,7 +92,7 @@ export default async function DashboardPage({ params }: { params: { name: string
                 <FeasibilityBar scores={scores} />
               </CardContent>
             </Card>
-            <Card className="lg:col-span-2 bg-gradient-to-br from-primary/5 via-card/40 to-secondary/5">
+            <Card className="lg:col-span-2">
               <CardHeader>
                 <CardTitle className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
                   Recommendation

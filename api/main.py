@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any
@@ -27,11 +28,13 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from config import DIMENSION_LABELS, DIMENSIONS, KB_DIR
+from config import DIMENSION_LABELS, DIMENSIONS, KB_DIR, GROQ_API_KEY, MODEL_SYNTHESIS
 from src.kb_loader import load_all_countries
-from src.rag_engine import RAGEngine
+from src.rag_engine import RAGEngine, SYSTEM_PROMPT
 from src.scoring import score_country
 from src.schema import CountryProfile, Document
+
+from groq import Groq
 
 
 app = FastAPI(title="PowerTrust Solar Intelligence API", version="1.0.0")
@@ -55,6 +58,9 @@ _engines: dict[str, RAGEngine] = {}
 def _startup() -> None:
     global _profiles
     _profiles = load_all_countries(Path(KB_DIR))
+    # Warm engines so the first /api/chat-global call doesn't pay 10x cold-start.
+    for name in _profiles:
+        _get_engine(name)
 
 
 def _get_profile(name: str) -> CountryProfile:
@@ -92,6 +98,17 @@ class ChatRequest(BaseModel):
 
 class ChatResponseOut(BaseModel):
     answer: str
+    sources: list[dict[str, Any]]
+
+
+class GlobalChatRequest(BaseModel):
+    message: str
+    history: list[dict[str, str]] = []
+
+
+class GlobalChatResponseOut(BaseModel):
+    answer: str
+    countries_used: list[str]
     sources: list[dict[str, Any]]
 
 
@@ -191,6 +208,156 @@ def chat(req: ChatRequest) -> ChatResponseOut:
     return ChatResponseOut(
         answer=response.answer,
         sources=[dict(s) for s in response.sources_used],
+    )
+
+
+# ---------- Global (cross-country) chat ----------
+
+# Nicknames and spelling variants not derivable from profile name/iso code.
+_NICKNAMES: dict[str, str] = {
+    "brasil": "Brazil",
+    "viet nam": "Vietnam",
+    "rsa": "South Africa",
+}
+
+_alias_cache: dict[str, str] = {}
+
+
+def _aliases() -> dict[str, str]:
+    """Lowercase alias -> canonical country name, derived from loaded profiles."""
+    if _alias_cache:
+        return _alias_cache
+    for name, p in _profiles.items():
+        _alias_cache[name.lower()] = name
+        if p.iso_code:
+            _alias_cache[p.iso_code.lower()] = name
+    for alias, name in _NICKNAMES.items():
+        if name in _profiles:
+            _alias_cache[alias] = name
+    return _alias_cache
+
+
+def _detect_countries(message: str) -> list[str]:
+    """Return country names mentioned in the message, preserving order."""
+    cleaned = "".join(c if c.isalnum() or c == "." else " " for c in message.lower())
+    text = f" {cleaned} "
+    aliases = _aliases()
+    hits: list[str] = []
+    seen: set[str] = set()
+    # Longest alias first so "south africa" wins over "africa".
+    for alias in sorted(aliases.keys(), key=len, reverse=True):
+        if f" {alias} " in text:
+            country = aliases[alias]
+            if country not in seen:
+                seen.add(country)
+                hits.append(country)
+    return hits
+
+
+def _countries_from_history(history: list[dict[str, str]]) -> list[str]:
+    """Countries mentioned in recent turns, most recent first. Follow-ups
+    like 'how do we solve this?' inherit scope from the prior turn."""
+    hits: list[str] = []
+    seen: set[str] = set()
+    for msg in reversed(history or []):
+        for c in _detect_countries(msg.get("content") or ""):
+            if c not in seen:
+                seen.add(c)
+                hits.append(c)
+    return hits
+
+
+def _retrieval_query(message: str, history: list[dict[str, str]]) -> str:
+    """Concatenate the last user turn with the current message so pronoun
+    follow-ups ('how do we solve this?') still retrieve topical docs."""
+    last_user = next(
+        (m["content"] for m in reversed(history or []) if m.get("role") == "user"),
+        "",
+    )
+    return f"{last_user}\n{message}" if last_user else message
+
+
+@app.post("/api/chat-global", response_model=GlobalChatResponseOut)
+def chat_global(req: GlobalChatRequest) -> GlobalChatResponseOut:
+    if not GROQ_API_KEY:
+        raise HTTPException(status_code=503, detail="GROQ_API_KEY not configured")
+
+    mentioned = _detect_countries(req.message)
+    inherited = not mentioned and bool(req.history)
+    if inherited:
+        mentioned = _countries_from_history(req.history)
+    targets = mentioned if mentioned else list(_profiles.keys())
+
+    # Retrieval budget per country — small for many, larger for few.
+    per_country = max(3, min(6, 18 // max(1, len(targets))))
+    query = _retrieval_query(req.message, req.history) if inherited else req.message
+
+    def _retrieve(country: str) -> tuple[str, list[Any]]:
+        return country, _get_engine(country).retrieve(query, k=per_country)
+
+    with ThreadPoolExecutor(max_workers=min(10, len(targets))) as pool:
+        retrieved = list(pool.map(_retrieve, targets))
+
+    blocks: list[str] = []
+    used_sources: list[dict[str, Any]] = []
+    i = 1
+    for country, hits in retrieved:
+        for r in hits:
+            blocks.append(
+                f"[{i}] (country: {country}, scope: {r.metadata.get('scope')}, "
+                f"dimension: {r.metadata.get('dimension')}, "
+                f"confidence: {r.metadata.get('confidence')}, "
+                f"verified: {r.metadata.get('last_verified')})\n"
+                f"{r.content}\n"
+                f"Sources: {r.metadata.get('sources')}"
+            )
+            used_sources.append({
+                "country": country,
+                "id": r.document_id,
+                "scope": r.metadata.get("scope"),
+                "dimension": r.metadata.get("dimension"),
+                "confidence": r.metadata.get("confidence"),
+                "verified": r.metadata.get("last_verified"),
+                "sources": r.metadata.get("sources"),
+            })
+            i += 1
+
+    if not blocks:
+        return GlobalChatResponseOut(
+            answer="No verified data found in the knowledge base for this query.",
+            countries_used=targets,
+            sources=[],
+        )
+
+    context = "\n\n".join(blocks)
+    scope_hint = (
+        f"Scope for this question: {', '.join(targets)}."
+        if mentioned else
+        "Scope: no country was named. Answer from the available data only and attribute every fact to its country."
+    )
+    system_msg = SYSTEM_PROMPT + "\n\nWhen facts span multiple countries, label every fact with its country and never mix jurisdictions."
+
+    messages: list[dict[str, str]] = [{"role": "system", "content": system_msg}]
+    if req.history:
+        messages.extend(req.history[-6:])
+    messages.append({
+        "role": "user",
+        "content": f"{scope_hint}\n\nFACTS:\n{context}\n\nQUESTION: {req.message}\n\nAnswer from the FACTS above only.",
+    })
+
+    client = Groq(api_key=GROQ_API_KEY)
+    completion = client.chat.completions.create(
+        model=MODEL_SYNTHESIS,
+        messages=messages,
+        temperature=0.1,
+        max_tokens=900,
+    )
+    answer = completion.choices[0].message.content or ""
+
+    return GlobalChatResponseOut(
+        answer=answer,
+        countries_used=targets,
+        sources=used_sources,
     )
 
 

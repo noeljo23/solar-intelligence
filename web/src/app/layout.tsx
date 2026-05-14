@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { TopNav } from "@/components/top-nav";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,17 +15,18 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "PowerTrust Solar Intelligence",
-  description: "Grounded, source-cited distributed-solar research for 10 emerging markets.",
+  title: "Solis — Solar market intelligence",
+  description: "Ask anything about distributed solar in 10 emerging markets. Every answer cites its source.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}>
-        {children}
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen`}>
+        <TopNav />
+        <main>{children}</main>
       </body>
     </html>
   );

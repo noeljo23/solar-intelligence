@@ -1,5 +1,7 @@
 import { Cpu, Database, ShieldCheck, Sparkles, Languages } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { RatingBadge } from "@/components/rating-badge";
+import type { Rating } from "@/lib/types";
 
 const DIMENSIONS = [
   { key: "cost_economics", label: "Cost & Economics", weight: "25%", desc: "CAPEX, O&M, LCOE, retail tariffs. Normalized across currencies using quarterly FX." },
@@ -10,21 +12,31 @@ const DIMENSIONS = [
   { key: "unknown_unknowns", label: "Unknown Unknowns", weight: "10%", desc: "Residual risk — permitting delays, political shifts, uncollected data." },
 ];
 
+const RATING_RANGES: Array<[Rating, string]> = [
+  ["Excellent", "80 – 100"],
+  ["Good", "65 – 79"],
+  ["Moderate", "50 – 64"],
+  ["Challenging", "35 – 49"],
+  ["Poor", "0 – 34"],
+];
+
+export const metadata = { title: "Methodology — Solis" };
+
 export default function MethodologyPage() {
   return (
-    <div className="space-y-10">
+    <div className="mx-auto max-w-4xl px-6 py-12 space-y-10">
       <header>
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Methodology</div>
-        <h1 className="text-4xl font-semibold tracking-tight mt-1">How we score markets</h1>
+        <h1 className="text-[28px] font-semibold tracking-tight mt-1">How we score markets</h1>
         <p className="mt-4 text-muted-foreground max-w-3xl leading-relaxed">
-          PowerTrust scores are grounded in verified policy and market documents. Every fact is traceable to a regulator,
-          grid operator, or peer-reviewed source — with translations disclosed where applicable.
+          Solis scores are grounded in verified policy and market documents. Every fact is traceable to a
+          regulator, grid operator, or peer-reviewed source — with translations disclosed where applicable.
         </p>
       </header>
 
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-base">
             <Sparkles className="h-4 w-4 text-primary" />
             Scoring dimensions
           </CardTitle>
@@ -40,7 +52,7 @@ export default function MethodologyPage() {
             </thead>
             <tbody>
               {DIMENSIONS.map((d) => (
-                <tr key={d.key} className="border-t border-border/40 align-top">
+                <tr key={d.key} className="border-t border-border align-top">
                   <td className="py-3 pr-4 font-medium whitespace-nowrap">{d.label}</td>
                   <td className="py-3 pr-4 tabular-nums text-primary">{d.weight}</td>
                   <td className="py-3 text-muted-foreground leading-relaxed">{d.desc}</td>
@@ -60,18 +72,18 @@ export default function MethodologyPage() {
         <InfoCard
           icon={Cpu}
           title="HPC validation"
-          body="High-Performance Corroboration (HPC) cross-checks facts against multiple independent sources. Rejected facts are tracked in the audit log."
+          body="High-Performance Corroboration cross-checks facts against multiple independent sources. Rejected facts are tracked in the audit log."
         />
         <InfoCard
           icon={ShieldCheck}
-          title="Zero hallucination"
+          title="Grounded answers"
           body="Chat answers are grounded strictly in retrieved documents. When data is missing, the system says so — it never invents numbers."
         />
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-base">
             <Languages className="h-4 w-4 text-primary" />
             Translation & provenance
           </CardTitle>
@@ -90,30 +102,17 @@ export default function MethodologyPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Ratings</CardTitle>
+          <CardTitle className="text-base">Ratings</CardTitle>
         </CardHeader>
         <CardContent>
-          <table className="w-full text-sm">
-            <tbody>
-              {[
-                ["Excellent", "80 – 100", "emerald"],
-                ["Good", "65 – 79", "lime"],
-                ["Moderate", "50 – 64", "amber"],
-                ["Challenging", "35 – 49", "orange"],
-                ["Poor", "0 – 34", "rose"],
-              ].map(([label, range, color]) => (
-                <tr key={label} className="border-b border-border/40 last:border-0">
-                  <td className="py-2.5 pr-4">
-                    <span className={`inline-flex items-center gap-2 text-sm text-${color}-400`}>
-                      <span className={`h-1.5 w-1.5 rounded-full bg-${color}-400`} />
-                      {label}
-                    </span>
-                  </td>
-                  <td className="py-2.5 tabular-nums text-muted-foreground">{range}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="divide-y divide-border">
+            {RATING_RANGES.map(([label, range]) => (
+              <div key={label} className="flex items-center justify-between py-2.5">
+                <RatingBadge rating={label} />
+                <span className="tabular-nums text-muted-foreground text-sm">{range}</span>
+              </div>
+            ))}
+          </div>
         </CardContent>
       </Card>
     </div>
@@ -130,7 +129,7 @@ function InfoCard({
   body: string;
 }) {
   return (
-    <div className="rounded-xl border border-border/60 bg-card/40 p-5">
+    <div className="rounded-xl border border-border bg-card p-5">
       <div className="flex items-center gap-2 text-primary">
         <Icon className="h-4 w-4" />
         <span className="text-sm font-medium">{title}</span>
