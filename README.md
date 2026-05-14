@@ -1,6 +1,5 @@
 # PowerTrust Solar Intelligence
 
-Grounded, source-cited distributed-solar research for 10 emerging markets. Built for the Northeastern IE 7374 GenAI Hackathon.
 
 ## What it does
 
