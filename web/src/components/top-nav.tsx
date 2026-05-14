@@ -9,8 +9,8 @@ const NAV = [
 export function TopNav() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex h-[56px] max-w-6xl items-center justify-between px-[24px]">
-        <Link href="/" className="flex items-center gap-[8px]">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+        <Link href="/" className="flex items-center gap-2">
           <svg
             viewBox="0 0 24 24"
             className="h-[22px] w-[22px] text-primary"
@@ -28,14 +28,14 @@ export function TopNav() {
               strokeLinecap="round"
             />
           </svg>
-          <span className="text-[14px] font-semibold tracking-tight">Solis</span>
+          <span className="text-sm font-semibold tracking-tight">Solis</span>
         </Link>
-        <nav className="flex items-center gap-[4px]">
+        <nav className="flex items-center gap-1">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-md px-[12px] py-[6px] text-[14px] text-muted-foreground transition hover:bg-muted hover:text-foreground"
+              className="rounded-md px-3 py-1.5 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground"
             >
               {item.label}
             </Link>

@@ -38,7 +38,7 @@ export function GlobalChat({ size = "hero" }: { size?: "hero" | "page" }) {
     setLoading(true);
     setError(null);
     try {
-      const history = next.slice(0, -1).map((m) => ({ role: m.role, content: m.content }));
+      const history = next.slice(-7, -1).map((m) => ({ role: m.role, content: m.content }));
       const resp: GlobalChatResponseOut = await api.chatGlobal(value, history);
       setMessages([
         ...next,

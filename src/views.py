@@ -14,7 +14,7 @@ import streamlit as st
 from config import DIMENSION_LABELS, DIMENSIONS
 from src.language import detect_language, language_name, needs_caveat
 from src.schema import CountryProfile, Document
-from src.scoring import FeasibilityScore, score_country
+from src.scoring import FeasibilityScore, rating_from_score, score_country
 from src.visualizations import (
     country_comparison,
     coverage_heatmap,
@@ -40,14 +40,6 @@ def _is_hpc_doc(doc: Document) -> bool:
     return "_HPC_" in doc.id or "hpc" in doc.id.lower()
 
 
-def _country_rating(score: float) -> str:
-    if score >= 80: return "Excellent"
-    if score >= 65: return "Good"
-    if score >= 50: return "Moderate"
-    if score >= 35: return "Challenging"
-    return "Poor"
-
-
 # ---------------- Dashboard ----------------
 
 def render_dashboard(
@@ -67,7 +59,7 @@ def render_dashboard(
 
     # Headline
     avg = round(sum(s.total_score for s in scores) / len(scores), 1)
-    rating = _country_rating(avg)
+    rating = rating_from_score(avg)
     best = max(scores, key=lambda s: s.total_score)
     total_docs = len(profile.national_documents) + sum(len(s.documents) for s in profile.states)
 

@@ -244,7 +244,7 @@ def _score_unknown_unknowns(state: StateProfile) -> DimensionScore:
     )
 
 
-def _rating(total: float) -> str:
+def rating_from_score(total: float) -> str:
     if total >= 80:
         return "Excellent"
     if total >= 65:
@@ -272,7 +272,7 @@ def score_state(state: StateProfile, country: str) -> FeasibilityScore:
         state=state.name,
         country=country,
         total_score=round(total, 1),
-        rating=_rating(total),
+        rating=rating_from_score(total),
         dimension_scores=dim_scores,
         data_completeness_pct=state.data_completeness_pct,
     )

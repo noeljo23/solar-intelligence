@@ -31,10 +31,19 @@ from pydantic import BaseModel
 from config import DIMENSION_LABELS, DIMENSIONS, KB_DIR, GROQ_API_KEY, MODEL_SYNTHESIS
 from src.kb_loader import load_all_countries
 from src.rag_engine import RAGEngine, SYSTEM_PROMPT
-from src.scoring import score_country
+from src.scoring import rating_from_score, score_country
 from src.schema import CountryProfile, Document
 
 from groq import Groq
+
+# Tuning knobs for the global-chat retrieval budget.
+_RETRIEVAL_BUDGET = 18
+_MIN_DOCS_PER_COUNTRY = 3
+_MAX_DOCS_PER_COUNTRY = 6
+_RETRIEVAL_POOL = ThreadPoolExecutor(max_workers=10)
+
+# One Groq client for the process — avoids per-request connection-pool churn.
+_groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
 
 app = FastAPI(title="PowerTrust Solar Intelligence API", version="1.0.0")
@@ -58,7 +67,7 @@ _engines: dict[str, RAGEngine] = {}
 def _startup() -> None:
     global _profiles
     _profiles = load_all_countries(Path(KB_DIR))
-    # Warm engines so the first /api/chat-global call doesn't pay 10x cold-start.
+    # Pre-warm RAG engines to keep first-request latency low.
     for name in _profiles:
         _get_engine(name)
 
@@ -78,14 +87,6 @@ def _get_engine(name: str) -> RAGEngine:
         engine.index_country(profile)
         _engines[name] = engine
     return engine
-
-
-def _country_rating(score: float) -> str:
-    if score >= 80: return "Excellent"
-    if score >= 65: return "Good"
-    if score >= 50: return "Moderate"
-    if score >= 35: return "Challenging"
-    return "Poor"
 
 
 # ---------- Schemas ----------
@@ -152,7 +153,7 @@ def countries() -> list[dict[str, Any]]:
             "iso_code": p.iso_code,
             "regulator": p.regulator,
             "avg_score": avg,
-            "rating": _country_rating(avg),
+            "rating": rating_from_score(avg),
             "states_scored": len(scores),
             "documents": len(p.national_documents) + sum(len(s.documents) for s in p.states),
             "completeness": round(
@@ -221,6 +222,7 @@ _NICKNAMES: dict[str, str] = {
 }
 
 _alias_cache: dict[str, str] = {}
+_aliases_by_length: list[tuple[str, str]] = []  # (alias, country), longest first
 
 
 def _aliases() -> dict[str, str]:
@@ -234,6 +236,10 @@ def _aliases() -> dict[str, str]:
     for alias, name in _NICKNAMES.items():
         if name in _profiles:
             _alias_cache[alias] = name
+    # Longest alias first so "south africa" wins over "africa".
+    _aliases_by_length.extend(
+        sorted(_alias_cache.items(), key=lambda kv: len(kv[0]), reverse=True)
+    )
     return _alias_cache
 
 
@@ -241,16 +247,14 @@ def _detect_countries(message: str) -> list[str]:
     """Return country names mentioned in the message, preserving order."""
     cleaned = "".join(c if c.isalnum() or c == "." else " " for c in message.lower())
     text = f" {cleaned} "
-    aliases = _aliases()
+    if not _aliases_by_length:
+        _aliases()
     hits: list[str] = []
     seen: set[str] = set()
-    # Longest alias first so "south africa" wins over "africa".
-    for alias in sorted(aliases.keys(), key=len, reverse=True):
-        if f" {alias} " in text:
-            country = aliases[alias]
-            if country not in seen:
-                seen.add(country)
-                hits.append(country)
+    for alias, country in _aliases_by_length:
+        if f" {alias} " in text and country not in seen:
+            seen.add(country)
+            hits.append(country)
     return hits
 
 
@@ -279,7 +283,7 @@ def _retrieval_query(message: str, history: list[dict[str, str]]) -> str:
 
 @app.post("/api/chat-global", response_model=GlobalChatResponseOut)
 def chat_global(req: GlobalChatRequest) -> GlobalChatResponseOut:
-    if not GROQ_API_KEY:
+    if _groq_client is None:
         raise HTTPException(status_code=503, detail="GROQ_API_KEY not configured")
 
     mentioned = _detect_countries(req.message)
@@ -288,15 +292,16 @@ def chat_global(req: GlobalChatRequest) -> GlobalChatResponseOut:
         mentioned = _countries_from_history(req.history)
     targets = mentioned if mentioned else list(_profiles.keys())
 
-    # Retrieval budget per country — small for many, larger for few.
-    per_country = max(3, min(6, 18 // max(1, len(targets))))
+    per_country = max(
+        _MIN_DOCS_PER_COUNTRY,
+        min(_MAX_DOCS_PER_COUNTRY, _RETRIEVAL_BUDGET // max(1, len(targets))),
+    )
     query = _retrieval_query(req.message, req.history) if inherited else req.message
 
     def _retrieve(country: str) -> tuple[str, list[Any]]:
         return country, _get_engine(country).retrieve(query, k=per_country)
 
-    with ThreadPoolExecutor(max_workers=min(10, len(targets))) as pool:
-        retrieved = list(pool.map(_retrieve, targets))
+    retrieved = list(_RETRIEVAL_POOL.map(_retrieve, targets))
 
     blocks: list[str] = []
     used_sources: list[dict[str, Any]] = []
@@ -345,8 +350,7 @@ def chat_global(req: GlobalChatRequest) -> GlobalChatResponseOut:
         "content": f"{scope_hint}\n\nFACTS:\n{context}\n\nQUESTION: {req.message}\n\nAnswer from the FACTS above only.",
     })
 
-    client = Groq(api_key=GROQ_API_KEY)
-    completion = client.chat.completions.create(
+    completion = _groq_client.chat.completions.create(
         model=MODEL_SYNTHESIS,
         messages=messages,
         temperature=0.1,
